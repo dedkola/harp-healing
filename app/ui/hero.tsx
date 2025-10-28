@@ -53,7 +53,7 @@ export default function Hero115() {
                             <a
                                 key={item.name}
                                 href={item.href}
-                                className="text-sm font-semibold text-foreground"
+                                className="text-lg font-semibold text-foreground"
                             >
                                 {item.name}
                             </a>
@@ -128,7 +128,7 @@ export default function Hero115() {
                         src="/hero_sm.jpg"
                         width={720}
                         height={495}
-                        className="hidden md:block"
+                        className=" md:block"
                         alt="Screenshots of the dashboard project showing desktop version"
                     />
 
