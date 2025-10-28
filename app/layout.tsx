@@ -5,6 +5,7 @@ import { inter } from '@/app/ui/fonts';
 
 
 
+
 export const metadata: Metadata = {
   title: "Harp Healing",
   description: "Harp Healing Welness",
@@ -16,8 +17,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-    <body className={`${inter.className} antialiased`}>{children}</body>
+    <html lang="en"  >
+    <body suppressHydrationWarning className={`${inter.className} antialiased`}>{children}</body>
 
     </html>
   );

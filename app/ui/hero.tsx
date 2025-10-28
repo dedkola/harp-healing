@@ -16,18 +16,19 @@ export default function Hero115() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-[#f4e6cc] via-[#f9f1de] to-[#f4e6cc]">
+        <div className="min-h-screen bg-gradient-to-b from-[#f4e6cc] via-[#f9f1de] to-[#f4e6cc] ">
 
 
 
-        <header className="absolute inset-x-0 top-0 z-50">
+
+        <header className="absolute inset-x-0 top-0 z-50 mx-auto w-full max-w-[1300px]">
                 <nav
                     aria-label="Global"
                     className="flex items-center justify-between p-6 lg:px-8"
                 >
                     <div className="flex lg:flex-1">
                         <a href="#" className="-m-1.5 p-1.5">
-                            <span className="sr-only">Your Company</span>
+                            <span className="sr-only">Harp Healing</span>
                             <Image
                                 width={1000}
                                 height={760}
@@ -65,7 +66,7 @@ export default function Hero115() {
 
                 <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
                     <div className="fixed inset-0 z-50" />
-                    <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-[#e3c193] p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+                    <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-[#f4e6cc] p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                         <div className="flex items-center justify-between">
                             <a href="#" className="-m-1.5 p-1.5">
                                 <span className="sr-only">Your Company</span>
@@ -80,7 +81,7 @@ export default function Hero115() {
                             <button
                                 type="button"
                                 onClick={() => setMobileMenuOpen(false)}
-                                className="-m-2.5 rounded-md p-2.5 text-foreground"
+                                className="-m-2.5 rounded-md p-2.5 text-foreground "
                             >
                                 <span className="sr-only">Close menu</span>
                                 <XMarkIcon aria-hidden="true" className="size-6" />
@@ -114,7 +115,7 @@ export default function Hero115() {
             </header>
 
             <div className="relative isolate px-6 pt-14 lg:px-8">
-                <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56 text-center">
+                <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-26 text-center">
                     <h1 className="text-5xl md:text-6xl tracking-wide mb-2">
                         CRYSTAL HARP
                     </h1>

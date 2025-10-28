@@ -122,3 +122,69 @@
     @apply bg-background text-foreground;
   }
 }
+
+/**::before,*/
+/**::after {*/
+/*    box-sizing: border-box;*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*}*/
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    /*background-color: #fff;*/
+    /*color: #111;*/
+}
+
+/*!* 2. Images, videos, SVGs responsive *!*/
+/*img, picture, video, canvas, svg {*/
+/*    display: block;*/
+/*    max-width: 100%;*/
+/*    height: auto;*/
+/*}*/
+
+/* 3. Links */
+/*a {*/
+/*    color: inherit;*/
+/*    text-decoration: none;*/
+/*}*/
+
+/* 4. Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+/* 5. Paragraphs */
+p {
+    margin-bottom: 1rem;
+}
+
+/* 6. Container for main content */
+.container {
+    width: 100%;
+    max-width: 1280px; /* limit to modern desktop width */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* 7. Basic responsive typography */
+html {
+    font-size: 16px;
+}
+@media (max-width: 1024px) {
+    html {
+        font-size: 15px;
+    }
+}
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+}
