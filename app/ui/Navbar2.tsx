@@ -32,7 +32,7 @@ interface Navbar1Props {
   };
 }
 
-const Navbar1 = ({
+const Navbar2 = ({
   logo = {
     url: "/",
     src: "/logo_beige.png",
@@ -137,17 +137,17 @@ const Navbar1 = ({
               <li key={item.title} className=" relative group">
                 {item.items ? (
                   <>
-                    <button className="bg-[#e3c193] hover:bg-muted hover:text-accent-foreground inline-flex h-10 items-center gap-1 rounded-md px-4 text-sm font-medium transition-colors ">
+                    <button className="bg-[#e3c193] hover:bg-muted hover:text-accent-foreground inline-flex h-10 items-center gap-1 rounded-md px-4 text-sm font-medium transition-colors text-amber-600 ">
                       {item.title}
-                      <ChevronDown className="size-4" />
+                      <ChevronDown className="size-4 "  />
                     </button>
-                    <div className="invisible absolute left-0 top-full z-50 mt-2 w-80 translate-y-2 rounded-md border bg-popover p-1 text-popover-foreground opacity-0 shadow-lg transition-all group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
-                      <div className="flex flex-col">
+                    <div className="bg-[#F5E6CB] invisible absolute left-0 top-full z-50 mt-2 w-80 translate-y-2 rounded-md  p-1 text-popover-foreground opacity-0 shadow-lg transition-all group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                      <div className=" flex flex-col ">
                         {item.items.map((sub) => (
                           <a
                             key={sub.title}
                             href={sub.url}
-                            className="hover:bg-muted hover:text-accent-foreground flex select-none gap-3 rounded-md p-3 text-left no-underline outline-none transition-colors"
+                            className="hover:bg-muted hover:text-accent-foreground flex select-none gap-3 rounded-md p-3 text-left no-underline outline-none transition-colors text-amber-600"
                           >
                             <div className="text-foreground ">{sub.icon}</div>
                             <div>
@@ -166,7 +166,7 @@ const Navbar1 = ({
                 ) : (
                   <a
                     href={item.url}
-                    className="bg-[#e3c193] hover:bg-muted hover:text-accent-foreground inline-flex h-10 items-center rounded-md px-4 text-sm font-medium transition-colors"
+                    className="bg-[#e3c193] hover:bg-muted hover:text-accent-foreground inline-flex h-10 items-center rounded-md px-4 text-sm font-medium transition-colors text-amber-600"
                   >
                     {item.title}
                   </a>
@@ -202,7 +202,7 @@ const Navbar1 = ({
           {mobileOpen && (
             <>
               <div
-                className="fixed inset-0 z-40 bg-black/40"
+                className="  fixed inset-0 z-40 bg-black/40"
                 onClick={() => setMobileOpen(false)}
                 aria-hidden="true"
               />
@@ -224,7 +224,7 @@ const Navbar1 = ({
                       <div key={item.title} className="flex flex-col gap-2 ">
                         {item.items ? (
                           <>
-                            <div className="text-md font-semibold">{item.title}</div>
+                            <div className="text-md font-semibold ">{item.title}</div>
                             <div className="flex flex-col gap-1">
                               {item.items.map((sub) => (
                                 <a
@@ -267,4 +267,4 @@ const Navbar1 = ({
   );
 };
 
-export { Navbar1 };
+export { Navbar2 };
