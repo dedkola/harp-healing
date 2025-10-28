@@ -8,7 +8,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 const navigation = [
     { name: 'Product', href: '#' },
     { name: 'Features', href: '#' },
-    { name: 'Marketplace', href: '#' },
+    { name: 'About', href: '/about' },
     { name: 'Company', href: '#' },
 ]
 
@@ -59,9 +59,7 @@ export default function Hero115() {
                         ))}
                     </div>
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                        <a href="#" className="text-sm font-semibold text-foreground">
-                            Log in <span aria-hidden="true">&rarr;</span>
-                        </a>
+
                     </div>
                 </nav>
 
@@ -125,13 +123,13 @@ export default function Hero115() {
                     </h2>
 
 
-                    {/*<Image*/}
-                    {/*    src="/hero_sm.jpg"*/}
-                    {/*    width={1000}*/}
-                    {/*    height={760}*/}
-                    {/*    className="hidden md:block"*/}
-                    {/*    alt="Screenshots of the dashboard project showing desktop version"*/}
-                    {/*/>*/}
+                    <Image
+                        src="/hero_sm.jpg"
+                        width={720}
+                        height={495}
+                        className="hidden md:block"
+                        alt="Screenshots of the dashboard project showing desktop version"
+                    />
 
                     <div className="mt-10 flex items-center justify-center gap-x-6">
                         <a

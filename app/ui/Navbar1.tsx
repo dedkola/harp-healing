@@ -123,7 +123,8 @@ const Navbar1 = ({
           {/* Left: Logo */}
           <div className="flex items-center gap-2">
             <a href={logo.url} className="flex items-center gap-2">
-              <Image src={logo.src} className="max-h-8 dark:invert" alt={logo.alt} />
+              <Image src={logo.src} width={140}
+                     height={96} className=" dark:invert" alt={logo.alt} />
               <span className="text-lg font-semibold tracking-tighter">
                 {logo.title}
               </span>
@@ -183,7 +184,8 @@ const Navbar1 = ({
           <div className="flex items-center justify-between">
             {/* Logo */}
             <a href={logo.url} className="flex items-center gap-2">
-              <Image src={logo.src} className="max-h-8 dark:invert" alt={logo.alt} />
+              <Image src={logo.src} width={140}
+                     height={96} className=" dark:invert" alt={logo.alt} />
             </a>
 
             <Button
@@ -207,7 +209,8 @@ const Navbar1 = ({
               <div className="fixed inset-y-0 right-0 z-50 w-80 max-w-[85vw] translate-x-0 bg-background shadow-xl outline-none transition-transform">
                 <div className="flex items-center justify-between border-b p-4">
                   <a href={logo.url} className="flex items-center gap-2">
-                    <Image src={logo.src} className="max-h-8 dark:invert" alt={logo.alt} />
+                    <Image src={logo.src} width={140}
+                           height={96} className="max-h-8 dark:invert" alt={logo.alt} />
                   </a>
                   <Button variant="ghost" size="icon" onClick={() => setMobileOpen(false)} aria-label="Close menu">
                     ✕
