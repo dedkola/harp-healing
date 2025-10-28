@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useState } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+// import { playfair } from '@/app/ui/fonts'
 
 const navigation = [
     { name: 'Product', href: '#' },
@@ -15,7 +16,7 @@ export default function Hero115() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-[#e3c193] via-[#ecd8ae] to-[#e3c193]">
+        <div className="min-h-screen bg-gradient-to-b from-[#f4e6cc] via-[#f9f1de] to-[#f4e6cc]">
 
 
 
@@ -28,8 +29,10 @@ export default function Hero115() {
                         <a href="#" className="-m-1.5 p-1.5">
                             <span className="sr-only">Your Company</span>
                             <Image
+                                width={1000}
+                                height={760}
                                 alt=""
-                                src="/logo.png"
+                                src="/logo_beige.png"
                                 className="h-24 w-auto"
                             />
                         </a>
@@ -70,7 +73,9 @@ export default function Hero115() {
                                 <span className="sr-only">Your Company</span>
                                 <Image
                                     alt=""
-                                    src="/logo.png"
+                                    width={1000}
+                                    height={760}
+                                    src="/logo_beige.png"
                                     className="h-8 w-auto"
                                 />
                             </a>
@@ -112,21 +117,21 @@ export default function Hero115() {
 
             <div className="relative isolate px-6 pt-14 lg:px-8">
                 <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56 text-center">
-                    <h1 className="text-5xl md:text-6xl font-serif tracking-wide mb-2">
+                    <h1 className="text-5xl md:text-6xl tracking-wide mb-2">
                         CRYSTAL HARP
                     </h1>
-                    <h2 className="text-4xl md:text-5xl font-serif tracking-wide">
+                    <h2 className="text-4xl md:text-5xl tracking-wide">
                         HEALING
                     </h2>
 
 
-                    <Image
-                        src="/hero_sm.jpg"
-                        width={1000}
-                        height={760}
-                        className="hidden md:block"
-                        alt="Screenshots of the dashboard project showing desktop version"
-                    />
+                    {/*<Image*/}
+                    {/*    src="/hero_sm.jpg"*/}
+                    {/*    width={1000}*/}
+                    {/*    height={760}*/}
+                    {/*    className="hidden md:block"*/}
+                    {/*    alt="Screenshots of the dashboard project showing desktop version"*/}
+                    {/*/>*/}
 
                     <div className="mt-10 flex items-center justify-center gap-x-6">
                         <a
