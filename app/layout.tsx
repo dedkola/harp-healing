@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { openSans, lato, ebGaramond, raleway } from '@/app/ui/fonts';
 import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 
 export const metadata: Metadata = {
@@ -16,8 +17,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${openSans.variable} ${lato.variable} ${ebGaramond.variable} ${raleway.variable}`}>
-      <body suppressHydrationWarning className={`antialiased`}>{children}         <Analytics />
-      </body>
+      <body suppressHydrationWarning className={`antialiased`}>{children}         <Analytics />         <SpeedInsights />
+  </body>
     </html>
   );
 }
