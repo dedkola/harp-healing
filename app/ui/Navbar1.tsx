@@ -180,12 +180,12 @@ const Navbar1 = ({
         </nav>
 
         {/* Mobile Menu */}
-        <div className="block lg:hidden">
-          <div className="flex items-center justify-between">
+        <div className="block lg:hidden ">
+          <div className="flex items-center justify-between ">
             {/* Logo */}
-            <a href={logo.url} className="flex items-center gap-2">
+            <a href={logo.url} className="flex items-center gap-2 ">
               <Image src={logo.src} width={140}
-                     height={96} className=" dark:invert" alt={logo.alt} />
+                     height={96} className="  dark:invert" alt={logo.alt} />
             </a>
 
             <Button
@@ -193,8 +193,9 @@ const Navbar1 = ({
               size="icon"
               onClick={() => setMobileOpen(true)}
               aria-label="Open menu"
+              className="bg-[#e3c193]"
             >
-              <Menu className="size-4" />
+              <Menu className="size-4 bg-[#e3c193]" />
             </Button>
           </div>
 
@@ -202,22 +203,22 @@ const Navbar1 = ({
           {mobileOpen && (
             <>
               <div
-                className="fixed inset-0 z-40 bg-black/40"
+                className="fixed inset-0 z-40 bg-black/40 "
                 onClick={() => setMobileOpen(false)}
                 aria-hidden="true"
               />
-              <div className="fixed inset-y-0 right-0 z-50 w-80 max-w-[85vw] translate-x-0 bg-background shadow-xl outline-none transition-transform">
-                <div className="flex items-center justify-between border-b p-4">
+              <div className=" fixed inset-y-0 right-0 z-50 w-80 max-w-[85vw] translate-x-0 bg-background shadow-xl outline-none transition-transform">
+                <div className="flex items-center justify-between border-b p-4 ">
                   <a href={logo.url} className="flex items-center gap-2">
-                    <Image src={logo.src} width={140}
-                           height={96} className="max-h-8 dark:invert" alt={logo.alt} />
+                    <Image src={logo.src} width={40}
+                           height={40} className="max-h-8 dark:invert" alt={logo.alt} />
                   </a>
-                  <Button variant="ghost" size="icon" onClick={() => setMobileOpen(false)} aria-label="Close menu">
+                  <Button variant="ghost" size="icon" onClick={() => setMobileOpen(false)} aria-label="Close menu bg-[#e3c193]">
                     ✕
                   </Button>
                 </div>
 
-                <div className="flex flex-col gap-6 p-4 overflow-y-auto ">
+                <div className="flex flex-col gap-6 p-4 overflow-y-auto  ">
                   {/* Mobile nav list (expand groups) */}
                   <div className="flex w-full flex-col gap-4">
                     {menu.map((item) => (
