@@ -2,7 +2,7 @@ import {Navbar1} from '@/app/ui/Navbar1'
 export default function About2() {
   return (
 
-    <section className="relative isolate">
+    <section className="relative isolate bg-[#F2EAE0]">
       {/* Background image */}
         <Navbar1 />
       <div
