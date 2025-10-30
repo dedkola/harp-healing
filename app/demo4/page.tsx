@@ -8,11 +8,9 @@ export default function Page() {
                 {/* Thin lines overlay (non-interactive) */}
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute inset-0 -z-10 opacity-25"
-                    style={{
-                        backgroundImage:
-                            "repeating-linear-gradient(0deg, rgba(255,255,255,0.18) 0, rgba(255,255,255,0.18) 1px, rgba(0,0,0,0) 1px, rgba(0,0,0,0) 22px), repeating-linear-gradient(90deg, rgba(255,255,255,0.10) 0, rgba(255,255,255,0.10) 1px, rgba(0,0,0,0) 1px, rgba(0,0,0,0) 22px)"
-                    }}
+
+                    className="absolute inset-0 -z-10 bg-center bg-no-repeat bg-cover"
+                    style={{ backgroundImage: "url('/enhanced_to_krea2.png')" }}
                 />
 
                 <div className="mx-auto w-full max-w-[1300px]">
