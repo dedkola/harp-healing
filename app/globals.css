@@ -42,11 +42,11 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  /* Tailwind v4 font tokens mapping to next/font CSS variables */
-  /*--font-sans: var(--font-open-sans), system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;*/
-  /*--font-lato: var(--font-lato), sans-serif;*/
-  /*--font-quote: var(--font-eb-garamond), serif;*/
-  /*--font-button: var(--font-raleway), sans-serif;*/
+   /*Tailwind v4 font tokens mapping to next/font CSS variables*/
+  --font-sans: var(--font-open-sans), system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-lato: var(--font-lato), sans-serif;
+  --font-quote: var(--font-eb-garamond), serif;
+  --font-button: var(--font-raleway), sans-serif;
 }
 
 :root {
