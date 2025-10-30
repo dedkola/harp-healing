@@ -1,10 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-// import { playfair } from '@/app/ui/fonts';
-import { inter } from '@/app/ui/fonts';
-
-
-
+import { openSans, lato, ebGaramond, raleway } from '@/app/ui/fonts';
 
 export const metadata: Metadata = {
   title: "Harp Healing",
@@ -17,9 +13,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en"  >
-    <body suppressHydrationWarning className={`${inter.className} antialiased`}>{children}</body>
-
+    <html lang="en" className={`${openSans.variable} ${lato.variable} ${ebGaramond.variable} ${raleway.variable}`}>
+      <body suppressHydrationWarning className={`antialiased`}>{children}</body>
     </html>
   );
 }

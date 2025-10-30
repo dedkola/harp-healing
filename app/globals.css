@@ -42,6 +42,11 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  /* Tailwind v4 font tokens mapping to next/font CSS variables */
+  /*--font-sans: var(--font-open-sans), system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;*/
+  /*--font-lato: var(--font-lato), sans-serif;*/
+  /*--font-quote: var(--font-eb-garamond), serif;*/
+  /*--font-button: var(--font-raleway), sans-serif;*/
 }
 
 :root {
@@ -119,7 +124,7 @@
   }
   body {
       background-color: #e3c193;
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
   }
 }
 
@@ -133,7 +138,7 @@
 html, body {
     width: 100%;
     height: 100%;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: var(--font-open-sans), system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     /*background-color: #fff;*/
@@ -157,6 +162,22 @@ html, body {
 h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
     line-height: 1.2;
+}
+/* Title vs Heading fonts */
+h1 {
+    /* Titles: Lato */
+    @apply font-lato;
+}
+/* Other headings default to Open Sans via body font-sans */
+
+/* Quotes */
+blockquote, q, .quote {
+    @apply font-quote italic;
+}
+
+/* Buttons */
+button, .btn, .button, [role="button"], input[type="button"], input[type="submit"], input[type="reset"], .cta {
+    @apply font-button;
 }
 
 /* 5. Paragraphs */
