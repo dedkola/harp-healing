@@ -8,7 +8,7 @@ export default function Hero_new3() {
             <div className="max-w-6xl w-full bg-[#E1D4C7] rounded-2xl shadow-md overflow-hidden">
             {/* Image Background Section */}
                 <div
-                    className="relative h-[500px] md:h-[700px] lg:h-[900px] flex flex-col justify-start bg-cover bg-center"
+                    className="relative h-[400px] md:h-[700px] lg:h-[900px] flex flex-col justify-start bg-cover bg-center"
                     style={{
                         backgroundImage: "url('/hero_desktop_19202.jpg')", // replace with your own image path
                     }}
