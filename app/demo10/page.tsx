@@ -2,11 +2,11 @@ import {Navbar1} from '@/app/ui/Navbar1'
 export default function Page() {
   return (
 
-    <section className="relative isolate">
+    <section className="relative isolate min-h-screen">
       {/* Background image */}
         <Navbar1 />
       <div
-        className="absolute inset-0 -z-10 bg-center bg-no-repeat bg-cover"
+        className="fixed inset-0 -z-10 bg-center bg-no-repeat bg-cover h-screen w-screen"
         style={{ backgroundImage: "url('/enhanced_to_krea2.png')" }}
       />
 
@@ -16,7 +16,7 @@ export default function Page() {
       <div className="mx-auto max-w-2xl px-6 py-32 sm:py-40 lg:py-48 text-center">
         <h1 className="text-5xl md:text-6xl tracking-wide mb-2 !font-thin">CRYSTAL HARP</h1>
         <h2 className="text-4xl md:text-5xl tracking-wide !font-thin">HEALING</h2> <br></br>
-          <p className="text-sm font-semibold text-foreground">Heading Vibrational therapy for emotional balance, deep rest, and inner alignment.</p>
+          <p className="  text-m md:text-3xl tracking-wide !font-thin" >Heading Vibrational therapy for emotional balance, deep rest, and inner alignment.</p>
         <div className="mt-10 flex items-center justify-center gap-x-6">
           <a
             href="#"
@@ -27,7 +27,7 @@ export default function Page() {
 
         </div>
           <br></br>
-          <a href="#" className="  text-4m md:text-5xl tracking-wide !font-thin">
+          <a href="#" className="text-sm font-semibold text-foreground">
               In-person in Los Angeles & Online Worldwide
 
           </a>
