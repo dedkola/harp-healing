@@ -2,7 +2,7 @@
 
 
 
-export default function Hero_new3() {
+export default function Hero_newa() {
     return (
         <section className=" flex justify-center items-center  ">
             <div className="max-w-6xl w-full bg-[#E1D4C7] rounded-2xl shadow-md overflow-hidden">
@@ -13,11 +13,12 @@ export default function Hero_new3() {
                         backgroundImage: "url('/hero_desktop_19202.jpg')", // replace with your own image path
                     }}
                 >
-                    <h1 className="relative text-[clamp(1.8rem,4vw,3.5rem)] text-amber-800 text-center mt-10 md:mt-16 drop-shadow-sm !font-thin">
+                    <h1 className="relative text-[clamp(1.8rem,4vw,3.5rem)] text-center mt-10 md:mt-16 drop-shadow-sm !font-light "
+                    >
                         CRYSTAL HARP<br />HEALING
                     </h1>
 
-                    <p className=" mt-[2px] md:mt-1 text-m md:text-3xl tracking-wide text-center !font-thin" >Heading Vibrational therapy for emotional balance, deep rest, and inner alignment.</p>
+                    <p className=" mt-[2px] md:mt-1 text-m md:text-3xl tracking-wide text-center !font-normal" >Heading Vibrational therapy for emotional balance, deep rest, and inner alignment.</p>
 
                 </div>
 
