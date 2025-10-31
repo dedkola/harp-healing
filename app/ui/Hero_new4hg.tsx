@@ -5,7 +5,7 @@ export default function HeroSimple() {
     <section className="w-full text-center  py-10">
       {/* Title */}
       <h1 className="text-[2.2rem] sm:text-5xl md:text-7xl lg:text-8xl text-amber-800  mb-10 drop-shadow-sm !font-thin">
-        PSYCHO-SOUND HEALING
+          Crystal Harp Healing
       </h1>
 
         <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10"></div>
@@ -29,11 +29,12 @@ export default function HeroSimple() {
         <button className="bg-[#E1D4C7] text-[#211101] px-6 py-3 rounded-md border border-[#c19a6b] hover:bg-[#e9d8ca] transition">
           Experience the Sound
         </button>
-          <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10"></div>
 
          <p className=" text-lg md:text-xl mb-6 text-amber-800 font-thin">
         In-person in Los Angeles & Online Worldwide
         </p>
+          <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10"></div>
+
       </div>
     </section>
   )
