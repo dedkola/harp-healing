@@ -1,10 +1,12 @@
 import { ImageResponse } from 'next/og'
-import { join } from 'node:path'
-import { readFile } from 'node:fs/promises'
+import fs from 'fs/promises'
+import path from 'path'
 
 export default async function Image() {
-    const logoData = await readFile(join(process.cwd(), '/logo.png'), 'base64')
-    const logoSrc = `data:image/png;base64,${logoData}`
+    // Read from public directory correctly
+    const logoPath = path.join(process.cwd(), 'public', 'logo.png')
+    const logoData = await fs.readFile(logoPath)
+    const logoSrc = `data:image/png;base64,${logoData.toString('base64')}`
 
     return new ImageResponse(
         (
