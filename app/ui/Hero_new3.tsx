@@ -13,19 +13,25 @@ export default function Hero_new3() {
                         backgroundImage: "url('/hero_desktop_19202.jpg')", // replace with your own image path
                     }}
                 >
-                    <h1 className="relative text-5xl text-amber-800 text-center mt-10 md:mt-16 drop-shadow-sm !font-thin">
-                        PSYCHO-SOUND<br />HEALING
+                    <h1 className="relative text-[clamp(1.8rem,4vw,3.5rem)] text-amber-800 text-center mt-10 md:mt-16 drop-shadow-sm !font-thin">
+                        CRYSTAL HARP<br />HEALING
                     </h1>
+
+                    <p className=" mt-[2px] md:mt-1 text-m md:text-3xl tracking-wide text-center !font-thin" >Heading Vibrational therapy for emotional balance, deep rest, and inner alignment.</p>
+
                 </div>
 
                 {/* Lower Section */}
                 <div className="bg-[#F1E6DC] text-center px-6 py-10">
-                    <p className="text-[#211101] text-lg md:text-xl mb-6">
-                        Healing through Sound, Psychology, and Presence
-                    </p>
+
                     <button className="bg-[#E1D4C7] text-[#211101] px-6 py-3 rounded-md shadow hover:bg-[#e9d8ca] transition">
-                        Book a Session
+                        Experience the Sound
                     </button>
+<br></br>
+                    <br></br>
+                    <p className="text-[#211101] text-lg md:text-xl mb-6">
+                        In-person in Los Angeles & Online Worldwide
+                    </p>
                 </div>
             </div>
         </section>
