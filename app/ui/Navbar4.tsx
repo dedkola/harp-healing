@@ -89,7 +89,7 @@ const Navbar4 = ({
               <li key={item.title} className=" relative group ">
                 {item.items ? (
                   <>
-                    <button className="bg-[#F2EAE0] hover:bg-muted hover:text-accent-foreground inline-flex h-10 items-center gap-1 rounded-md px-4 text-sm font-medium transition-colors text-amber-600 ">
+                    <button className="bg-[#F2EAE0] hover:bg-muted hover:text-accent-foreground inline-flex h-10 items-center gap-1 rounded-md px-4 text-sm font-medium transition-colors  "  style={{ color: '#c19a6b' }}>
                       {item.title}
                       <ChevronDown className="size-4 "  />
                     </button>
@@ -99,7 +99,8 @@ const Navbar4 = ({
                           <a
                             key={sub.title}
                             href={sub.url}
-                            className="hover:bg-muted hover:text-accent-foreground flex select-none gap-3 rounded-md p-3 text-left no-underline outline-none transition-colors text-amber-600"
+                            className="hover:bg-muted hover:text-accent-foreground flex select-none gap-3 rounded-md p-3 text-left no-underline outline-none transition-colors "
+                            style={{ color: '#c19a6b' }}
                           >
                             <div className="text-foreground ">{sub.icon}</div>
                             <div>
@@ -118,7 +119,8 @@ const Navbar4 = ({
                 ) : (
                   <a
                     href={item.url}
-                    className="bg-[#F2EAE0] hover:bg-muted hover:text-accent-foreground inline-flex h-10 items-center rounded-md px-4 text-sm font-medium transition-colors text-amber-600"
+                    className="bg-[#F2EAE0] hover:bg-muted hover:text-accent-foreground inline-flex h-10 items-center rounded-md px-4 text-sm font-medium transition-colors "
+                    style={{ color: '#c19a6b' }}
                   >
                     {item.title}
                   </a>
