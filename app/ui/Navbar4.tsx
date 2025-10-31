@@ -119,7 +119,7 @@ const Navbar4 = ({
                 ) : (
                   <a
                     href={item.url}
-                    className="bg-[#F2EAE0] hover:bg-muted hover:text-accent-foreground inline-flex h-10 items-center rounded-md px-4 text-sm font-medium transition-colors "
+                    className="bg-[#F2EAE0] text-xl hover:bg-muted hover:text-accent-foreground inline-flex h-10 items-center rounded-md px-4  font-medium transition-colors "
                     style={{ color: '#c19a6b' }}
                   >
                     {item.title}
