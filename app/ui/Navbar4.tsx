@@ -37,7 +37,7 @@ const Navbar4 = ({
     url: "#",
     src: "/logo_no_bg.png",
     alt: "logo",
-    title: "Crystal Harp Healing",
+    // title: "Crystal Harp Healing!",
   },
   menu = [
     { title: "Home", url: "#" },
@@ -119,7 +119,7 @@ const Navbar4 = ({
                 ) : (
                   <a
                     href={item.url}
-                    className="bg-[#F2EAE0] text-xl hover:bg-muted hover:text-accent-foreground inline-flex h-10 items-center rounded-md px-4  font-medium transition-colors "
+                    className=" text-xl hover:bg-muted hover:text-accent-foreground inline-flex h-10 items-center rounded-md px-4  font-medium transition-colors "
                     style={{ color: '#c19a6b' }}
                   >
                     {item.title}
@@ -147,7 +147,6 @@ const Navbar4 = ({
               size="icon"
               onClick={() => setMobileOpen(true)}
               aria-label="Open menu"
-              className="bg-[#E1D4C7]"
             >
               <Menu className="size-4" />
             </Button>
@@ -161,7 +160,7 @@ const Navbar4 = ({
                 onClick={() => setMobileOpen(false)}
                 aria-hidden="true"
               />
-              <div className="fixed bg-[#F2EAE0] inset-y-0 right-0 z-50 w-80 max-w-[85vw] translate-x-0  shadow-xl outline-none transition-transform">
+              <div className="fixed bg-white inset-y-0 right-0 z-50 w-80 max-w-[85vw] translate-x-0  shadow-xl outline-none transition-transform">
                 <div className="flex items-center justify-between border-b p-4">
                   <a href={logo.url} className="flex items-center gap-2">
                     <Image src={logo.src} width={40}
@@ -172,7 +171,7 @@ const Navbar4 = ({
                   </Button>
                 </div>
 
-                <div className="flex flex-col gap-6 p-4 overflow-y-auto bg-[#F2EAE0] ">
+                <div className="flex flex-col gap-6 p-4 overflow-y-auto  ">
                   {/* Mobile nav list (expand groups) */}
                   <div className="flex w-full flex-col gap-4 ">
                     {menu.map((item) => (
