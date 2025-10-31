@@ -4,7 +4,7 @@ import path from 'path'
 
 export default async function Image() {
     // Read from public directory correctly
-    const logoPath = path.join(process.cwd(), 'public', 'logo.png')
+    const logoPath = path.join(process.cwd(), 'public', 'enhanced_to_krea2.png')
     const logoData = await fs.readFile(logoPath)
     const logoSrc = `data:image/png;base64,${logoData.toString('base64')}`
 
