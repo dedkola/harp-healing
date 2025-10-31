@@ -37,7 +37,7 @@ const Navbar4 = ({
     url: "#",
     src: "/logo_no_bg.png",
     alt: "logo",
-    // title: "Crystal Harp Healing!",
+    title: "",
   },
   menu = [
     { title: "Home", url: "#" },
