@@ -6,8 +6,8 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 
 
 export const metadata: Metadata = {
-  title: "Harp Healing",
-  description: "Harp Healing Welness",
+  title: "CRYSTAL HARP HEALING",
+  description: "Heading Vibrational therapy for emotional balance, deep rest, and inner alignment.",
     icons: {
         icon: [
             { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
