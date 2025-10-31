@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from "react";
-import { Book, Menu, Sunset, Trees, Zap, ChevronDown } from "lucide-react";
+import {  Menu,  ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
@@ -34,80 +34,32 @@ interface Navbar1Props {
 
 const Navbar4 = ({
   logo = {
-    url: "/",
+    url: "#",
     src: "/logo_no_bg.png",
     alt: "logo",
     title: "Crystal Harp Healing",
   },
   menu = [
-    { title: "Home", url: "/" },
-    {
-      title: "Products",
+    { title: "Home", url: "#" },
+     {
+      title: "Services",
       url: "#",
-      items: [
-        {
-          title: "Blog",
-          description: "The latest industry news, updates, and info",
-          icon: <Book className="size-5 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Company",
-          description: "Our mission is to innovate and empower the world",
-          icon: <Trees className="size-5 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Careers",
-          description: "Browse job listing and discover our workspace",
-          icon: <Sunset className="size-5 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Support",
-          description:
-            "Get in touch with our support team or visit our community forums",
-          icon: <Zap className="size-5 shrink-0" />,
-          url: "#",
-        },
-      ],
     },
+   
     {
-      title: "Resources",
+      title: "How its works",
       url: "#",
-      items: [
-        {
-          title: "Help Center",
-          description: "Get all the answers you need right here",
-          icon: <Zap className="size-5 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Contact Us",
-          description: "We are here to help you with any questions you have",
-          icon: <Sunset className="size-5 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Status",
-          description: "Check the current status of our services and APIs",
-          icon: <Trees className="size-5 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Terms of Service",
-          description: "Our terms and conditions for using our services",
-          icon: <Book className="size-5 shrink-0" />,
-          url: "#",
-        },
-      ],
     },
     {
-      title: "About",
-      url: "/about",
+      title: "Testimonials",
+      url: "#",
     },
     {
-      title: "Blog",
+      title: "Contact me",
+      url: "#",
+    },
+    {
+      title: "About me",
       url: "#",
     },
   ],
@@ -117,24 +69,24 @@ const Navbar4 = ({
 
   return (
     <section className="py-4">
-      <div className="container">
+      <div className="container ">
         {/* Desktop Menu */}
-        <nav className="relative hidden lg:grid grid-cols-[1fr_auto_1fr] items-center">
+        <nav className="relative hidden lg:grid grid-cols-[1fr_auto_1fr] items-center  ">
           {/* Left: Logo */}
-          <div className="flex items-center gap-2">
-            <a href={logo.url} className="flex items-center gap-2">
+          <div className="flex items-center gap-2 ">
+            <a href={logo.url} className="flex items-center gap-2 ">
               <Image src={logo.src} width={140}
                      height={96} className=" dark:invert" alt={logo.alt} />
-              <span className="text-lg font-semibold tracking-tighter">
+              <span className="text-lg font-semibold tracking-tighter ">
                 {logo.title}
               </span>
             </a>
           </div>
 
           {/* Center: Desktop links with simple hover dropdowns */}
-          <ul className="flex items-center gap-2 justify-self-center ">
+          <ul className="flex items-center gap-2 justify-self-center  ">
             {menu.map((item) => (
-              <li key={item.title} className=" relative group">
+              <li key={item.title} className=" relative group ">
                 {item.items ? (
                   <>
                     <button className="bg-[#F2EAE0] hover:bg-muted hover:text-accent-foreground inline-flex h-10 items-center gap-1 rounded-md px-4 text-sm font-medium transition-colors text-amber-600 ">
@@ -180,10 +132,10 @@ const Navbar4 = ({
         </nav>
 
         {/* Mobile Menu */}
-        <div className="block lg:hidden">
-          <div className="flex items-center justify-between">
+        <div className="block lg:hidden ">
+          <div className="flex items-center justify-between ">
             {/* Logo */}
-            <a href={logo.url} className="flex items-center gap-2">
+            <a href={logo.url} className="flex items-center gap-2 ">
               <Image src={logo.src} width={140}
                      height={96} className=" dark:invert" alt={logo.alt} />
             </a>
@@ -193,6 +145,7 @@ const Navbar4 = ({
               size="icon"
               onClick={() => setMobileOpen(true)}
               aria-label="Open menu"
+              className="bg-[#E1D4C7]"
             >
               <Menu className="size-4" />
             </Button>
@@ -206,26 +159,26 @@ const Navbar4 = ({
                 onClick={() => setMobileOpen(false)}
                 aria-hidden="true"
               />
-              <div className="fixed inset-y-0 right-0 z-50 w-80 max-w-[85vw] translate-x-0 bg-background shadow-xl outline-none transition-transform">
+              <div className="fixed bg-[#F2EAE0] inset-y-0 right-0 z-50 w-80 max-w-[85vw] translate-x-0  shadow-xl outline-none transition-transform">
                 <div className="flex items-center justify-between border-b p-4">
                   <a href={logo.url} className="flex items-center gap-2">
-                    <Image src={logo.src} width={140}
-                           height={96} className="max-h-8 dark:invert" alt={logo.alt} />
+                    <Image src={logo.src} width={40}
+                           height={40} className="max-h-8 dark:invert" alt={logo.alt} />
                   </a>
                   <Button variant="ghost" size="icon" onClick={() => setMobileOpen(false)} aria-label="Close menu">
                     ✕
                   </Button>
                 </div>
 
-                <div className="flex flex-col gap-6 p-4 overflow-y-auto ">
+                <div className="flex flex-col gap-6 p-4 overflow-y-auto bg-[#F2EAE0] ">
                   {/* Mobile nav list (expand groups) */}
-                  <div className="flex w-full flex-col gap-4">
+                  <div className="flex w-full flex-col gap-4 ">
                     {menu.map((item) => (
                       <div key={item.title} className="flex flex-col gap-2 ">
                         {item.items ? (
                           <>
                             <div className="text-md font-semibold ">{item.title}</div>
-                            <div className="flex flex-col gap-1">
+                            <div className="flex flex-col gap-1 ">
                               {item.items.map((sub) => (
                                 <a
                                   key={sub.title}
@@ -246,7 +199,7 @@ const Navbar4 = ({
                             </div>
                           </>
                         ) : (
-                          <a href={item.url} className="text-md font-semibold">
+                          <a href={item.url} className="text-md font-semibold ">
                             {item.title}
                           </a>
                         )}

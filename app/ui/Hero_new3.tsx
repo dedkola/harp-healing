@@ -4,7 +4,7 @@
 
 export default function Hero_new3() {
     return (
-        <section className="bg-[#E1D4C7] flex justify-center items-center min-h-screen p-6">
+        <section className=" flex justify-center items-center  ">
             <div className="max-w-6xl w-full bg-[#E1D4C7] rounded-2xl shadow-md overflow-hidden">
             {/* Image Background Section */}
                 <div
