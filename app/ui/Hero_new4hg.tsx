@@ -8,7 +8,7 @@ export default function HeroSimple() {
           Crystal Harp Healing
       </h1>
 
-        <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10"></div>
+        <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mb-20 "></div>
 
 
         {/* Image */}
@@ -19,18 +19,18 @@ export default function HeroSimple() {
           className="w-full max-w-6xl h-auto object-contain"
         />
       </div>
-        <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10"></div>
+        <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent pp-2"></div>
 
       {/* Text + Button */}
-      <div className="mt-10">
-        <p className=" text-lg md:text-xl mb-6 text-amber-800 font-thin">
+      <div className="">
+        <p className=" text-4xl  text-amber-800 font-thin mt-10">
          Vibrational therapy for emotional balance, deep rest, and inner alignment.
         </p>
-        <button className="bg-[#E1D4C7] text-[#211101] px-6 py-3 rounded-md border border-[#c19a6b] hover:bg-[#e9d8ca] transition">
+        <button className="bg-[#E1D4C7] text-[#211101] px-6 py-3 rounded-md border border-[#c19a6b] hover:bg-[#e9d8ca] transition  mt-10">
           Experience the Sound
         </button>
 
-         <p className=" text-lg md:text-xl mb-6 text-amber-800 font-thin">
+         <p className=" text-lg md:text-xl mb-6 text-amber-800 font-thin mt-10">
         In-person in Los Angeles & Online Worldwide
         </p>
           <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10"></div>
