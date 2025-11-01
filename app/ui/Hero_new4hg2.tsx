@@ -10,6 +10,9 @@ export default function Herohg2() {
         // Haptic feedback for mobile devices
         if (navigator.vibrate) {
             navigator.vibrate(50); // Vibrate for 50ms
+        } else if (window.navigator && 'vibrate' in window.navigator) {
+            // Fallback for some browsers
+            window.navigator.vibrate(50);
         }
         setTimeout(() => setIsPressed(false), 300);
     };
