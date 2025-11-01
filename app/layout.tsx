@@ -26,7 +26,7 @@ export const metadata: Metadata = {
         url: 'https://example.com',
         images: [
             {
-                url: '/opengraph-image.png',
+                url: '/hires/005.png',
                 width: 1200,
                 height: 630,
             },
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
         card: 'summary_large_image',
         title: 'CRYSTAL HARP HEALING',
         description: 'Heading Vibrational therapy for emotional balance, deep rest, and inner alignment.',
-        images: ['/opengraph-image.png'],
+        images: ['/hires/005.png'],
     },
 };
 
