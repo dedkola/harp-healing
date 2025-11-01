@@ -9,7 +9,6 @@ export default function Page() {
             <Navbar4 />
             <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10"></div>
 
-            
         </div>
         <Heronew4hh />
     </>
