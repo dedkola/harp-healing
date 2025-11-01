@@ -7,6 +7,10 @@ export default function Herohg2() {
 
     const handleTouch = () => {
         setIsPressed(true);
+        // Haptic feedback for mobile devices
+        if (navigator.vibrate) {
+            navigator.vibrate(50); // Vibrate for 50ms
+        }
         setTimeout(() => setIsPressed(false), 300);
     };
 
@@ -54,44 +58,3 @@ export default function Herohg2() {
         </section>
     )
 }
-
-
-
-
-// 'use client'
-
-// export default function Heronew4hg() {
-//   return (
-
-// <>
-     
-//     <section className="flex justify-center items-center p-6">
-//       <div className="max-w-8xl w-full rounded-2xl shadow-md overflow-hidden">
-//         {/* Image Background Section */}
-//         <div
-//           className="relative w-full flex flex-col items-center justify-center bg-center bg-contain bg-no-repeat min-h-[600px]"
-//           style={{
-//             backgroundImage: "url('/hires/005c.png')",
-//             backgroundRepeat: "no-repeat",
-//           }}
-//         >
-          
-//         </div>
-//       </div>
-//     </section>
-
-//     <div className="space-y-8">
-        //  <h1 className="relative text-8xl text-amber-800 text-center mt-10 md:mt-16 drop-shadow-sm !font-thin"> PSYCHO-SOUND HEALING </h1>
-
-//             <div className="text-center">
-//               <p className="text-[#211101] text-lg md:text-xl mb-6">
-//                 Healing through Sound, Psychology, and Presence
-//               </p>
-//               <button className="bg-[#E1D4C7] text-[#211101] px-6 py-3 rounded-md shadow hover:bg-[#e9d8ca] transition">
-//                 Book a Session
-//               </button>
-//             </div>
-//           </div>
-//   </>
-//   )
-// }
