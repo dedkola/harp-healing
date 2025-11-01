@@ -1,6 +1,16 @@
 'use client'
+import { useState } from 'react';
 
-export default function HeroSimple() {
+export default function Herohg2() {
+    const [isPressed, setIsPressed] = useState(false);
+
+    const handleTouch = () => {
+        setIsPressed(true);
+
+        // Reset button effect after 300ms
+        setTimeout(() => setIsPressed(false), 300);
+    };
+
   return (
     <section className="w-full text-center  py-10">
       {/* Title */}
@@ -24,19 +34,27 @@ export default function HeroSimple() {
       {/* Text + Button */}
       <div className="">
         <p className=" text-4xl  text-amber-800 font-thin mt-10">
-            Vibrational healing for emotional balance, nervous system regulation, and inner alignment.
+            Vibrational healing for emotional balance, nervous system regulation, and inner alignment
 
         </p>
         {/*<button className="bg-[#E1D4C7] text-[#211101] px-6 py-3 text-amber-800 font-thin rounded-md border border-[#c19a6b] hover:bg-[#e9d8ca] transition  mt-10">*/}
         {/*  Experience the Sound*/}
         {/*</button>*/}
 
-          <button className="relative overflow-hidden bg-gradient-to-r from-[#E1D4C7] via-[#f3e8db] to-[#E1D4C7]
-                   text-[#211101] px-6 py-3 text-amber-800 font-thin rounded-md border border-[#c19a6b]
-                   transition mt-10 gradient-animate">
+          {/*<button className="relative overflow-hidden bg-gradient-to-r from-[#E1D4C7] via-[#f3e8db] to-[#E1D4C7]*/}
+          {/*         text-[#211101] px-6 py-3 text-amber-800 font-thin rounded-md border border-[#c19a6b]*/}
+          {/*         transition mt-10 gradient-animate">*/}
+          {/*    Experience the Sound*/}
+          {/*</button>*/}
+          <button
+              className={`bg-[#E1D4C7] text-[#211101] px-6 py-3 text-amber-800 font-thin rounded-md border border-[#c19a6b] transition-all duration-300 hover:shadow-[0_0_20px_rgba(193,154,107,0.5)] hover:scale-105 mt-10 ${
+                  isPressed ? 'shadow-[0_0_20px_rgba(193,154,107,0.5)] scale-105' : ''
+              }`}
+              onTouchStart={handleTouch}
+              onClick={handleTouch}
+          >
               Experience the Sound
           </button>
-
 
           <p className=" text-lg md:text-xl mb-6 text-amber-800 font-thin mt-10">
         In-person in Los Angeles & Online Worldwide
