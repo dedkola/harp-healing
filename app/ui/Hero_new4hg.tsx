@@ -26,11 +26,18 @@ export default function HeroSimple() {
         <p className=" text-4xl  text-amber-800 font-thin mt-10">
          Vibrational therapy for emotional balance, deep rest, and inner alignment.
         </p>
-        <button className="bg-[#E1D4C7] text-[#211101] px-6 py-3 text-amber-800 font-thin rounded-md border border-[#c19a6b] hover:bg-[#e9d8ca] transition  mt-10">
-          Experience the Sound
-        </button>
+        {/*<button className="bg-[#E1D4C7] text-[#211101] px-6 py-3 text-amber-800 font-thin rounded-md border border-[#c19a6b] hover:bg-[#e9d8ca] transition  mt-10">*/}
+        {/*  Experience the Sound*/}
+        {/*</button>*/}
 
-         <p className=" text-lg md:text-xl mb-6 text-amber-800 font-thin mt-10">
+          <button className="relative overflow-hidden bg-gradient-to-r from-[#E1D4C7] via-[#f3e8db] to-[#E1D4C7]
+                   text-[#211101] px-6 py-3 text-amber-800 font-thin rounded-md border border-[#c19a6b]
+                   transition mt-10 gradient-animate">
+              Experience the Sound
+          </button>
+
+
+          <p className=" text-lg md:text-xl mb-6 text-amber-800 font-thin mt-10">
         In-person in Los Angeles & Online Worldwide
         </p>
           <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10"></div>

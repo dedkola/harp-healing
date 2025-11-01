@@ -26,9 +26,9 @@ export default function Herohg2() {
         <p className=" text-4xl  text-amber-800 font-thin mt-10">
          Vibrational therapy for emotional balance, deep rest, and inner alignment.
         </p>
-        <button className="bg-[#E1D4C7] text-[#211101] px-6 py-3 text-amber-800 font-thin rounded-md border border-[#c19a6b] hover:bg-[#e9d8ca] transition  mt-10">
-          Experience the Sound
-        </button>
+          <button className="bg-[#E1D4C7] text-[#211101] px-6 py-3 text-amber-800 font-thin rounded-md border border-[#c19a6b] transition-all duration-300 hover:shadow-[0_0_20px_rgba(193,154,107,0.5)] hover:scale-105 mt-10">
+              Experience the Sound
+          </button>
 
          <p className=" text-lg md:text-xl mb-6 text-amber-800 font-thin mt-10">
         In-person in Los Angeles & Online Worldwide
