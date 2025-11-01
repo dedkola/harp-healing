@@ -94,8 +94,8 @@ const Navbar4 = ({
                                             <a
                                                 key={item.title}
                                                 href={item.url}
-                                                className="text-md font-semibold hover:text-accent-foreground"
-                                                style={{ color: "#c19a6b" }}
+                                                className="text-md font-semibold hover:text-accent-foreground !font-thin text-amber-800"
+                                                style={{ color: "#92400E" }}
                                             >
                                                 {item.title}
                                             </a>
