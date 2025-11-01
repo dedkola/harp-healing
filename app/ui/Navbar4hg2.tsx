@@ -75,7 +75,7 @@ const Navbar4hg2 = ({
                             />
                             <div className="fixed bg-white inset-y-0 right-0 z-50 w-80 max-w-[85vw] shadow-xl outline-none transition-transform">
                                 <div className="flex items-center justify-between border-b p-4">
-                  <span className="text-lg font-semibold" style={{ color: "#c19a6b" }}>
+                  <span className="text-lg font-semibold !font-thin" style={{ color: "#92400E" }}>
                     Menu
                   </span>
                                     <Button
