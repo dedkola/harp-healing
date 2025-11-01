@@ -7,13 +7,18 @@ export default function Herohg2() {
 
     const handleTouch = () => {
         setIsPressed(true);
+
         // Haptic feedback for mobile devices
-        if (navigator.vibrate) {
-            navigator.vibrate(50); // Vibrate for 50ms
-        } else if (window.navigator && 'vibrate' in window.navigator) {
-            // Fallback for some browsers
+        // Try Taptic Engine API for iOS (Safari only)
+        if (window.navigator && 'vibrate' in window.navigator) {
             window.navigator.vibrate(50);
         }
+
+        // iOS doesn't support vibration API, but we can use audio feedback as alternative
+        // Uncomment if you want a subtle click sound instead:
+        // const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSuBzvLZiTUIGGS57OihUBELTKXh8bllHAU2jdXzzn0vBSh+zPLaizsIHWm98OukTxEKTKXi8bllHAU2jdXzzn0vBSh+zPLaizsIHWm98OukTxEKTKXi8bllHAU2jdXzzn0vBSh+zPLaizsIHWm98OukTxEKTKXi8bllHAU2jdXzzn0vBSh+zPLaizsIHWm98OukTxEKTKXi8bllHAU2jdXzzn0vBSh+zPLaizsIHWm98OukTxEKTKXi8bllHAU2jdXzzn0vBSh+zPLaizsIHWm98OukTxEKTKXi8bllHAU2jdXzzn0vBSh+zPLaizsIHWm98OukTxEKTKXi8bllHAU2jdXzzn0vBSh+zPLaizsIHWm98OukTxEKTKXi8bllHAU2jdXzzn0vBSh+zPLaizsIHWm98OukTxEKTKXi8bllHAU2jdXzzn0vBSh+zPLaizsIHWm98OukTxEKTKXi8bllHAU2jdXzzn0vBSh+zPLaizsIHWm98OukTxEKTKXi8bllHAU2jdXzzn0vBSh+zPLaizsIHWm98OukTxEKTKXi8bllHAU2jdXzzn0vBSh+zPLaizsIHWm98OukTxEKTKXi8bllHAU2jdXzzn0vBSh+zPLaizsIHWm98OukTxEKTKXi8bllHAU2jdXzzn0vBSh+zPLaizsIHWm98OukTxEKTKXi8bllHAU2jdXzzn0vBSh+zPLaizsIHWm98OukTxEKTKXi8bllHAU2jdXzzn0vBSh+zPLaizsIHWm98OukTxEKTKXi8bllHAU2jdXzzn0vBSh+zPLaizsIHWm98OukTxEKTKXi8bllHAU2jdXzzn0vBSh+zPLaizsIHWm98OukTxEKTKXi8bllHAU2jdXzzn0vBSh+zPLaizsIHWm98OukTxEKTKXi8bllHAU2jdXzzn0vBSh+zPLaizsIHWm98OukTxEKTKXi8bllHAU2jdXzzn0vBSh+zPLaizsIHWm98OukTxEKTKXi8bllHAU2jdXzzn0vBSh+zPLaizsIHWm98OukTxEKTKXi8bllHAU2jdXzzn0vBSh+zPLaizsIHWm98OukTxEKTKXi8bllHAU2jdXzzn0vBSh+zPLaizsIHWm98OukTxEKTKXi8bllHAU2jdXzzn0vBSh+zPLaizsIHWm98OukTxEKTKXi8bllHAU2jdXzzn0vBQ==');
+        // audio.play().catch(() => {});
+
         setTimeout(() => setIsPressed(false), 300);
     };
 
