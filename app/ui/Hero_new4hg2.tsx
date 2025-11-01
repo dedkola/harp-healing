@@ -4,7 +4,7 @@ export default function Herohg2() {
   return (
     <section className="w-full text-center  py-10">
       {/* Title */}
-      <h1 className="text-[2.2rem] sm:text-5xl md:text-7xl lg:text-8xl text-amber-800  mb-10 drop-shadow-sm !font-thin">
+      <h1 className="text-[2.2rem] sm:text-5xl md:text-7xl lg:text-8xl   mb-10 drop-shadow-sm text-amber-800 !font-thin">
           Crystal Harp Healing
       </h1>
 

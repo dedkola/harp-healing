@@ -40,8 +40,8 @@ const Navbar4 = ({
                             <li key={item.title} className="relative group">
                                 <a
                                     href={item.url}
-                                    className="text-xl hover:bg-muted hover:text-accent-foreground inline-flex h-10 items-center rounded-md px-4 font-medium transition-colors"
-                                    style={{ color: "#c19a6b" }}
+                                    className="text-xl hover:bg-muted hover:text-accent-foreground inline-flex h-10 items-center rounded-md px-4 font-medium transition-colors !font-thin"
+                                    style={{ color: "#92400E" }}
                                 >
                                     {item.title}
                                 </a>
