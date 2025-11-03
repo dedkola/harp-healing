@@ -17,12 +17,12 @@ interface NavbarProps {
 
 const Navbar = ({
   menu = [
-    { title: 'Home', url: '#' },
+    { title: 'Home', url: '/' },
     { title: 'Services', url: '#' },
     { title: 'How it works', url: '#' },
     { title: 'Testimonials', url: '#' },
     { title: 'Contact me', url: '#' },
-    { title: 'About me', url: '#' },
+    { title: 'About me', url: '/about' },
   ],
 }: NavbarProps) => {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -39,7 +39,7 @@ const Navbar = ({
               <li key={item.title} className="relative group">
                 <a
                   href={item.url}
-                  className="text-xl hover:bg-muted hover:text-accent-foreground inline-flex h-10 items-center rounded-md px-4 font-medium transition-colors !font-thin"
+                  className="text-xl hover:bg-muted hover:text-accent-foreground inline-flex h-10 items-center rounded-md px-4  transition-colors !font-thin"
                   style={{ color: '#92400E' }}
                 >
                   {item.title}
@@ -73,7 +73,7 @@ const Navbar = ({
               />
               <div className="fixed bg-white inset-y-0 right-0 z-50 w-80 max-w-[85vw] shadow-xl outline-none transition-transform">
                 <div className="flex items-center justify-between border-b p-4">
-                  <span className="text-lg font-semibold  !font-thin " style={{ color: '#92400E' }}>
+                  <span className="text-lg  !font-thin " style={{ color: '#92400E' }}>
                     Menu
                   </span>
                   <Button
@@ -92,7 +92,7 @@ const Navbar = ({
                       <a
                         key={item.title}
                         href={item.url}
-                        className="text-md font-semibold hover:text-accent-foreground !font-thin text-amber-800"
+                        className="text-md hover:text-accent-foreground !font-thin text-amber-800"
                         style={{ color: '#92400E' }}
                       >
                         {item.title}
