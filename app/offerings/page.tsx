@@ -22,11 +22,6 @@ export default function Services() {
           </h2>
 
           <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10"></div>
-          <p className="pb-4 pt-4">
-            Sound touches the parts of us that words cannot. The pure frequencies of the crystal
-            harp entrain the body toward balance — calming the sympathetic nervous system and
-            inviting parasympathetic safety.
-          </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
             <article className="flex flex-col items-start gap-3 bg-gradient-to-br from-white/70 to-amber-50/60 backdrop-blur-sm border border-amber-200/30 rounded-2xl p-6 shadow-2xl ring-1 ring-amber-100 transition-shadow hover:shadow-[0_20px_40px_rgba(193,154,107,0.18)]">
