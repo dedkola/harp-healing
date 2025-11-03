@@ -19,7 +19,7 @@ const Navbar = ({
   menu = [
     { title: 'Home', url: '/' },
     { title: 'Services', url: '#' },
-    { title: 'How it works', url: '#' },
+    { title: 'How it works', url: '/how_it_works' },
     { title: 'Testimonials', url: '#' },
     { title: 'Contact me', url: '/contact' },
     { title: 'About me', url: '/about' },
