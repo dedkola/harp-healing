@@ -29,6 +29,9 @@ export default function Hero() {
           className="w-full max-w-6xl h-auto object-contain"
         width="2500"
           height="1042"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px"
+
+          priority
         />
       </div>
       <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent pp-2"></div>
