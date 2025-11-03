@@ -63,7 +63,7 @@ export default function Hero() {
         <p className=" text-lg md:text-xl mb-6 text-amber-800 font-thin mt-10">
           In-person in Los Angeles & Online Worldwide
         </p>
-        <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10"></div>
+        {/* <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10"></div> */}
       </div>
     </section>
   )
