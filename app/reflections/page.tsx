@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { Footer } from '@/components/sections/Footer'
-import TestimonialCard from '@/app/testimonials/TestimonialCard'
+import TestimonialCard from '@/app/reflections/TestimonialCard'
 import React from 'react'
 export default function Testimonials() {
   return (
@@ -10,7 +10,7 @@ export default function Testimonials() {
         <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10"></div>
 
         <h1 className="text-[2.2rem] sm:text-5xl md:text-7xl lg:text-8xl text-amber-800 mb-10 drop-shadow-sm !font-light md:!font-thin text-center my-8">
-          Reflections- What People Feel
+          What People Feel
         </h1>
 
         <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mb-10"></div>

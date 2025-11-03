@@ -18,11 +18,11 @@ interface NavbarProps {
 const Navbar = ({
   menu = [
     { title: 'Home', url: '/' },
-    { title: 'Services', url: '/services' },
-    { title: 'How it works', url: '/how_it_works' },
-    { title: 'Testimonials', url: '/testimonials' },
-    { title: 'Contact me', url: '/contact' },
     { title: 'About me', url: '/about' },
+    { title: 'Offerings', url: '/offerings' },
+    { title: 'Why Sound Heals', url: '/why_sound_heals' },
+    { title: 'Reflections', url: '/reflections' },
+    { title: 'Contact me', url: '/contact' },
   ],
 }: NavbarProps) => {
   const [mobileOpen, setMobileOpen] = useState(false)
