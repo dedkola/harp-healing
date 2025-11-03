@@ -1,0 +1,27 @@
+// File: `.devcontainer/devcontainer.json`
+{
+  "name": "Harp Healing Dev Container",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+  "forwardPorts": [3000],
+  "postCreateCommand": "pnpm install",
+  "postStartCommand": "pnpm dev -- -H 0.0.0.0",
+  "remoteUser": "node",
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash",
+    "terminal.integrated.defaultProfile.linux": "bash"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "ms-vscode.vscode-typescript-next"
+      ]
+    }
+  }
+}

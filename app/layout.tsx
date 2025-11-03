@@ -1,56 +1,65 @@
-import type { Metadata } from "next";
-import "./globals.css";
-import { openSans, lato, ebGaramond, raleway } from '@/app/ui/fonts';
-import { Analytics } from "@vercel/analytics/next"
-import { SpeedInsights } from '@vercel/speed-insights/next';
-
+import type { Metadata } from 'next'
+import './globals.css'
+import { openSans, lato, ebGaramond, raleway } from '@/app/ui/fonts'
+import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
+import { Navbar } from '@/components/layout/Navbar'
 
 export const metadata: Metadata = {
-  title: "CRYSTAL HARP HEALING",
-  description: "Heading Vibrational therapy for emotional balance, deep rest, and inner alignment.",
-    icons: {
-        icon: [
-            { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-            { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-            { url: '/favicon-192x192.png', sizes: '192x192', type: 'image/png' },
-            { url: '/favicon.ico' }
-        ],
-        apple: [
-            { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }
-        ]
-    },
+  title: 'CRYSTAL HARP HEALING',
+  description: 'Heading Vibrational therapy for emotional balance, deep rest, and inner alignment.',
+  icons: {
+    icon: [
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-192x192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/favicon.ico' },
+    ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
+  },
 
-    openGraph: {
-        title: 'CRYSTAL HARP HEALING',
-        description: 'Heading Vibrational therapy for emotional balance, deep rest, and inner alignment.',
-        url: 'https://example.com',
-        images: [
-            {
-                url: '/hires/005.png',
-                width: 1200,
-                height: 630,
-            },
-        ],
-        siteName: 'CRYSTAL HARP HEALING',
-        type: 'website',
-    },
-    twitter: {
-        card: 'summary_large_image',
-        title: 'CRYSTAL HARP HEALING',
-        description: 'Heading Vibrational therapy for emotional balance, deep rest, and inner alignment.',
-        images: ['/hires/005.png'],
-    },
-};
+  openGraph: {
+    title: 'CRYSTAL HARP HEALING',
+    description:
+      'Heading Vibrational therapy for emotional balance, deep rest, and inner alignment.',
+    url: 'https://example.com',
+    images: [
+      {
+        url: '/hires/005.png',
+        width: 1200,
+        height: 630,
+      },
+    ],
+    siteName: 'CRYSTAL HARP HEALING',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'CRYSTAL HARP HEALING',
+    description:
+      'Heading Vibrational therapy for emotional balance, deep rest, and inner alignment.',
+    images: ['/hires/005.png'],
+  },
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${openSans.variable} ${lato.variable} ${ebGaramond.variable} ${raleway.variable}`}>
-      <body suppressHydrationWarning className={`antialiased`}>{children}         <Analytics />         <SpeedInsights />
-  </body>
+    <html
+      lang="en"
+      className={`${openSans.variable} ${lato.variable} ${ebGaramond.variable} ${raleway.variable}`}
+    >
+
+      <body suppressHydrationWarning className={`antialiased`}>
+      <Navbar />
+        {children}
+
+        <Analytics />
+        <SpeedInsights />
+      </body>
     </html>
-  );
+  )
 }

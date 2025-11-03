@@ -1,13 +1,10 @@
-import Hero115 from "@/app/ui/hero";
-import Testimonial from "@/app/ui/Testimonial";
+import Hero from '@/components/sections/Hero'
 
 export default function Home() {
   return (
     <main>
-
-        <Hero115 />
-        <Testimonial    />
-
+      <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10"></div>
+      <Hero />
     </main>
-  );
+  )
 }
