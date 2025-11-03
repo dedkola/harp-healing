@@ -21,8 +21,8 @@ export default function ContactPage() {
           </h2>
           <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10"></div>
           <p className="text-2xl !font-thin pb-4 pt-4">
-            Whether you’re seeking grounding, spiritual clarity, or restorative calm, sound can
-            guide you home to yourself
+            Whether you’re seeking nervous system balance, inner clarity, or restorative ease, sound
+            can guide you home to yourself
           </p>
 
           <p className="text-2xl !font-thin ">
