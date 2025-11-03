@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import Image from 'next/image'
 
 export default function Hero() {
   const [isPressed, setIsPressed] = useState(false)
@@ -22,10 +23,12 @@ export default function Hero() {
 
       {/* Image */}
       <div className="w-full flex justify-center">
-        <img
-          src="/hires/005.png"
+        <Image
+          src="/hero.png"
           alt="Psycho-sound healing"
           className="w-full max-w-6xl h-auto object-contain"
+        width="2500"
+          height="1042"
         />
       </div>
       <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent pp-2"></div>
@@ -45,7 +48,7 @@ export default function Hero() {
         {/*    Experience the Sound*/}
         {/*</button>*/}
         <button
-          className={`bg-[#E1D4C7] text-[#211101] px-6 py-3 text-amber-800 font-thin rounded-md border border-[#c19a6b] transition-all duration-300 hover:shadow-[0_0_20px_rgba(193,154,107,0.5)] hover:scale-105 mt-10 ${
+          className={`bg-[#E1D4C7]  px-6 py-3 text-amber-800 font-thin rounded-md border border-[#c19a6b] transition-all duration-300 hover:shadow-[0_0_20px_rgba(193,154,107,0.5)] hover:scale-105 mt-10 ${
             isPressed ? 'shadow-[0_0_20px_rgba(193,154,107,0.5)] scale-105' : ''
           }`}
           onTouchStart={handleTouch}
