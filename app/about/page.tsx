@@ -13,15 +13,14 @@ export default function AboutMePage() {
 
         <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mb-10"></div>
       </div>
-
-      <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-start gap-8">
+      <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8">
         <div className="md:w-2/3 text-left text-amber-800 !font-thin space-y-4">
           <h2 className="text-4xl text-amber-800 !font-thin text-center md:text-left pb-2 pt-2">
-            Welcome, I’m Zhenya.
+            Welcome, I'm Zhenya.
           </h2>
           <div className="mt-4 h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent w-20 md:w-36 lg:w-72 md:max-w-[720px] mx-auto md:mx-0" />
           <p className="pb-4 pt-4">
-            I’m a sound healer with a background in psychotherapy. Crystal Harp Healing was born
+            I'm a sound healer with a background in psychotherapy. Crystal Harp Healing was born
             from the meeting point between psychology, resonance, and the human heart.
           </p>
 
