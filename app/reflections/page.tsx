@@ -348,25 +348,8 @@ export default function Testimonials() {
           </>
         }
       />
-      <br className="pt-2"></br>
-      <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mb-10 "></div>
-
-      {/*<div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8">*/}
-      {/*  <div className="md:w-2/3 text-center text-amber-800 !font-thin space-y-4">*/}
-      {/*    <h3 className="text-4xl text-amber-800 !font-thin ">Chel-model, influencer</h3>*/}
-      {/*    <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10"></div>*/}
-      {/*    <p className="pb-4 pt-4">*/}
-      {/*      Zhenya came and did glass harp therapy for me in my apartment. It was moving. Between*/}
-      {/*      the comfort of being in my own home, where I feel safe, and her gentle soothing voice, I*/}
-      {/*      was able to dig deep and tackle some hard topics, in just one session. Since my session*/}
-      {/*      with her, I have been doing more <b>deep reflection</b> than I have in a long time. I*/}
-      {/*      have been facing choices I am making head on. If you’re ready to make{' '}*/}
-      {/*      <b>positive changes</b> in your life, and you’re having trouble knowing where to start,*/}
-      {/*      this is your answer. I got more from this one session than I have with any other therapy*/}
-      {/*      session. I couldn’t recommend her more! Zhenya’s work is <b> truly powerful</b>.*/}
-      {/*    </p>*/}
-      {/*  </div>*/}
-      {/*</div>*/}
+      {/* <br className="pt-2"></br> */}
+      {/* <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mb-10 "></div> */}
 
       <Footer />
     </main>
