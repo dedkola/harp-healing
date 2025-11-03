@@ -1,27 +1,26 @@
 'use client'
-import { useState } from 'react';
+import { useState } from 'react'
 
-export default function Herohg2() {
-    const [isPressed, setIsPressed] = useState(false);
+export default function Hero() {
+  const [isPressed, setIsPressed] = useState(false)
 
-    const handleTouch = () => {
-        setIsPressed(true);
+  const handleTouch = () => {
+    setIsPressed(true)
 
-        // Reset button effect after 300ms
-        setTimeout(() => setIsPressed(false), 300);
-    };
+    // Reset button effect after 300ms
+    setTimeout(() => setIsPressed(false), 300)
+  }
 
   return (
     <section className="w-full text-center  py-10">
       {/* Title */}
       <h1 className="text-[2.2rem] sm:text-5xl md:text-7xl lg:text-8xl text-amber-800  mb-10 drop-shadow-sm !font-light md:!font-thin">
-          Crystal Harp Healing
+        Crystal Harp Healing
       </h1>
 
-        <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mb-20 "></div>
+      <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mb-20 "></div>
 
-
-        {/* Image */}
+      {/* Image */}
       <div className="w-full flex justify-center">
         <img
           src="/hires/005.png"
@@ -29,45 +28,40 @@ export default function Herohg2() {
           className="w-full max-w-6xl h-auto object-contain"
         />
       </div>
-        <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent pp-2"></div>
+      <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent pp-2"></div>
 
       {/* Text + Button */}
       <div className="">
         <p className=" text-4xl  text-amber-800 font-thin mt-10">
-            Vibrational healing for emotional balance, nervous system regulation, and inner alignment
-
+          Vibrational healing for emotional balance, nervous system regulation, and inner alignment
         </p>
         {/*<button className="bg-[#E1D4C7] text-[#211101] px-6 py-3 text-amber-800 font-thin rounded-md border border-[#c19a6b] hover:bg-[#e9d8ca] transition  mt-10">*/}
         {/*  Experience the Sound*/}
         {/*</button>*/}
 
-          {/*<button className="relative overflow-hidden bg-gradient-to-r from-[#E1D4C7] via-[#f3e8db] to-[#E1D4C7]*/}
-          {/*         text-[#211101] px-6 py-3 text-amber-800 font-thin rounded-md border border-[#c19a6b]*/}
-          {/*         transition mt-10 gradient-animate">*/}
-          {/*    Experience the Sound*/}
-          {/*</button>*/}
-          <button
-              className={`bg-[#E1D4C7] text-[#211101] px-6 py-3 text-amber-800 font-thin rounded-md border border-[#c19a6b] transition-all duration-300 hover:shadow-[0_0_20px_rgba(193,154,107,0.5)] hover:scale-105 mt-10 ${
-                  isPressed ? 'shadow-[0_0_20px_rgba(193,154,107,0.5)] scale-105' : ''
-              }`}
-              onTouchStart={handleTouch}
-              onClick={handleTouch}
-          >
-              Experience the Sound
-          </button>
+        {/*<button className="relative overflow-hidden bg-gradient-to-r from-[#E1D4C7] via-[#f3e8db] to-[#E1D4C7]*/}
+        {/*         text-[#211101] px-6 py-3 text-amber-800 font-thin rounded-md border border-[#c19a6b]*/}
+        {/*         transition mt-10 gradient-animate">*/}
+        {/*    Experience the Sound*/}
+        {/*</button>*/}
+        <button
+          className={`bg-[#E1D4C7] text-[#211101] px-6 py-3 text-amber-800 font-thin rounded-md border border-[#c19a6b] transition-all duration-300 hover:shadow-[0_0_20px_rgba(193,154,107,0.5)] hover:scale-105 mt-10 ${
+            isPressed ? 'shadow-[0_0_20px_rgba(193,154,107,0.5)] scale-105' : ''
+          }`}
+          onTouchStart={handleTouch}
+          onClick={handleTouch}
+        >
+          Experience the Sound
+        </button>
 
-          <p className=" text-lg md:text-xl mb-6 text-amber-800 font-thin mt-10">
-        In-person in Los Angeles & Online Worldwide
+        <p className=" text-lg md:text-xl mb-6 text-amber-800 font-thin mt-10">
+          In-person in Los Angeles & Online Worldwide
         </p>
-          <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10"></div>
-
+        <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10"></div>
       </div>
     </section>
   )
 }
-
-
-
 
 // 'use client'
 
@@ -75,7 +69,7 @@ export default function Herohg2() {
 //   return (
 
 // <>
-     
+
 //     <section className="flex justify-center items-center p-6">
 //       <div className="max-w-8xl w-full rounded-2xl shadow-md overflow-hidden">
 //         {/* Image Background Section */}
@@ -86,13 +80,13 @@ export default function Herohg2() {
 //             backgroundRepeat: "no-repeat",
 //           }}
 //         >
-          
+
 //         </div>
 //       </div>
 //     </section>
 
 //     <div className="space-y-8">
-        //  <h1 className="relative text-8xl text-amber-800 text-center mt-10 md:mt-16 drop-shadow-sm !font-thin"> PSYCHO-SOUND HEALING </h1>
+//  <h1 className="relative text-8xl text-amber-800 text-center mt-10 md:mt-16 drop-shadow-sm !font-thin"> PSYCHO-SOUND HEALING </h1>
 
 //             <div className="text-center">
 //               <p className="text-[#211101] text-lg md:text-xl mb-6">
