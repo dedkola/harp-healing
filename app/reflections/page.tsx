@@ -23,7 +23,7 @@ export default function Testimonials() {
           </h2>
           <div className="mt-4 h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent w-20 md:w-36 lg:w-72 md:max-w-[720px] mx-auto md:mx-0" />
 
-          <blockquote className="mt-4 pl-6 md:pl-8 border-l-4 border-amber-300 italic text-lg md:text-xl text-amber-800 !font-thin max-w-2xl">
+          <blockquote className="!font-normal  ![font-family:var(--font-open-sans)] mt-4 pl-6 md:pl-8 border-l-4 border-amber-300  text-lg md:text-xl text-amber-800 max-w-2xl">
             <p>
               Each client’s experience is unique, but the essence is the same — deeper presence,
               release, and renewal.
