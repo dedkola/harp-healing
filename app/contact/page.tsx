@@ -20,12 +20,14 @@ export default function ContactPage() {
             Ready to reconnect with your inner harmony?
           </h2>
           <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10"></div>
-          <p className="pb-4 pt-4">
+          <p className="text-2xl !font-thin pb-4 pt-4">
             Whether you’re seeking grounding, spiritual clarity, or restorative calm, sound can
             guide you home to yourself
           </p>
 
-          <p className="">For session inquiries or to learn more, you can contact me directly.</p>
+          <p className="text-2xl !font-thin ">
+            For session inquiries or to learn more, you can contact me directly.
+          </p>
 
           <p className="pb-2">
             <span className="mx-auto flex flex-col sm:flex-row items-center justify-center gap-4 text-amber-800 !font-thin">
