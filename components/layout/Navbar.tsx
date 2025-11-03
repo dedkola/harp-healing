@@ -20,7 +20,7 @@ const Navbar = ({
     { title: 'Home', url: '/' },
     { title: 'Services', url: '/services' },
     { title: 'How it works', url: '/how_it_works' },
-    { title: 'Testimonials', url: '#' },
+    { title: 'Testimonials', url: '/testimonials' },
     { title: 'Contact me', url: '/contact' },
     { title: 'About me', url: '/about' },
   ],
