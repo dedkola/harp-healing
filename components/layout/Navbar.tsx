@@ -21,7 +21,7 @@ const Navbar = ({
     { title: 'Services', url: '#' },
     { title: 'How it works', url: '#' },
     { title: 'Testimonials', url: '#' },
-    { title: 'Contact me', url: '#' },
+    { title: 'Contact me', url: '/contact' },
     { title: 'About me', url: '/about' },
   ],
 }: NavbarProps) => {
