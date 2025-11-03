@@ -27,10 +27,10 @@ export default function Hero() {
           src="/hero.png"
           alt="Psycho-sound healing"
           className="w-full max-w-6xl h-auto object-contain"
-        width="2500"
+          width="2500"
           height="1042"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px"
-
+          quality="90"
           priority
         />
       </div>
