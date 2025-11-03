@@ -49,7 +49,7 @@ export default function Services() {
 
             <article className="flex flex-col items-start gap-3 bg-gradient-to-br from-white/70 to-amber-50/60 backdrop-blur-sm border border-amber-200/30 rounded-2xl p-6 shadow-2xl ring-1 ring-amber-100 transition-shadow hover:shadow-[0_20px_40px_rgba(193,154,107,0.18)]">
               <h4 className="text-xl md:text-2xl text-amber-800 font-semibold">
-                Sound Baths & Events
+                Workshops and Corporate Events
               </h4>
               <p className="text-sm text-gray-800/90">
                 Public or private gatherings where crystal harp frequencies create deep meditative
