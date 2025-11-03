@@ -32,9 +32,15 @@ export default function AboutMePage() {
           </p>
 
           <p className="pb-2">
-            This practice is an invitation to tune inward — to experience sound not just as
-            something you hear, but as something you feel, guiding you gently back to balance and
-            wholeness.
+            Drawing on my clinical training and experience as a psychotherapist, I integrate
+            psychological insight and evidence-informed techniques—such as grounding, mindful
+            inquiry, and somatic tracking—whenever sound evokes emotion, memory, or inner movement.
+          </p>
+          <p className="pb-2">
+            This integrative process, which I call <b>psycho-sound healing</b>, bridges vibrational
+            therapy with psychological attunement. Sound opens the body; reflection anchors the
+            insight. Together, they invite harmony within the nervous system and a renewed sense of
+            inner coherence.
           </p>
         </div>
 
@@ -48,6 +54,18 @@ export default function AboutMePage() {
             priority
           />
         </div>
+      </div>
+      <div className="mx-auto max-w-5xl !font-light">
+        <div className="mt-4 h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent w-20 md:w-36 lg:w-72 md:max-w-[720px] mx-auto md:mx-0" />
+        <h2 className="text-4xl text-amber-800 !font-thin text-center md:text-left pb-2 pt-2">
+          An Invitation
+        </h2>
+
+        <p className="pb-2">
+          This practice is an invitation to tune inward— to experience sound not just as something
+          you hear, but as something you feel, guiding you gently back to balance and wholeness.
+        </p>
+        <div className="mt-4 h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent w-20 md:w-36 lg:w-72 md:max-w-[720px] mx-auto md:mx-0" />
       </div>
       <Footer />
     </main>
