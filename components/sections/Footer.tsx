@@ -14,8 +14,7 @@ export const Footer: React.FC = () => {
         </Logo>
 
         <div className="text-center md:text-right">
-          <p>© {new Date().getFullYear()} Crystal Harp Healing
-            . All rights reserved.</p>
+          <p>© {new Date().getFullYear()}. All rights reserved.</p>
         </div>
       </div>
     </footer>
