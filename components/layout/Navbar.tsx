@@ -18,7 +18,7 @@ interface NavbarProps {
 const Navbar = ({
   menu = [
     { title: 'Home', url: '/' },
-    { title: 'Services', url: '#' },
+    { title: 'Services', url: '/services' },
     { title: 'How it works', url: '/how_it_works' },
     { title: 'Testimonials', url: '#' },
     { title: 'Contact me', url: '/contact' },
