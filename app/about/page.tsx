@@ -16,7 +16,9 @@ export default function AboutMePage() {
 
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-start gap-8">
         <div className="md:w-2/3 text-left text-amber-800 !font-thin space-y-4">
-          <h2 className="text-4xl text-amber-800 !font-thin text-center md:text-left pb-2 pt-2">Welcome, I’m Zhenya.</h2>
+          <h2 className="text-4xl text-amber-800 !font-thin text-center md:text-left pb-2 pt-2">
+            Welcome, I’m Zhenya.
+          </h2>
           <div className="mt-4 h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent w-20 md:w-36 lg:w-72 md:max-w-[720px] mx-auto md:mx-0" />
           <p className="pb-4 pt-4">
             I’m a sound healer with a background in psychotherapy. Crystal Harp Healing was born
@@ -29,9 +31,10 @@ export default function AboutMePage() {
             ground your body, and reconnect with your natural rhythm of peace.
           </p>
 
-          <p  className="pb-2">
-            This practice is an invitation to tune inward — to experience sound not just as something
-            you hear, but as something you feel, guiding you gently back to balance and wholeness.
+          <p className="pb-2">
+            This practice is an invitation to tune inward — to experience sound not just as
+            something you hear, but as something you feel, guiding you gently back to balance and
+            wholeness.
           </p>
         </div>
 
@@ -42,17 +45,11 @@ export default function AboutMePage() {
             width={4367}
             height={5287}
             className="rounded-lg object-cover"
+            priority
           />
         </div>
       </div>
-<Footer />
+      <Footer />
     </main>
-
-
-
   )
 }
-
-
-
-

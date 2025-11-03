@@ -38,6 +38,7 @@ export default function Testimonials() {
             width={3857}
             height={3944}
             className="rounded-lg object-cover"
+            priority
           />
         </div>
       </div>
