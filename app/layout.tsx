@@ -4,6 +4,7 @@ import { openSans, lato, ebGaramond, raleway } from '@/app/ui/fonts'
 import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Navbar } from '@/components/layout/Navbar'
+import Script from 'next/script'
 
 export const metadata: Metadata = {
   title: 'CRYSTAL HARP HEALING',
@@ -71,6 +72,18 @@ export default function RootLayout({
       lang="en"
       className={`${openSans.variable} ${lato.variable} ${ebGaramond.variable} ${raleway.variable}`}
     >
+      <head>
+        {/* Google Analytics */}
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-0N05J9MRPE" />
+        <Script id="google-analytics">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-0N05J9MRPE');
+          `}
+        </Script>
+      </head>
       <body suppressHydrationWarning className={`antialiased`}>
         <Navbar />
         {children}
