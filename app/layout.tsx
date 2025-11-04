@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     title: 'CRYSTAL HARP HEALING',
     description:
       'Heading Vibrational therapy for emotional balance, deep rest, and inner alignment.',
-    url: 'https://example.com',
+    url: 'https://www.crystalharphealing.com/',
     images: [
       {
         url: '/hires/005.png',
@@ -36,8 +36,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'CRYSTAL HARP HEALING',
-    description:
-      'Vibrational therapy for emotional balance, deep rest, and inner alignment.',
+    description: 'Vibrational therapy for emotional balance, deep rest, and inner alignment.',
     images: ['/hires/005.png'],
   },
 }
@@ -52,9 +51,8 @@ export default function RootLayout({
       lang="en"
       className={`${openSans.variable} ${lato.variable} ${ebGaramond.variable} ${raleway.variable}`}
     >
-
       <body suppressHydrationWarning className={`antialiased`}>
-      <Navbar />
+        <Navbar />
         {children}
 
         <Analytics />
