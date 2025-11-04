@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     url: 'https://www.crystalharphealing.com/',
     images: [
       {
-        url: '/hires/005.png',
+        url: '/hero.png',
         width: 1200,
         height: 630,
       },
