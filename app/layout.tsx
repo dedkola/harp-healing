@@ -7,7 +7,26 @@ import { Navbar } from '@/components/layout/Navbar'
 
 export const metadata: Metadata = {
   title: 'CRYSTAL HARP HEALING',
-  description: 'Heading Vibrational therapy for emotional balance, deep rest, and inner alignment.',
+  description:
+    'Vibrational healing for emotional balance, nervous system regulation, and inner alignment.',
+  keywords: [
+    'Crystal Harp Healing',
+    'Vibrational Therapy',
+    'Emotional Balance',
+    'Nervous System Regulation',
+    'Inner Alignment',
+    'Sound Healing',
+    'Wellness',
+    'Holistic Health',
+    'Meditation',
+    'Relaxation',
+  ],
+  authors: [{ name: 'Crystal Harp Healing', url: 'https://www.crystalharphealing.com/' }],
+  creator: 'Crystal Harp Healing',
+  publisher: 'Crystal Harp Healing',
+  applicationName: 'CRYSTAL HARP HEALING',
+  metadataBase: new URL('https://www.crystalharphealing.com/'),
+
   icons: {
     icon: [
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
@@ -21,7 +40,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'CRYSTAL HARP HEALING',
     description:
-      'Heading Vibrational therapy for emotional balance, deep rest, and inner alignment.',
+      'Vibrational healing for emotional balance, nervous system regulation, and inner alignment',
     url: 'https://www.crystalharphealing.com/',
     images: [
       {
@@ -36,7 +55,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'CRYSTAL HARP HEALING',
-    description: 'Vibrational therapy for emotional balance, deep rest, and inner alignment.',
+    description:
+      'Vibrational healing for emotional balance, nervous system regulation, and inner alignment',
     images: ['/hero.png'],
   },
 }
