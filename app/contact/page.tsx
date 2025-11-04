@@ -32,9 +32,9 @@ export default function ContactPage() {
           <p className="pb-2">
             <span className="mx-auto flex flex-col sm:flex-row items-center justify-center gap-4 text-amber-800 !font-thin">
               <a
-                href="mailto:example@email.com"
+                href="mailto:waterzhenya5@gmail.com"
                 className="flex items-center gap-3 text-amber-600 hover:text-amber-700 transition-colors"
-                aria-label="Email example"
+                aria-label="Email"
               >
                 <svg
                   aria-hidden="true"
@@ -49,15 +49,15 @@ export default function ContactPage() {
                   <rect x="3" y="6" width="18" height="12" rx="2" />
                   <path d="M3 8.5L12 13l9-4.5" />
                 </svg>
-                <span className="underline">{`example@email.com`}</span>
+                <span className="underline">{`waterzhenya5@gmail.com`}</span>
               </a>
 
               <span className="hidden sm:block text-amber-400">·</span>
 
               <a
-                href="tel:+11234567890"
+                href="tel:+1323841-2348"
                 className="flex items-center gap-3 text-amber-600 hover:text-amber-700 transition-colors"
-                aria-label="Call +1 (123) 456-7890"
+                aria-label="Call +1 (323) 841-2348"
               >
                 <svg
                   aria-hidden="true"
