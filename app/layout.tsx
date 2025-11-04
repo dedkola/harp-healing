@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'CRYSTAL HARP HEALING',
     description: 'Vibrational therapy for emotional balance, deep rest, and inner alignment.',
-    images: ['/hires/005.png'],
+    images: ['/hero.png'],
   },
 }
 
