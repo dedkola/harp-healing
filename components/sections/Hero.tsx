@@ -1,25 +1,108 @@
 'use client'
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
 
 export default function Hero() {
   const [isPressed, setIsPressed] = useState(false)
+  const [isPlaying, setIsPlaying] = useState(false)
+  const [audioError, setAudioError] = useState(false)
+  const audioRef = useRef<HTMLAudioElement | null>(null)
 
-  const handleTouch = () => {
+  useEffect(() => {
+    // Initialize audio element for cross-platform compatibility
+    if (typeof window !== 'undefined') {
+      audioRef.current = new Audio('/sound_healing.mp3')
+      audioRef.current.preload = 'metadata' // Changed from 'auto' for better compatibility
+
+      // Add event listeners
+      const handleEnded = () => {
+        setIsPlaying(false)
+      }
+
+      const handleError = () => {
+        console.error('Audio failed to load')
+        setAudioError(true)
+        setIsPlaying(false)
+      }
+
+      const handleCanPlay = () => {
+        setAudioError(false)
+      }
+
+      if (audioRef.current) {
+        audioRef.current.addEventListener('ended', handleEnded)
+        audioRef.current.addEventListener('error', handleError)
+        audioRef.current.addEventListener('canplay', handleCanPlay)
+      }
+
+      return () => {
+        if (audioRef.current) {
+          audioRef.current.removeEventListener('ended', handleEnded)
+          audioRef.current.removeEventListener('error', handleError)
+          audioRef.current.removeEventListener('canplay', handleCanPlay)
+        }
+      }
+    }
+  }, [])
+
+  const handleTouch = async (e: React.MouseEvent | React.TouchEvent) => {
+    e.preventDefault() // Prevent any default behavior
     setIsPressed(true)
+
+    // Play sound with cross-platform compatibility
+    if (audioRef.current && !audioError) {
+      try {
+        // Stop current playback if playing
+        if (!audioRef.current.paused) {
+          audioRef.current.pause()
+        }
+
+        // Reset audio to beginning
+        audioRef.current.currentTime = 0
+        setIsPlaying(true)
+
+        // Play audio - works for both desktop and mobile
+        const playPromise = audioRef.current.play()
+
+        if (playPromise !== undefined) {
+          playPromise
+            .then(() => {
+              // Audio started successfully
+              console.log('Audio playback started')
+            })
+            .catch((error) => {
+              console.warn('Audio playback failed:', error)
+              setIsPlaying(false)
+              setAudioError(true)
+            })
+        }
+      } catch (error) {
+        console.warn('Audio playback error:', error)
+        setIsPlaying(false)
+        setAudioError(true)
+      }
+    }
 
     // Reset button effect after 300ms
     setTimeout(() => setIsPressed(false), 300)
   }
 
+  const stopAudio = () => {
+    if (audioRef.current && !audioRef.current.paused) {
+      audioRef.current.pause()
+      audioRef.current.currentTime = 0
+      setIsPlaying(false)
+    }
+  }
+
   return (
-    <section className="w-full text-center  py-10">
+    <section className="w-full text-center py-10">
       {/* Title */}
-      <h1 className="text-[2.2rem] sm:text-5xl md:text-7xl lg:text-8xl text-amber-800  mb-10 drop-shadow-sm !font-light md:!font-thin">
+      <h1 className="text-[2.2rem] sm:text-5xl md:text-7xl lg:text-8xl text-amber-800 mb-10 drop-shadow-sm !font-light md:!font-thin">
         Crystal Harp Healing
       </h1>
 
-      <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mb-20 "></div>
+      <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mb-20"></div>
 
       {/* Image */}
       <div className="w-full flex justify-center">
@@ -38,71 +121,39 @@ export default function Hero() {
 
       {/* Text + Button */}
       <div className="">
-        <p className=" text-4xl  text-amber-800 font-thin mt-10">
+        <p className="text-4xl text-amber-800 font-thin mt-10">
           Vibrational healing for emotional balance, nervous system regulation, and inner alignment
         </p>
-        {/*<button className="bg-[#E1D4C7] text-[#211101] px-6 py-3 text-amber-800 font-thin rounded-md border border-[#c19a6b] hover:bg-[#e9d8ca] transition  mt-10">*/}
-        {/*  Experience the Sound*/}
-        {/*</button>*/}
 
-        {/*<button className="relative overflow-hidden bg-gradient-to-r from-[#E1D4C7] via-[#f3e8db] to-[#E1D4C7]*/}
-        {/*         text-[#211101] px-6 py-3 text-amber-800 font-thin rounded-md border border-[#c19a6b]*/}
-        {/*         transition mt-10 gradient-animate">*/}
-        {/*    Experience the Sound*/}
-        {/*</button>*/}
-        <button
-          className={`bg-[#E1D4C7]  px-6 py-3 text-amber-800 font-thin rounded-md border border-[#c19a6b] transition-all duration-300 hover:shadow-[0_0_20px_rgba(193,154,107,0.5)] hover:scale-105 mt-10 ${
-            isPressed ? 'shadow-[0_0_20px_rgba(193,154,107,0.5)] scale-105' : ''
-          }`}
-          onTouchStart={handleTouch}
-          onClick={handleTouch}
-        >
-          Experience the Sound
-        </button>
+        <div className="flex flex-col items-center gap-4 mt-10">
+          <button
+            className={`bg-[#E1D4C7] px-6 py-3 text-amber-800 font-thin rounded-md border border-[#c19a6b] transition-all duration-300 hover:shadow-[0_0_20px_rgba(193,154,107,0.5)] hover:scale-105 ${
+              isPressed ? 'shadow-[0_0_20px_rgba(193,154,107,0.5)] scale-105' : ''
+            } ${isPlaying ? 'bg-[#c19a6b] text-white' : ''} ${
+              audioError ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'
+            }`}
+            onMouseDown={handleTouch}
+            onTouchStart={handleTouch}
+            disabled={audioError}
+            aria-label="Play healing sound experience"
+          >
+            {audioError ? 'Audio Unavailable' : isPlaying ? 'Playing...' : 'Experience the Sound'}
+          </button>
 
-        <p className=" text-lg md:text-xl mb-6 text-amber-800 font-thin mt-10">
+          {isPlaying && (
+            <button
+              className="text-amber-800 underline text-sm hover:text-amber-600 transition-colors"
+              onClick={stopAudio}
+            >
+              Stop Audio
+            </button>
+          )}
+        </div>
+
+        <p className="text-lg md:text-xl mb-6 text-amber-800 font-thin mt-10">
           In-person in Los Angeles & Online Worldwide
         </p>
-        {/* <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10"></div> */}
       </div>
     </section>
   )
 }
-
-// 'use client'
-
-// export default function Heronew4hg() {
-//   return (
-
-// <>
-
-//     <section className="flex justify-center items-center p-6">
-//       <div className="max-w-8xl w-full rounded-2xl shadow-md overflow-hidden">
-//         {/* Image Background Section */}
-//         <div
-//           className="relative w-full flex flex-col items-center justify-center bg-center bg-contain bg-no-repeat min-h-[600px]"
-//           style={{
-//             backgroundImage: "url('/hires/005c.png')",
-//             backgroundRepeat: "no-repeat",
-//           }}
-//         >
-
-//         </div>
-//       </div>
-//     </section>
-
-//     <div className="space-y-8">
-//  <h1 className="relative text-8xl text-amber-800 text-center mt-10 md:mt-16 drop-shadow-sm !font-thin"> PSYCHO-SOUND HEALING </h1>
-
-//             <div className="text-center">
-//               <p className="text-[#211101] text-lg md:text-xl mb-6">
-//                 Healing through Sound, Psychology, and Presence
-//               </p>
-//               <button className="bg-[#E1D4C7] text-[#211101] px-6 py-3 rounded-md shadow hover:bg-[#e9d8ca] transition">
-//                 Book a Session
-//               </button>
-//             </div>
-//           </div>
-//   </>
-//   )
-// }
