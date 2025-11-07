@@ -126,7 +126,7 @@ export default function ContactPage() {
                 required
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="min-w-0 w-full px-4 py-3 rounded-lg border border-[#c19a6b]/30 bg-white/50 text-amber-900 placeholder:text-amber-800/50 focus:outline-none focus:ring-2 focus:ring-[#c19a6b]/50 focus:border-transparent transition-all"
+                className="w-full px-4 py-3 rounded-lg border border-[#c19a6b]/30 bg-white/50 text-amber-900 placeholder:text-amber-800/50 focus:outline-none focus:ring-2 focus:ring-[#c19a6b]/50 focus:border-transparent transition-all text-[16px]"
               />
             </div>
 
@@ -138,7 +138,7 @@ export default function ContactPage() {
                 required
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="min-w-0 w-full px-4 py-3 rounded-lg border border-[#c19a6b]/30 bg-white/50 text-amber-900 placeholder:text-amber-800/50 focus:outline-none focus:ring-2 focus:ring-[#c19a6b]/50 focus:border-transparent transition-all"
+                className=" w-full px-4 py-3 rounded-lg border border-[#c19a6b]/30 bg-white/50 text-amber-900 placeholder:text-amber-800/50 focus:outline-none focus:ring-2 focus:ring-[#c19a6b]/50 focus:border-transparent transition-all text-[16px]"
               />
             </div>
 
