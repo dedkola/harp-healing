@@ -3,9 +3,9 @@
   
   # Crystal Harp Healing Website
 
-  A modern, responsive website for psycho-sound healing services, built with Next.js and TypeScript.
+A modern, responsive website for psycho-sound healing services, built with Next.js and TypeScript.
 
-  [Live Demo](https://www.crystalharphealing.com) • [Report Bug](../../issues)
+[Live Demo](https://www.crystalharphealing.com) • [Report Bug](../../issues)
 
 </div>
 
@@ -23,6 +23,10 @@ This is a professional wellness website showcasing **Crystal Harp Healing** serv
 - 🎯 **SEO Optimized** - Comprehensive meta tags, Open Graph, and sitemap
 - 🚀 **Performance** - Optimized images, fonts, and analytics integration
 - ♿ **Accessible** - Semantic HTML and ARIA support
+- 🗄️ **Database Integration** - PostgreSQL with Prisma ORM for data management
+- 🔐 **Protected Dashboard** - HTTP Basic Authentication for admin access
+- 📝 **User Signup** - Newsletter/waitlist signup form with database storage
+- 🤖 **Bot Protection** - Google reCAPTCHA v2 integration on signup forms
 
 ## 🛠️ Tech Stack
 
@@ -31,6 +35,10 @@ This is a professional wellness website showcasing **Crystal Harp Healing** serv
 - **Styling:** Tailwind CSS 4
 - **UI Components:** shadcn/ui, Radix UI
 - **Icons:** Lucide React, Heroicons
+- **Database:** PostgreSQL
+- **ORM:** Prisma with Accelerate extension
+- **Authentication:** HTTP Basic Auth middleware
+- **Security:** Google reCAPTCHA v2
 - **Analytics:** Vercel Analytics, Google Analytics
 - **Fonts:** Google Fonts (Open Sans, Lato, EB Garamond, Raleway)
 
@@ -38,28 +46,59 @@ This is a professional wellness website showcasing **Crystal Harp Healing** serv
 
 ### Prerequisites
 
-- Node.js 20+ 
+- Node.js 20+
 - pnpm (recommended) or npm
 
 ### Installation
 
 1. Clone the repository:
+
    ```bash
-   git clone https://github.com/yourusername/harp-healing.git
+   git clone https://github.com/dedkola/harp-healing.git
    cd harp-healing
    ```
 
 2. Install dependencies:
+
    ```bash
    pnpm install
    ```
 
-3. Run the development server:
+3. Set up environment variables:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+   Configure the following variables in `.env`:
+
+   ```env
+   # Database
+   DATABASE_URL="postgresql://user:password@localhost:5432/harphealing"
+
+   # Dashboard Authentication
+   BASIC_AUTH_USER="your_username"
+   BASIC_AUTH_PASS="your_password"
+
+   # Google reCAPTCHA
+   NEXT_PUBLIC_RECAPTCHA_SITE_KEY="your_recaptcha_site_key"
+   RECAPTCHA_SECRET_KEY="your_recaptcha_secret_key"
+   ```
+
+4. Set up the database:
+
+   ```bash
+   pnpm prisma migrate dev
+   pnpm prisma generate
+   ```
+
+5. Run the development server:
+
    ```bash
    pnpm dev
    ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+6. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## 📁 Project Structure
 
@@ -68,9 +107,14 @@ harp-healing/
 ├── app/                    # Next.js app directory
 │   ├── about/             # About page
 │   ├── contact/           # Contact page
+│   ├── dashboard/         # Protected admin dashboard
 │   ├── offerings/         # Services page
 │   ├── reflections/       # Testimonials page
+│   ├── signup/            # User signup page
 │   ├── why_sound_heals/   # Educational content
+│   ├── api/               # API routes
+│   │   ├── signup/        # Signup API endpoint
+│   │   └── users/         # User management API
 │   ├── ui/                # UI utilities (fonts)
 │   ├── layout.tsx         # Root layout
 │   └── page.tsx           # Home page
@@ -78,8 +122,13 @@ harp-healing/
 │   ├── layout/           # Layout components (Navbar)
 │   ├── sections/         # Page sections (Hero, Footer)
 │   └── ui/               # shadcn/ui components
-├── public/               # Static assets
-└── lib/                  # Utility functions
+├── prisma/               # Database schema and migrations
+│   └── schema.prisma     # Prisma schema definition
+├── lib/                  # Utility functions
+│   ├── prisma.ts         # Prisma client instance
+│   └── utils.ts          # Helper functions
+├── middleware.ts         # Auth middleware for protected routes
+└── public/               # Static assets
 ```
 
 ## 🎨 Customization
@@ -87,6 +136,7 @@ harp-healing/
 ### Colors
 
 The site uses a consistent color palette defined in Tailwind CSS:
+
 - Primary: `#92400E` (amber-800)
 - Accents: `#c19a6b`, `#E1D4C7`
 - Backgrounds: `#F2EAE0`, `#E1D4C7`
@@ -94,24 +144,81 @@ The site uses a consistent color palette defined in Tailwind CSS:
 ### Fonts
 
 Typography hierarchy is configured in `app/ui/fonts.ts`:
+
 - **Body:** Open Sans
 - **Headings:** Lato
 - **Quotes:** EB Garamond
 - **Buttons:** Raleway
 
+## 🔐 Authentication & Database
+
+### Protected Dashboard
+
+The `/dashboard` route is protected using HTTP Basic Authentication via Next.js middleware. Configure credentials in your `.env` file:
+
+```env
+BASIC_AUTH_USER="your_username"
+BASIC_AUTH_PASS="your_password"
+```
+
+The middleware (`middleware.ts`) intercepts requests to `/dashboard` and prompts for authentication.
+
+### Database Schema
+
+The application uses PostgreSQL with Prisma ORM. The User model stores signup information:
+
+```prisma
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  consent   Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+```
+
+### API Endpoints
+
+- `POST /api/signup` - Create new user signup (with reCAPTCHA verification)
+- `GET /api/users` - Retrieve all users (protected route)
+
+### Google reCAPTCHA
+
+The signup form is protected with Google reCAPTCHA v2 ("I'm not a robot" checkbox) to prevent spam and bot submissions.
+
+**Setup:**
+
+1. Get your reCAPTCHA keys from [Google reCAPTCHA Admin](https://www.google.com/recaptcha/admin)
+2. Choose reCAPTCHA v2 with "I'm not a robot" Checkbox
+3. Add your domain(s) to the allowed list
+4. Configure the keys in your `.env` file:
+
+```env
+NEXT_PUBLIC_RECAPTCHA_SITE_KEY="your_site_key_here"
+RECAPTCHA_SECRET_KEY="your_secret_key_here"
+```
+
+The signup API endpoint validates the reCAPTCHA token server-side before storing user data.
+
+See `PRISMA_SETUP.md` for detailed database setup instructions.
+
 ## 📦 Build & Deploy
 
 ### Build for production:
+
 ```bash
 pnpm build
 ```
 
 ### Start production server:
+
 ```bash
 pnpm start
 ```
 
 ### Deploy to Vercel:
+
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/harp-healing)
 
 ## 📝 Available Scripts
@@ -120,6 +227,9 @@ pnpm start
 - `pnpm build` - Build for production
 - `pnpm start` - Start production server
 - `pnpm lint` - Run ESLint
+- `pnpm prisma migrate dev` - Run database migrations
+- `pnpm prisma generate` - Generate Prisma Client
+- `pnpm prisma studio` - Open Prisma Studio (database GUI)
 
 ## 🤝 Contributing
 
@@ -138,5 +248,5 @@ This project is available as a template for personal and commercial use.
 ---
 
 <div align="center">
-  Made with ❤️ for wellness practitioners
+  Made with ❤️ for wellness practitioners by [@dedkola](https://github.com/dedkola)
 </div>
