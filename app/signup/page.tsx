@@ -155,7 +155,7 @@ export default function ContactPage() {
               disabled={status === 'loading'}
               className="w-full px-6 py-3 bg-gradient-to-r from-[#e1bc8f] via-[#ecd8ae] to-[#e1bc8f] text-amber-900 font-medium rounded-lg hover:shadow-lg hover:scale-[1.02] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {status === 'loading' ? 'Submitting...' : 'Join the Journey'}
+              {status === 'loading' ? 'Submitting...' : 'Get the Updates'}
             </button>
           </form>
 
