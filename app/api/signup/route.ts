@@ -19,7 +19,20 @@ async function verifyRecaptcha(token: string): Promise<boolean> {
     })
 
     const data = await response.json()
-    return data.success && data.score >= 0.5 // Score threshold for v3 (0.0 to 1.0)
+
+    // Log the response for debugging
+    console.log('reCAPTCHA verification response:', {
+      success: data.success,
+      score: data.score,
+      action: data.action,
+      challenge_ts: data['challenge_ts'],
+      hostname: data.hostname,
+      'error-codes': data['error-codes'],
+    })
+
+    // For v3, check score threshold (0.0 to 1.0)
+    // 1.0 is very likely a good interaction, 0.0 is very likely a bot
+    return data.success && data.score >= 0.5
   } catch (error) {
     console.error('reCAPTCHA verification error:', error)
     return false
