@@ -9,7 +9,9 @@ declare global {
   interface Window {
     grecaptcha?: {
       ready: (callback: () => void) => void
-      execute: (siteKey: string, options: { action: string }) => Promise<string>
+      render: (container: string | HTMLElement, parameters: object) => number
+      getResponse: (widgetId?: number) => string
+      reset: (widgetId?: number) => void
     }
   }
 }
@@ -34,61 +36,55 @@ export default function ContactPage() {
       return
     }
 
+    // Get reCAPTCHA response
+    const recaptchaResponse = window.grecaptcha?.getResponse()
+
+    if (!recaptchaResponse) {
+      setStatus('error')
+      setMessage('Please complete the reCAPTCHA verification.')
+      return
+    }
+
     setStatus('loading')
     setMessage('')
 
     try {
-      // Execute reCAPTCHA
-      if (!window.grecaptcha) {
-        throw new Error('reCAPTCHA not loaded')
-      }
-
-      window.grecaptcha.ready(async () => {
-        try {
-          const token = await window.grecaptcha!.execute(
-            process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!,
-            { action: 'submit' }
-          )
-
-          // Submit form with token
-          const response = await fetch('/api/signup', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ ...formData, recaptchaToken: token }),
-          })
-
-          const data = await response.json()
-
-          if (response.ok) {
-            setStatus('success')
-            setMessage(data.message || 'Successfully registered!')
-            setFormData({ name: '', email: '', consent: false })
-          } else {
-            setStatus('error')
-            setMessage(data.error || 'Failed to register')
-          }
-        } catch (error) {
-          setStatus('error')
-          setMessage('An error occurred. Please try again.')
-          console.error('Signup error:', error)
-        }
+      // Submit form with token
+      const response = await fetch('/api/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ ...formData, recaptchaToken: recaptchaResponse }),
       })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        setStatus('success')
+        setMessage(data.message || 'Successfully registered!')
+        setFormData({ name: '', email: '', consent: false })
+        // Reset reCAPTCHA
+        window.grecaptcha?.reset()
+      } else {
+        setStatus('error')
+        setMessage(data.error || 'Failed to register')
+        // Reset reCAPTCHA on error
+        window.grecaptcha?.reset()
+      }
     } catch (error) {
       setStatus('error')
-      setMessage('reCAPTCHA failed to load. Please refresh and try again.')
-      console.error('reCAPTCHA error:', error)
+      setMessage('An error occurred. Please try again.')
+      console.error('Signup error:', error)
+      // Reset reCAPTCHA on error
+      window.grecaptcha?.reset()
     }
   }
 
   return (
     <main className="px-6">
-      {/* Load reCAPTCHA v3 Script - Invisible/Automatic */}
-      <Script
-        src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
-        strategy="afterInteractive"
-      />
+      {/* Load reCAPTCHA v2 Script */}
+      <Script src="https://www.google.com/recaptcha/api.js" strategy="afterInteractive" />
 
       {/* Constrain header to the same centered, padded container as the hero */}
       <div className="mx-auto max-w-5xl">
@@ -144,6 +140,14 @@ export default function ContactPage() {
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 className="w-full px-4 py-3 rounded-lg border border-[#c19a6b]/30 bg-white/50 text-amber-900 placeholder:text-amber-800/50 focus:outline-none focus:ring-2 focus:ring-[#c19a6b]/50 focus:border-transparent transition-all"
               />
+            </div>
+
+            {/* reCAPTCHA v2 Widget */}
+            <div className="flex justify-center">
+              <div
+                className="g-recaptcha"
+                data-sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+              ></div>
             </div>
 
             <button

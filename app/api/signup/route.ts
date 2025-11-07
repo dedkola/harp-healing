@@ -23,16 +23,13 @@ async function verifyRecaptcha(token: string): Promise<boolean> {
     // Log the response for debugging
     console.log('reCAPTCHA verification response:', {
       success: data.success,
-      score: data.score,
-      action: data.action,
       challenge_ts: data['challenge_ts'],
       hostname: data.hostname,
       'error-codes': data['error-codes'],
     })
 
-    // For v3, check score threshold (0.0 to 1.0)
-    // 1.0 is very likely a good interaction, 0.0 is very likely a bot
-    return data.success && data.score >= 0.5
+    // For v2, just check success (no score like v3)
+    return data.success === true
   } catch (error) {
     console.error('reCAPTCHA verification error:', error)
     return false
