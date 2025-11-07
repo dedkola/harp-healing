@@ -1,46 +1,80 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { Footer } from '@/components/sections/Footer'
+import Script from 'next/script'
+
+// Extend Window interface for TypeScript
+declare global {
+  interface Window {
+    handleRecaptchaSubmit?: (token: string) => void
+  }
+}
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({ name: '', email: '', consent: false })
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [message, setMessage] = useState('')
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setStatus('loading')
-    setMessage('')
-
-    try {
-      const response = await fetch('/api/signup', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      })
-
-      const data = await response.json()
-
-      if (response.ok) {
-        setStatus('success')
-        setMessage(data.message || 'Successfully registered!')
-        setFormData({ name: '', email: '', consent: false })
-      } else {
+  const handleSubmit = useCallback(
+    async (token: string) => {
+      if (!formData.consent) {
         setStatus('error')
-        setMessage(data.error || 'Failed to register')
+        setMessage('Please agree to receive emails before submitting.')
+        return
       }
-    } catch (error) {
-      setStatus('error')
-      setMessage('An error occurred. Please try again.')
-      console.error('Signup error:', error)
+
+      setStatus('loading')
+      setMessage('')
+
+      try {
+        const response = await fetch('/api/signup', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ ...formData, recaptchaToken: token }),
+        })
+
+        const data = await response.json()
+
+        if (response.ok) {
+          setStatus('success')
+          setMessage(data.message || 'Successfully registered!')
+          setFormData({ name: '', email: '', consent: false })
+        } else {
+          setStatus('error')
+          setMessage(data.error || 'Failed to register')
+        }
+      } catch (error) {
+        setStatus('error')
+        setMessage('An error occurred. Please try again.')
+        console.error('Signup error:', error)
+      }
+    },
+    [formData]
+  )
+
+  // Expose handleSubmit to window for reCAPTCHA callback
+  useEffect(() => {
+    window.handleRecaptchaSubmit = handleSubmit
+    return () => {
+      delete window.handleRecaptchaSubmit
     }
-  }
+  }, [handleSubmit])
 
   return (
     <main className="px-6">
+      {/* Load reCAPTCHA v3 Script */}
+      <Script src="https://www.google.com/recaptcha/api.js" strategy="afterInteractive" />
+      <Script id="recaptcha-callback" strategy="afterInteractive">
+        {`
+          function onSubmit(token) {
+            window.handleRecaptchaSubmit(token);
+          }
+        `}
+      </Script>
+
       {/* Constrain header to the same centered, padded container as the hero */}
       <div className="mx-auto max-w-5xl">
         <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10"></div>
@@ -72,7 +106,7 @@ export default function ContactPage() {
           )}
 
           {/* Signup Form */}
-          <form onSubmit={handleSubmit} className="space-y-6 mt-8 mb-8">
+          <form className="space-y-6 mt-8 mb-8">
             <div>
               <input
                 type="text"
@@ -100,7 +134,10 @@ export default function ContactPage() {
             <button
               type="submit"
               disabled={status === 'loading'}
-              className="w-full px-6 py-3 bg-gradient-to-r from-[#e1bc8f] via-[#ecd8ae] to-[#e1bc8f] text-amber-900 font-medium rounded-lg hover:shadow-lg hover:scale-[1.02] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="g-recaptcha w-full px-6 py-3 bg-gradient-to-r from-[#e1bc8f] via-[#ecd8ae] to-[#e1bc8f] text-amber-900 font-medium rounded-lg hover:shadow-lg hover:scale-[1.02] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              data-sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+              data-callback="onSubmit"
+              data-action="submit"
             >
               {status === 'loading' ? 'Submitting...' : 'Join the Journey'}
             </button>
