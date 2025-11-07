@@ -99,7 +99,7 @@ export default function ContactPage() {
 
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8">
         <div className="w-full md:w-2/3 max-w-md text-center text-amber-800 !font-thin space-y-4">
-          <h2 className="text-3xl sm:text-4xl text-amber-800 font-thin! pb-2 pt-2 px-2">
+          <h2 className="text-2xl sm:text-4xl text-amber-800 font-thin! pb-2 pt-2 px-2">
             Join for session openings, meditations, and workshops.
           </h2>
           <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10"></div>
