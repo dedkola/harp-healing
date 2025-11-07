@@ -115,6 +115,7 @@ export default function Hero() {
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px"
           quality="75"
           priority
+          fetchPriority="high"
         />
       </div>
       <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent pp-2"></div>
