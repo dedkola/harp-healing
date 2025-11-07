@@ -82,7 +82,7 @@ export default function ContactPage() {
   }
 
   return (
-    <main className="px-6">
+    <main className="px-4 sm:px-6">
       {/* Load reCAPTCHA v2 Script */}
       <Script src="https://www.google.com/recaptcha/api.js" strategy="afterInteractive" />
 
@@ -90,7 +90,7 @@ export default function ContactPage() {
       <div className="mx-auto max-w-5xl">
         <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10"></div>
 
-        <h1 className="text-[2.2rem] sm:text-5xl md:text-7xl lg:text-8xl text-amber-800 mb-10 drop-shadow-sm !font-light md:!font-thin text-center my-8">
+        <h1 className="text-[1.75rem] sm:text-5xl md:text-7xl lg:text-8xl text-amber-800 mb-10 drop-shadow-sm !font-light md:!font-thin text-center my-8 px-2">
           Experience calm, clarity, and nervous-system balance
         </h1>
 
@@ -98,8 +98,8 @@ export default function ContactPage() {
       </div>
 
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8">
-        <div className="md:w-2/3 text-center text-amber-800 !font-thin space-y-4">
-          <h2 className="text-4xl text-amber-800 !font-thin pb-2 pt-2">
+        <div className="w-full md:w-2/3 max-w-md text-center text-amber-800 !font-thin space-y-4">
+          <h2 className="text-3xl sm:text-4xl text-amber-800 font-thin! pb-2 pt-2 px-2">
             Join for session openings, meditations, and workshops.
           </h2>
           <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10"></div>
@@ -142,12 +142,14 @@ export default function ContactPage() {
               />
             </div>
 
-            {/* reCAPTCHA v2 Widget */}
-            <div className="flex justify-center">
-              <div
-                className="g-recaptcha"
-                data-sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
-              ></div>
+            {/* reCAPTCHA v2 Widget - with responsive container */}
+            <div className="flex justify-center overflow-hidden">
+              <div className="scale-[0.85] sm:scale-100 origin-center">
+                <div
+                  className="g-recaptcha"
+                  data-sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                ></div>
+              </div>
             </div>
 
             <button
@@ -159,7 +161,7 @@ export default function ContactPage() {
             </button>
           </form>
 
-          <div className="flex items-center justify-center gap-3 mt-6">
+          <div className="flex items-start justify-center gap-3 mt-6 px-2">
             <input
               type="checkbox"
               id="email-consent"
@@ -167,11 +169,11 @@ export default function ContactPage() {
               required
               checked={formData.consent}
               onChange={(e) => setFormData({ ...formData, consent: e.target.checked })}
-              className="w-5 h-5 rounded border-2 border-[#c19a6b]/50 bg-white/50 text-[#c19a6b] focus:ring-2 focus:ring-[#c19a6b]/50 focus:ring-offset-0 cursor-pointer transition-all checked:bg-[#c19a6b] checked:border-[#c19a6b] accent-[#c19a6b]"
+              className="w-5 h-5 mt-1 flex-shrink-0 rounded border-2 border-[#c19a6b]/50 bg-white/50 text-[#c19a6b] focus:ring-2 focus:ring-[#c19a6b]/50 focus:ring-offset-0 cursor-pointer transition-all checked:bg-[#c19a6b] checked:border-[#c19a6b] accent-[#c19a6b]"
             />
             <label
               htmlFor="email-consent"
-              className="text-2xl !font-thin text-amber-800 cursor-pointer"
+              className="text-lg sm:text-2xl font-thin! text-amber-800 cursor-pointer text-left"
             >
               I agree to receive emails and understand I can unsubscribe anytime.
             </label>
