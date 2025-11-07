@@ -1,6 +1,44 @@
-import React from 'react'
+'use client'
+
+import React, { useState } from 'react'
 import { Footer } from '@/components/sections/Footer'
+
 export default function ContactPage() {
+  const [formData, setFormData] = useState({ name: '', email: '', consent: false })
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [message, setMessage] = useState('')
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setStatus('loading')
+    setMessage('')
+
+    try {
+      const response = await fetch('/api/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        setStatus('success')
+        setMessage(data.message || 'Successfully registered!')
+        setFormData({ name: '', email: '', consent: false })
+      } else {
+        setStatus('error')
+        setMessage(data.error || 'Failed to register')
+      }
+    } catch (error) {
+      setStatus('error')
+      setMessage('An error occurred. Please try again.')
+      console.error('Signup error:', error)
+    }
+  }
+
   return (
     <main className="px-6">
       {/* Constrain header to the same centered, padded container as the hero */}
@@ -21,14 +59,28 @@ export default function ContactPage() {
           </h2>
           <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10"></div>
 
+          {/* Status Messages */}
+          {status === 'success' && (
+            <div className="p-4 rounded-lg bg-green-50 border border-green-200 text-green-800">
+              {message}
+            </div>
+          )}
+          {status === 'error' && (
+            <div className="p-4 rounded-lg bg-red-50 border border-red-200 text-red-800">
+              {message}
+            </div>
+          )}
+
           {/* Signup Form */}
-          <form className="space-y-6 mt-8 mb-8">
+          <form onSubmit={handleSubmit} className="space-y-6 mt-8 mb-8">
             <div>
               <input
                 type="text"
                 name="name"
                 placeholder="Your Name"
                 required
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 className="w-full px-4 py-3 rounded-lg border border-[#c19a6b]/30 bg-white/50 text-amber-900 placeholder:text-amber-800/50 focus:outline-none focus:ring-2 focus:ring-[#c19a6b]/50 focus:border-transparent transition-all"
               />
             </div>
@@ -39,15 +91,18 @@ export default function ContactPage() {
                 name="email"
                 placeholder="Your Email"
                 required
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 className="w-full px-4 py-3 rounded-lg border border-[#c19a6b]/30 bg-white/50 text-amber-900 placeholder:text-amber-800/50 focus:outline-none focus:ring-2 focus:ring-[#c19a6b]/50 focus:border-transparent transition-all"
               />
             </div>
 
             <button
               type="submit"
-              className="w-full px-6 py-3 bg-gradient-to-r from-[#e1bc8f] via-[#ecd8ae] to-[#e1bc8f] text-amber-900 font-medium rounded-lg hover:shadow-lg hover:scale-[1.02] transition-all duration-200"
+              disabled={status === 'loading'}
+              className="w-full px-6 py-3 bg-gradient-to-r from-[#e1bc8f] via-[#ecd8ae] to-[#e1bc8f] text-amber-900 font-medium rounded-lg hover:shadow-lg hover:scale-[1.02] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Join the Journey
+              {status === 'loading' ? 'Submitting...' : 'Join the Journey'}
             </button>
           </form>
 
@@ -57,6 +112,8 @@ export default function ContactPage() {
               id="email-consent"
               name="consent"
               required
+              checked={formData.consent}
+              onChange={(e) => setFormData({ ...formData, consent: e.target.checked })}
               className="w-5 h-5 rounded border-2 border-[#c19a6b]/50 bg-white/50 text-[#c19a6b] focus:ring-2 focus:ring-[#c19a6b]/50 focus:ring-offset-0 cursor-pointer transition-all checked:bg-[#c19a6b] checked:border-[#c19a6b] accent-[#c19a6b]"
             />
             <label
