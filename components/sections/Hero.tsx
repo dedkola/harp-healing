@@ -113,7 +113,7 @@ export default function Hero() {
           width="2500"
           height="1042"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px"
-          quality="[75,90]"
+          quality="75]"
           priority
         />
       </div>
