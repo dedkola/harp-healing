@@ -32,7 +32,7 @@ export default function ContactPage() {
           <p className="pb-2">
             <span className="mx-auto flex flex-col sm:flex-row items-center justify-center gap-4 text-amber-800 !font-thin">
               <a
-                href="mailto:crystalharphealing@gmail.com"
+                href="mailto:connect@crystalharphealing.com"
                 className="flex items-center gap-3 text-amber-600 hover:text-amber-700 transition-colors"
                 aria-label="Email"
               >
@@ -49,7 +49,7 @@ export default function ContactPage() {
                   <rect x="3" y="6" width="18" height="12" rx="2" />
                   <path d="M3 8.5L12 13l9-4.5" />
                 </svg>
-                <span className="underline">{`crystalharphealing@gmail.com`}</span>
+                <span className="underline">{`connect@crystalharphealing.com`}</span>
               </a>
 
               <span className="hidden sm:block text-amber-400">·</span>
