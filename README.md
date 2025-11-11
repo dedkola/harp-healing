@@ -26,7 +26,7 @@ This is a professional wellness website showcasing **Crystal Harp Healing** serv
 - 🗄️ **Database Integration** - PostgreSQL with Prisma ORM for data management
 - 🔐 **Protected Dashboard** - HTTP Basic Authentication for admin access
 - 📝 **User Signup** - Newsletter/waitlist signup form with database storage
-- 🤖 **Bot Protection** - Google reCAPTCHA v2 integration on signup forms
+- 🤖 **Bot Protection** - Cloudflare Turnstile integration on signup forms
 
 ## 🛠️ Tech Stack
 
@@ -38,7 +38,7 @@ This is a professional wellness website showcasing **Crystal Harp Healing** serv
 - **Database:** PostgreSQL
 - **ORM:** Prisma with Accelerate extension
 - **Authentication:** HTTP Basic Auth middleware
-- **Security:** Google reCAPTCHA v2
+- **Security:** Cloudflare Turnstile
 - **Analytics:** Vercel Analytics, Google Analytics
 - **Fonts:** Google Fonts (Open Sans, Lato, EB Garamond, Raleway)
 
@@ -80,9 +80,9 @@ This is a professional wellness website showcasing **Crystal Harp Healing** serv
    BASIC_AUTH_USER="your_username"
    BASIC_AUTH_PASS="your_password"
 
-   # Google reCAPTCHA
-   NEXT_PUBLIC_RECAPTCHA_SITE_KEY="your_recaptcha_site_key"
-   RECAPTCHA_SECRET_KEY="your_recaptcha_secret_key"
+   # Cloudflare Turnstile
+   NEXT_PUBLIC_TURNSTILE_SITE_KEY="your_turnstile_site_key"
+   TURNSTILE_SECRET_KEY="your_turnstile_secret_key"
    ```
 
 4. Set up the database:
@@ -180,26 +180,26 @@ model User {
 
 ### API Endpoints
 
-- `POST /api/signup` - Create new user signup (with reCAPTCHA verification)
+- `POST /api/signup` - Create new user signup (with Turnstile verification)
 - `GET /api/users` - Retrieve all users (protected route)
 
-### Google reCAPTCHA
+### Cloudflare Turnstile
 
-The signup form is protected with Google reCAPTCHA v2 ("I'm not a robot" checkbox) to prevent spam and bot submissions.
+The signup form is protected with Cloudflare Turnstile to prevent spam and bot submissions.
 
 **Setup:**
 
-1. Get your reCAPTCHA keys from [Google reCAPTCHA Admin](https://www.google.com/recaptcha/admin)
-2. Choose reCAPTCHA v2 with "I'm not a robot" Checkbox
+1. Get your Turnstile keys from [Cloudflare Dashboard](https://dash.cloudflare.com/?to=/:account/turnstile)
+2. Create a new site widget
 3. Add your domain(s) to the allowed list
 4. Configure the keys in your `.env` file:
 
 ```env
-NEXT_PUBLIC_RECAPTCHA_SITE_KEY="your_site_key_here"
-RECAPTCHA_SECRET_KEY="your_secret_key_here"
+NEXT_PUBLIC_TURNSTILE_SITE_KEY="your_site_key_here"
+TURNSTILE_SECRET_KEY="your_secret_key_here"
 ```
 
-The signup API endpoint validates the reCAPTCHA token server-side before storing user data.
+The signup API endpoint validates the Turnstile token server-side before storing user data.
 
 See `PRISMA_SETUP.md` for detailed database setup instructions.
 
