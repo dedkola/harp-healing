@@ -39,7 +39,9 @@ This is a professional wellness website showcasing **Crystal Harp Healing** serv
 - **ORM:** Prisma with Accelerate extension
 - **Authentication:** HTTP Basic Auth middleware
 - **Security:** Cloudflare Turnstile
-- **Analytics:** Vercel Analytics, Google Analytics
+- **Analytics:** Google Analytics
+- **Deployment:** Cloudflare Workers with OpenNext
+- **Caching:** Cloudflare R2 (incremental cache)
 - **Fonts:** Google Fonts (Open Sans, Lato, EB Garamond, Raleway)
 
 ## 🚀 Getting Started
@@ -66,24 +68,28 @@ This is a professional wellness website showcasing **Crystal Harp Healing** serv
 
 3. Set up environment variables:
 
+   Create a `.dev.vars` file for local development:
+
    ```bash
-   cp .env.example .env
+   cp .dev.vars.example .dev.vars
    ```
 
-   Configure the following variables in `.env`:
+   Configure the following variables in `.dev.vars`:
 
    ```env
-   # Database
-   DATABASE_URL="postgresql://user:password@localhost:5432/harphealing"
-
    # Dashboard Authentication
    BASIC_AUTH_USER="your_username"
    BASIC_AUTH_PASS="your_password"
+
+   # Database (use Prisma Accelerate URL)
+   DATABASE_URL="prisma://accelerate.prisma-data.net/?api_key=your_api_key"
 
    # Cloudflare Turnstile
    NEXT_PUBLIC_TURNSTILE_SITE_KEY="your_turnstile_site_key"
    TURNSTILE_SECRET_KEY="your_turnstile_secret_key"
    ```
+
+   For production deployment, set these as Cloudflare Worker secrets and environment variables.
 
 4. Set up the database:
 
@@ -99,6 +105,90 @@ This is a professional wellness website showcasing **Crystal Harp Healing** serv
    ```
 
 6. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## ☁️ Cloudflare Workers Deployment
+
+This project is configured to deploy to Cloudflare Workers using [@opennextjs/cloudflare](https://github.com/opennextjs/opennextjs-cloudflare).
+
+### Prerequisites
+
+- Cloudflare account
+- Wrangler CLI installed globally: `npm install -g wrangler`
+- R2 bucket created for incremental cache
+
+### Configuration
+
+The project includes:
+
+- **`wrangler.json`** - Cloudflare Workers configuration
+  - Worker name: `my-app` (update to your preference)
+  - R2 bucket binding for incremental cache
+  - Node.js compatibility enabled
+  - Assets directory configuration
+- **`open-next.config.ts`** - OpenNext configuration with R2 incremental cache
+- **`next.config.ts`** - Next.js config optimized for Cloudflare (standalone output, unoptimized images)
+
+### Setup R2 Bucket
+
+1. Create an R2 bucket for incremental caching:
+
+   ```bash
+   wrangler r2 bucket create harp-healing-next-inc-cache
+   ```
+
+2. Update `wrangler.json` if you use a different bucket name.
+
+### Environment Variables
+
+Set production secrets using Wrangler:
+
+```bash
+# Authentication
+wrangler secret put BASIC_AUTH_USER
+wrangler secret put BASIC_AUTH_PASS
+
+# Database (Prisma Accelerate)
+wrangler secret put DATABASE_URL
+
+# Turnstile
+wrangler secret put TURNSTILE_SECRET_KEY
+```
+
+Set public environment variables:
+
+```bash
+wrangler secret put NEXT_PUBLIC_TURNSTILE_SITE_KEY
+```
+
+### Deploy Commands
+
+```bash
+# Preview deployment locally
+pnpm preview
+
+# Deploy to production
+pnpm deploy
+
+# Upload without deploying
+pnpm upload
+```
+
+### Custom Domain
+
+To use a custom domain:
+
+1. Add your domain to Cloudflare
+2. Go to Workers & Pages → your worker → Settings → Domains
+3. Add custom domain (e.g., `www.crystalharphealing.com`)
+4. Update DNS records as prompted
+
+### Important Cloudflare Workers Considerations
+
+- **Database Access**: Must use Prisma Accelerate (not direct database connections)
+- **Image Optimization**: Next.js image optimization is disabled (`unoptimized: true`) as it's not supported in Workers
+- **Output Mode**: Uses `standalone` output for compatibility with OpenNext
+- **Node.js APIs**: Enabled via `nodejs_compat` flag in wrangler.json
+- **Caching**: Incremental Static Regeneration (ISR) cache stored in R2 bucket
 
 ## 📁 Project Structure
 
@@ -165,7 +255,7 @@ The middleware (`middleware.ts`) intercepts requests to `/dashboard` and prompts
 
 ### Database Schema
 
-The application uses PostgreSQL with Prisma ORM. The User model stores signup information:
+The application uses PostgreSQL with Prisma ORM and Prisma Accelerate for edge compatibility. The User model stores signup information:
 
 ```prisma
 model User {
@@ -177,6 +267,8 @@ model User {
   updatedAt DateTime @updatedAt
 }
 ```
+
+**Note:** When deploying to Cloudflare Workers, you must use Prisma Accelerate to connect to your database, as direct database connections are not supported in the Workers environment.
 
 ### API Endpoints
 
@@ -205,29 +297,58 @@ See `PRISMA_SETUP.md` for detailed database setup instructions.
 
 ## 📦 Build & Deploy
 
-### Build for production:
+### Local Development
 
 ```bash
-pnpm build
+# Development server
+pnpm dev
+
+# Local preview (simulates Cloudflare Workers environment)
+pnpm preview
 ```
 
-### Start production server:
+### Production Deployment
 
 ```bash
-pnpm start
+# Build and deploy to Cloudflare Workers
+pnpm deploy
 ```
 
-### Deploy to Vercel:
+The build process:
+1. Generates Prisma Client
+2. Builds Next.js app in standalone mode
+3. Packages with OpenNext for Cloudflare Workers
+4. Deploys to Cloudflare with R2 incremental caching
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/harp-healing)
+### Alternative: Docker Deployment
+
+A `Dockerfile` is included for traditional container-based deployments (e.g., on VPS, AWS ECS, etc.):
+
+```bash
+# Build Docker image
+docker build -t harp-healing .
+
+# Run container
+docker run -p 3000:3000 harp-healing
+```
+
+Or use Docker Compose:
+
+```bash
+docker compose up
+```
 
 ## 📝 Available Scripts
 
-- `pnpm dev` - Start development server
-- `pnpm build` - Build for production
-- `pnpm start` - Start production server
+- `pnpm dev` - Start Next.js development server
+- `pnpm build` - Build Next.js app for production
+- `pnpm preview` - Build and preview in Cloudflare Workers environment
+- `pnpm deploy` - Build and deploy to Cloudflare Workers
+- `pnpm upload` - Build and upload to Cloudflare (without deploying)
+- `pnpm start` - Start production server (for traditional Node.js hosting)
 - `pnpm lint` - Run ESLint
-- `pnpm prisma migrate dev` - Run database migrations
+- `pnpm cf-typegen` - Generate Cloudflare environment types
+- `pnpm prisma migrate dev` - Run database migrations (development)
 - `pnpm prisma generate` - Generate Prisma Client
 - `pnpm prisma studio` - Open Prisma Studio (database GUI)
 
@@ -242,8 +363,11 @@ This project is available as a template for personal and commercial use.
 ## 🙏 Acknowledgments
 
 - Built with [Next.js](https://nextjs.org/)
+- Deployed on [Cloudflare Workers](https://workers.cloudflare.com/)
+- Powered by [@opennextjs/cloudflare](https://github.com/opennextjs/opennextjs-cloudflare)
 - UI components from [shadcn/ui](https://ui.shadcn.com/)
 - Icons from [Lucide](https://lucide.dev/) and [Heroicons](https://heroicons.com/)
+- Database with [Prisma](https://www.prisma.io/) and [Prisma Accelerate](https://www.prisma.io/accelerate)
 
 ---
 

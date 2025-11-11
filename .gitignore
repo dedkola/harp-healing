@@ -10,7 +10,9 @@
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions
-
+.open-next/
+.wrangler
+.dev.vars
 # testing
 /coverage
 
