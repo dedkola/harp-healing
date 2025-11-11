@@ -2,19 +2,6 @@
 
 import React, { useState } from 'react'
 import { Footer } from '@/components/sections/Footer'
-import Script from 'next/script'
-
-// Extend Window interface for TypeScript
-declare global {
-  interface Window {
-    grecaptcha?: {
-      ready: (callback: () => void) => void
-      render: (container: string | HTMLElement, parameters: object) => number
-      getResponse: (widgetId?: number) => string
-      reset: (widgetId?: number) => void
-    }
-  }
-}
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({ name: '', email: '', consent: false })
@@ -36,26 +23,16 @@ export default function ContactPage() {
       return
     }
 
-    // Get reCAPTCHA response
-    const recaptchaResponse = window.grecaptcha?.getResponse()
-
-    if (!recaptchaResponse) {
-      setStatus('error')
-      setMessage('Please complete the reCAPTCHA verification.')
-      return
-    }
-
     setStatus('loading')
     setMessage('')
 
     try {
-      // Submit form with token
       const response = await fetch('/api/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ ...formData, recaptchaToken: recaptchaResponse }),
+        body: JSON.stringify(formData),
       })
 
       const data = await response.json()
@@ -64,28 +41,19 @@ export default function ContactPage() {
         setStatus('success')
         setMessage(data.message || 'Successfully registered!')
         setFormData({ name: '', email: '', consent: false })
-        // Reset reCAPTCHA
-        window.grecaptcha?.reset()
       } else {
         setStatus('error')
         setMessage(data.error || 'Failed to register')
-        // Reset reCAPTCHA on error
-        window.grecaptcha?.reset()
       }
     } catch (error) {
       setStatus('error')
       setMessage('An error occurred. Please try again.')
       console.error('Signup error:', error)
-      // Reset reCAPTCHA on error
-      window.grecaptcha?.reset()
     }
   }
 
   return (
     <main className="px-4 sm:px-6">
-      {/* Load reCAPTCHA v2 Script */}
-      <Script src="https://www.google.com/recaptcha/api.js" strategy="afterInteractive" />
-
       {/* Constrain header to the same centered, padded container as the hero */}
       <div className="mx-auto max-w-5xl">
         <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10"></div>
@@ -140,16 +108,6 @@ export default function ContactPage() {
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 className=" w-full px-4 py-3 rounded-lg border border-[#c19a6b]/30 bg-white/50 text-amber-900 placeholder:text-amber-800/50 focus:outline-none focus:ring-2 focus:ring-[#c19a6b]/50 focus:border-transparent transition-all text-[16px]"
               />
-            </div>
-
-            {/* reCAPTCHA v2 Widget - with responsive container */}
-            <div className="flex justify-center overflow-hidden">
-              <div className="scale-[0.85] sm:scale-100 origin-center">
-                <div
-                  className="g-recaptcha"
-                  data-sitekey="6LdfbwgsAAAAAHNCQUoJ1U1yai5VyVrQ1Jmafpnh"
-                ></div>
-              </div>
             </div>
 
             <button
