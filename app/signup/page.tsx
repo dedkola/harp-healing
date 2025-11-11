@@ -2,11 +2,13 @@
 
 import React, { useState } from 'react'
 import { Footer } from '@/components/sections/Footer'
+import { Turnstile } from '@marsidev/react-turnstile'
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({ name: '', email: '', consent: false })
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [message, setMessage] = useState('')
+  const [turnstileToken, setTurnstileToken] = useState('')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -23,6 +25,12 @@ export default function ContactPage() {
       return
     }
 
+    if (!turnstileToken) {
+      setStatus('error')
+      setMessage('Please complete the verification challenge.')
+      return
+    }
+
     setStatus('loading')
     setMessage('')
 
@@ -32,7 +40,7 @@ export default function ContactPage() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, turnstileToken }),
       })
 
       const data = await response.json()
@@ -41,6 +49,7 @@ export default function ContactPage() {
         setStatus('success')
         setMessage(data.message || 'Successfully registered!')
         setFormData({ name: '', email: '', consent: false })
+        setTurnstileToken('')
       } else {
         setStatus('error')
         setMessage(data.error || 'Failed to register')
@@ -107,6 +116,22 @@ export default function ContactPage() {
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 className=" w-full px-4 py-3 rounded-lg border border-[#c19a6b]/30 bg-white/50 text-amber-900 placeholder:text-amber-800/50 focus:outline-none focus:ring-2 focus:ring-[#c19a6b]/50 focus:border-transparent transition-all text-[16px]"
+              />
+            </div>
+
+            {/* Turnstile Widget */}
+            <div className="flex justify-center">
+              <Turnstile
+                siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || '1x00000000000000000000AA'}
+                onSuccess={(token) => setTurnstileToken(token)}
+                onError={() => {
+                  setStatus('error')
+                  setMessage('Verification failed. Please try again.')
+                }}
+                onExpire={() => setTurnstileToken('')}
+                options={{
+                  theme: 'light',
+                }}
               />
             </div>
 
