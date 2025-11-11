@@ -147,7 +147,7 @@ export default function ContactPage() {
               <div className="scale-[0.85] sm:scale-100 origin-center">
                 <div
                   className="g-recaptcha"
-                  data-sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                  data-sitekey="6LdPsIgqAAAAAFBJz8A7BVgvBLFZEcAHm8uMsZh-"
                 ></div>
               </div>
             </div>
