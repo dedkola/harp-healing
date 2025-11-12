@@ -348,6 +348,99 @@ export default function Testimonials() {
           </>
         }
       />
+      <br></br>
+
+      <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mb-10"></div>
+      <TestimonialCard
+        author="Ivonne"
+        role=" Massage Therapist"
+        // imageSrc="/hires/maria.jpg"
+        content={
+          <>
+            I had an amazing healing session with Zhenya. It took me a few days to process what
+            transpired during the session. I went into it thinking I had to work on my throat
+            Chakra, but it was my sacrum Chakra that spoke and{' '}
+            <b>released some blockage from childhood trauma</b>. It was my first time experiencing a
+            Crystal Harp healing session and will definitely not be the last. Thank you Zhenya for
+            holding space during this process. You are so kind and have a beautiful gift.
+          </>
+        }
+      />
+      <br></br>
+
+      <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mb-10"></div>
+      <TestimonialCard
+        author="Yana"
+        role=" Fashion Buyer "
+        // imageSrc="/hires/maria.jpg"
+        content={
+          <>
+            I recently had a crystal harp healing session with Zhenya at my home, and it was
+            absolutely incredible. She created the most calming, spa-like atmosphere right in my own
+            space, soothing, grounding, and beautifully relaxing. The sound of the crystal harp was
+            mesmerizing and immediately <b>helped me unwind</b>. What made this experience so
+            special was that it not only helped me relax but also gave me{' '}
+            <b>insight into what was actually causing my stress and how to better manage it</b>.
+            I’ve never felt completely comfortable in traditional therapy settings, sitting in an
+            office and talking has always felt awkward, but this was such a natural, comfortable,
+            and healing experience. Zhenya has such a warm and peaceful presence that made it easy
+            to fully let go and be present. I finished the session feeling lighter, more centered,
+            and deeply restored. I can’t recommend Zhenya and her crystal harp therapy enough, it’s
+            a truly unique and transformative experience.
+          </>
+        }
+      />
+      <br></br>
+
+      <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mb-10"></div>
+      <TestimonialCard
+        author="Thiri"
+        role=" Project Manager"
+        // imageSrc="/hires/maria.jpg"
+        content={
+          <>
+            Recently, I had the opportunity to participate in a crystal harp healing session that
+            was thoughtfully combined with inner child work with Zhenya. This blend of sound therapy
+            and emotional healing offered a deeply transformative experience, which I am excited to
+            share in this review. The session began with gentle, <b>ethereal sounds</b> produced by
+            the crystal harp. I have never had a sound therapy session like this before. The
+            vibrations from the instrument created an atmosphere of tranquility, helping me relax
+            immediately. Each note seemed to resonate within my body, offering a vibration sensation
+            that traveled down my entire body. The session also transitioned into inner child work.
+            Zhenya gently prompted reflection on any <b>blockage around my chakars</b>, as well
+            inviting me to connect with my younger self, Little Thiri. I was guided to identify
+            moments that required healing and compassion on the recent changes in my life. After
+            connecting with Little Thiri and her needs to be heard, I was guided by Zhenya to
+            visualize affirmations to help address the feelings that were buried and how to work
+            towards <b>self-acceptance</b>. I finished the session feeling uplifted and ready to
+            focus on Little Thiri’s needs as well as my own. Overall, this was an amazing session
+            and highly recommend Zhenya as the perfect guide to help with any relaxation, meditation
+            and inner child work journey.
+          </>
+        }
+      />
+      <br></br>
+
+      <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mb-10"></div>
+      <TestimonialCard
+        author="Tali"
+        role=" Salsa Dancer"
+        // imageSrc="/hires/maria.jpg"
+        content={
+          <>
+            I had an amazing experience. The session was deeply relaxing and helped me{' '}
+            <b> release tension I didn’t even realize I was holding</b>. Highly recommend! I can't
+            wait for my next session. Gabi- Reiki Practitioner Level 2 I had such a wonderful
+            experience with Zhenya. It was different from other sound baths that I’ve had in that
+            she combines something similar to talk therapy with the crystal harp, exploring any
+            feelings/thoughts/images that come up during the session. I loved that aspect of it and
+            received so much healing during our session. I entered a meditative state where{' '}
+            <b>I was able to explore things that I wasn’t able to access before</b>. 10/10,
+            absolutely recommend.
+          </>
+        }
+      />
+
       {/* <br className="pt-2"></br> */}
       {/* <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mb-10 "></div> */}
 
