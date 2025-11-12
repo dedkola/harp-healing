@@ -5,10 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "prisma generate && next build",
-"preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-"deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
-"upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
-"cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
+    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
     "start": "next start",
     "lint": "eslint",
     "postinstall": "prisma generate --no-engine"
@@ -20,6 +20,8 @@
     "@prisma/client": "^6.19.0",
     "@prisma/extension-accelerate": "^2.0.2",
     "@radix-ui/react-slot": "^1.2.3",
+    "@vercel/analytics": "^1.5.0",
+    "@vercel/speed-insights": "^1.2.0",
     "accordion": "^3.0.2",
     "add": "^2.0.6",
     "button": "^1.1.1",
