@@ -372,5 +372,5 @@ This project is available as a template for personal and commercial use.
 ---
 
 <div align="center">
-  Made with ❤️ for wellness practitioners by [@dedkola](https://github.com/dedkola)
+Made with ☕ and code + ❤️ by [dedkola](https://github.com/dedkola)
 </div>
