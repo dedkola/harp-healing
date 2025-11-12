@@ -24,6 +24,8 @@ RUN --mount=type=cache,target=/root/.npm \
 # Create a stage for installing production dependecies.
 FROM base as deps
 
+COPY prisma ./prisma
+
 # Download dependencies as a separate step to take advantage of Docker's caching.
 # Leverage a cache mount to /root/.local/share/pnpm/store to speed up subsequent builds.
 # Leverage bind mounts to package.json and pnpm-lock.yaml to avoid having to copy them
@@ -68,6 +70,7 @@ COPY package.json .
 COPY --from=deps /usr/src/app/node_modules ./node_modules
 COPY --from=build /usr/src/app/.next ./.next
 COPY --from=build /usr/src/app/public ./public
+COPY --from=build /usr/src/app/prisma ./prisma
 
 # ✅ Fix permissions so Next.js can write cache
 RUN mkdir -p .next/cache || true
