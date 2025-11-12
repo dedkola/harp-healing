@@ -23,6 +23,7 @@ const Navbar = ({
     { title: 'Why Sound Heals', url: '/why_sound_heals' },
     { title: 'Reflections', url: '/reflections' },
     { title: 'Contact me', url: '/contact' },
+    { title: 'Sign up', url: '/signup' },
   ],
 }: NavbarProps) => {
   const [mobileOpen, setMobileOpen] = useState(false)
