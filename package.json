@@ -14,7 +14,7 @@
     "postinstall": "prisma generate --no-engine"
   },
   "dependencies": {
-    "@headlessui/react": "^2.2.10",
+    "@headlessui/react": "^2.2.9",
     "@heroicons/react": "^2.2.0",
     "@marsidev/react-turnstile": "^1.4.1",
     "@prisma/client": "^7.2.0",
