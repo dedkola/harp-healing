@@ -7,6 +7,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import { Navbar } from '@/components/layout/Navbar'
 import Script from 'next/script'
+import { LocalBusinessSchema, WebsiteSchema } from '@/components/sections/StructuredData'
 
 export const metadata: Metadata = {
   title: 'CRYSTAL HARP HEALING',
@@ -47,9 +48,10 @@ export const metadata: Metadata = {
     url: 'https://www.crystalharphealing.com/',
     images: [
       {
-        url: '/hero.png',
+        url: 'https://www.crystalharphealing.com/hero.png',
         width: 1200,
         height: 630,
+        alt: 'Crystal Harp Healing - Vibrational Therapy',
       },
     ],
     siteName: 'CRYSTAL HARP HEALING',
@@ -60,7 +62,7 @@ export const metadata: Metadata = {
     title: 'CRYSTAL HARP HEALING',
     description:
       'Vibrational healing for emotional balance, nervous system regulation, and inner alignment',
-    images: ['/hero.png'],
+    images: ['https://www.crystalharphealing.com/hero.png'],
   },
 }
 
@@ -75,6 +77,17 @@ export default function RootLayout({
       className={`${openSans.variable} ${lato.variable} ${ebGaramond.variable} ${raleway.variable}`}
     >
       <head>
+        {/* Performance optimizations */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+
+        {/* Viewport and theme */}
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+        <meta name="theme-color" content="#92400E" />
+        <meta name="color-scheme" content="light" />
+
         {/* Google Analytics */}
         <Script async src="https://www.googletagmanager.com/gtag/js?id=G-0N05J9MRPE" />
         <Script id="google-analytics">
@@ -87,11 +100,12 @@ export default function RootLayout({
         </Script>
       </head>
       <body suppressHydrationWarning className={`antialiased`}>
+        <LocalBusinessSchema />
+        <WebsiteSchema />
         <Navbar />
         {children}
         <Analytics />
-         <SpeedInsights />
-
+        <SpeedInsights />
       </body>
     </html>
   )

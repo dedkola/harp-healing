@@ -2,6 +2,45 @@ import Image from 'next/image'
 import { Footer } from '@/components/sections/Footer'
 import TestimonialCard from '@/app/reflections/TestimonialCard'
 import React from 'react'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Client Testimonials | Crystal Harp Healing Reviews & Success Stories',
+  description:
+    'Read real testimonials from crystal harp healing clients. Discover how sound therapy helped with stress relief, emotional balance, trauma healing, and nervous system regulation. Verified reviews from real people.',
+  keywords: [
+    'sound healing testimonials',
+    'crystal harp reviews',
+    'sound therapy success stories',
+    'healing testimonials',
+    'client reviews sound healing',
+    'vibrational therapy results',
+    'psycho-sound healing feedback',
+  ],
+  openGraph: {
+    title: 'Client Testimonials - Crystal Harp Healing',
+    description:
+      'Real stories from clients who experienced transformation through crystal harp healing. Read how sound therapy helped with stress, anxiety, and emotional balance.',
+    url: 'https://www.crystalharphealing.com/reflections',
+    images: [
+      {
+        url: 'https://www.crystalharphealing.com/testimonials.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Crystal Harp Healing Client Testimonials',
+      },
+    ],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Client Testimonials - Crystal Harp Healing',
+    description:
+      'Real transformation stories from crystal harp healing clients. Discover the power of sound therapy.',
+    images: ['https://www.crystalharphealing.com/testimonials.jpg'],
+  },
+}
+
 export default function Testimonials() {
   return (
     <main className="px-6">
@@ -34,7 +73,7 @@ export default function Testimonials() {
         <div className="md:w-1/3 flex-shrink-0">
           <Image
             src="/testimonials.jpg"
-            alt="Zhenya portrait"
+            alt="Crystal harp sound healing session testimonials and client experiences"
             width={3857}
             height={3944}
             className="rounded-lg object-cover"

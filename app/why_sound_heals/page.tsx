@@ -1,5 +1,44 @@
 import { Footer } from '@/components/sections/Footer'
 import React from 'react'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Why Sound Heals | The Science of Vibrational Therapy & Nervous System Regulation',
+  description:
+    'Discover the science behind sound healing and crystal harp therapy. Learn how vibrational frequencies regulate the nervous system, support trauma recovery, and restore emotional balance through vagus nerve activation.',
+  keywords: [
+    'sound healing science',
+    'vibrational therapy research',
+    'nervous system regulation',
+    'vagus nerve healing',
+    'trauma-informed sound therapy',
+    'neuroscience of sound healing',
+    'parasympathetic activation',
+    'sound frequency healing',
+  ],
+  openGraph: {
+    title: 'Why Sound Heals - The Science of Vibrational Therapy',
+    description:
+      'Explore the neuroscience behind sound healing. Learn how crystal harp frequencies regulate the nervous system and support emotional balance.',
+    url: 'https://www.crystalharphealing.com/why_sound_heals',
+    images: [
+      {
+        url: 'https://www.crystalharphealing.com/hero.png',
+        width: 1200,
+        height: 630,
+        alt: 'The Science of Sound Healing',
+      },
+    ],
+    type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Why Sound Heals - The Science of Vibrational Therapy',
+    description:
+      'Discover how sound healing works: neuroscience, vagus nerve regulation, and trauma recovery through vibration.',
+    images: ['https://www.crystalharphealing.com/hero.png'],
+  },
+}
 
 export default function HowItWorks() {
   return (

@@ -1,5 +1,42 @@
 import React from 'react'
 import { Footer } from '@/components/sections/Footer'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Contact Crystal Harp Healing | Book Your Sound Healing Session',
+  description:
+    'Ready to experience nervous system balance and inner harmony? Contact Zhenya for sound healing session inquiries. Email: connect@crystalharphealing.com | Phone: +1 (323) 841-2348',
+  keywords: [
+    'book sound healing',
+    'crystal harp consultation',
+    'sound healing contact',
+    'schedule healing session',
+    'Los Angeles sound healing',
+    'vibrational therapy booking',
+  ],
+  openGraph: {
+    title: 'Contact Crystal Harp Healing',
+    description:
+      'Book your personalized sound healing session. Contact Zhenya for nervous system balance and inner clarity through crystal harp therapy.',
+    url: 'https://www.crystalharphealing.com/contact',
+    images: [
+      {
+        url: 'https://www.crystalharphealing.com/hero.png',
+        width: 1200,
+        height: 630,
+        alt: 'Contact Crystal Harp Healing',
+      },
+    ],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Contact Crystal Harp Healing',
+    description: 'Book your personalized sound healing session for nervous system balance and inner harmony.',
+    images: ['https://www.crystalharphealing.com/hero.png'],
+  },
+}
+
 export default function ContactPage() {
   return (
     <main className="px-6">

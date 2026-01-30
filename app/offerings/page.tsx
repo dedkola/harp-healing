@@ -1,5 +1,46 @@
 import { Footer } from '@/components/sections/Footer'
 import React from 'react'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Crystal Harp Healing Services | Individual & Group Sound Healing Sessions',
+  description:
+    'Personalized crystal harp healing sessions for stress relief, anxiety, and trauma recovery. Individual sessions (60-75 min), group sessions, workshops, and corporate events. Complimentary consultation available.',
+  keywords: [
+    'sound healing sessions',
+    'crystal harp therapy',
+    'individual sound healing',
+    'group sound healing',
+    'stress relief therapy',
+    'anxiety treatment',
+    'trauma recovery',
+    'sound bath events',
+    'corporate wellness',
+    'nervous system regulation',
+  ],
+  openGraph: {
+    title: 'Crystal Harp Healing Services - Individual & Group Sessions',
+    description:
+      'Experience personalized sound healing with crystal harp. Individual sessions, group sessions, and workshops for stress relief and emotional balance.',
+    url: 'https://www.crystalharphealing.com/offerings',
+    images: [
+      {
+        url: 'https://www.crystalharphealing.com/hero.png',
+        width: 1200,
+        height: 630,
+        alt: 'Crystal Harp Healing Services',
+      },
+    ],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Crystal Harp Healing Services',
+    description:
+      'Personalized sound healing sessions for stress relief, anxiety, and emotional balance. Individual & group sessions available.',
+    images: ['https://www.crystalharphealing.com/hero.png'],
+  },
+}
 
 export default function Services() {
   return (

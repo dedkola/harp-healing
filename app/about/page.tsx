@@ -1,8 +1,55 @@
 import Image from 'next/image'
 import { Footer } from '@/components/sections/Footer'
+import type { Metadata } from 'next'
+import { PersonSchema, BreadcrumbSchema } from '@/components/sections/StructuredData'
+
+export const metadata: Metadata = {
+  title: 'About Zhenya - Crystal Harp Healing Practitioner | Psycho-Sound Healing',
+  description:
+    'Meet Zhenya, a sound healer and psychotherapist specializing in psycho-sound healing. Combining crystal harp vibrational therapy with clinical psychology for emotional balance and nervous system regulation.',
+  keywords: [
+    'Zhenya sound healer',
+    'psycho-sound healing',
+    'crystal harp practitioner',
+    'sound healing therapist',
+    'vibrational therapy specialist',
+    'trauma-informed sound healing',
+    'psychotherapy and sound healing',
+  ],
+  openGraph: {
+    title: 'Meet Zhenya - Crystal Harp Healing Practitioner',
+    description:
+      'Sound healer with psychotherapy background offering psycho-sound healing sessions for emotional balance and nervous system regulation.',
+    url: 'https://www.crystalharphealing.com/about',
+    images: [
+      {
+        url: 'https://www.crystalharphealing.com/about_me.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Zhenya - Crystal Harp Healing Practitioner',
+      },
+    ],
+    type: 'profile',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Meet Zhenya - Crystal Harp Healing Practitioner',
+    description:
+      'Sound healer with psychotherapy background offering psycho-sound healing sessions for emotional balance.',
+    images: ['https://www.crystalharphealing.com/about_me.jpg'],
+  },
+}
+
 export default function AboutMePage() {
   return (
     <main className="px-6">
+      <PersonSchema />
+      <BreadcrumbSchema
+        items={[
+          { name: 'Home', url: 'https://www.crystalharphealing.com' },
+          { name: 'About', url: 'https://www.crystalharphealing.com/about' },
+        ]}
+      />
       {/* Constrain header to the same centered, padded container as the hero */}
       <div className="mx-auto max-w-5xl">
         <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10"></div>
@@ -46,7 +93,7 @@ export default function AboutMePage() {
         <div className="md:w-1/3 flex-shrink-0">
           <Image
             src="/about_me.jpg"
-            alt="Zhenya portrait"
+            alt="Zhenya, Crystal Harp Healing practitioner and psychotherapist specializing in psycho-sound healing"
             width={4367}
             height={5287}
             className="rounded-lg object-cover"
