@@ -19,6 +19,7 @@ export const metadata: Metadata = {
     description:
       'Book your personalized sound healing session. Contact Zhenya for nervous system balance and inner clarity through crystal harp therapy.',
     url: 'https://www.crystalharphealing.com/contact',
+    siteName: 'Crystal Harp Healing',
     images: [
       {
         url: 'https://www.crystalharphealing.com/hero.png',

@@ -21,6 +21,7 @@ export const metadata: Metadata = {
     description:
       'Explore the neuroscience behind sound healing. Learn how crystal harp frequencies regulate the nervous system and support emotional balance.',
     url: 'https://www.crystalharphealing.com/why_sound_heals',
+    siteName: 'Crystal Harp Healing',
     images: [
       {
         url: 'https://www.crystalharphealing.com/hero.png',

@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     description:
       'Sign up for updates on sound healing sessions, meditations, and workshops. Join our community for nervous system balance and emotional wellness.',
     url: 'https://www.crystalharphealing.com/signup',
+    siteName: 'Crystal Harp Healing',
     images: [
       {
         url: 'https://www.crystalharphealing.com/hero.png',

@@ -22,6 +22,7 @@ export const metadata: Metadata = {
     description:
       'Real stories from clients who experienced transformation through crystal harp healing. Read how sound therapy helped with stress, anxiety, and emotional balance.',
     url: 'https://www.crystalharphealing.com/reflections',
+    siteName: 'Crystal Harp Healing',
     images: [
       {
         url: 'https://www.crystalharphealing.com/testimonials.jpg',

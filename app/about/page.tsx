@@ -21,6 +21,7 @@ export const metadata: Metadata = {
     description:
       'Sound healer with psychotherapy background offering psycho-sound healing sessions for emotional balance and nervous system regulation.',
     url: 'https://www.crystalharphealing.com/about',
+    siteName: 'Crystal Harp Healing',
     images: [
       {
         url: 'https://www.crystalharphealing.com/about_me.jpg',

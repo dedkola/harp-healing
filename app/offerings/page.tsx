@@ -23,6 +23,7 @@ export const metadata: Metadata = {
     description:
       'Experience personalized sound healing with crystal harp. Individual sessions, group sessions, and workshops for stress relief and emotional balance.',
     url: 'https://www.crystalharphealing.com/offerings',
+    siteName: 'Crystal Harp Healing',
     images: [
       {
         url: 'https://www.crystalharphealing.com/hero.png',
