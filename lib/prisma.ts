@@ -5,7 +5,9 @@ const prismaClientSingleton = () => {
   if (process.env.NODE_ENV !== 'production') {
     console.log('Initializing Prisma Client...');
   }
-  return new PrismaClient().$extends(withAccelerate())
+  return new PrismaClient({
+    accelerateUrl: process.env.DATABASE_URL,
+  }).$extends(withAccelerate())
 }
 
 declare const globalThis: {
