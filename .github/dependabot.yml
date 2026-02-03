@@ -1,38 +1,13 @@
+# `dependabot.yml` file with
+#  assignee for all npm pull requests
+
 version: 2
 updates:
-  # NPM dependencies
+  # Keep npm dependencies up to date
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "weekly"
-      day: "monday"
-      time: "03:00"
-    open-pull-requests-limit: 10
-    reviewers:
+    # Raise all npm pull requests with assignees
+    assignees:
       - "dedkola"
-    labels:
-      - "dependencies"
-      - "javascript"
-    commit-message:
-      prefix: "chore(deps):"
-      include: "scope"
-    pull-request-branch-name:
-      separator: "/"
-    # Security updates - immediate
-    security-updates-only: false
-    # Automatically create PR for patch and minor updates
-    allow:
-      - dependency-type: "production"
-      - dependency-type: "development"
-
-  # GitHub Actions
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-      day: "monday"
-      time: "03:00"
-    reviewers:
-      - "dedkola"
-    labels:
-      - "dependencies"
