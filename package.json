@@ -39,6 +39,10 @@
   },
   "pnpm": {
     "overrides": {
+      "@isaacs/brace-expansion": ">=5.0.1",
+      "@smithy/config-resolver": ">=4.4.0",
+      "esbuild": ">=0.25.0",
+      "fast-xml-parser": ">=5.3.4",
       "hono": ">=4.11.7",
       "lodash": ">=4.17.23"
     }
