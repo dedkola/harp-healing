@@ -2,7 +2,12 @@ import { PrismaClient } from '@prisma/client'
 import { withAccelerate } from '@prisma/extension-accelerate'
 
 const prismaClientSingleton = () => {
-  return new PrismaClient().$extends(withAccelerate())
+  if (process.env.NODE_ENV !== 'production') {
+    console.log('Initializing Prisma Client...');
+  }
+  return new PrismaClient({
+    accelerateUrl: process.env.DATABASE_URL,
+  }).$extends(withAccelerate())
 }
 
 declare const globalThis: {
