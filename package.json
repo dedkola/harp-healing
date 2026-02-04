@@ -37,6 +37,12 @@
     "sheet": "^0.2.0",
     "tailwind-merge": "^3.3.1"
   },
+  "pnpm": {
+    "overrides": {
+      "hono": ">=4.11.7",
+      "lodash": ">=4.17.23"
+    }
+  },
   "devDependencies": {
     "@opennextjs/cloudflare": "^1.16.2",
     "@tailwindcss/postcss": "^4",
