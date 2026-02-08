@@ -1,4 +1,5 @@
 import { Footer } from '@/components/sections/Footer'
+import { BreadcrumbSchema } from '@/components/sections/StructuredData'
 import React from 'react'
 import type { Metadata } from 'next'
 
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
     siteName: 'Crystal Harp Healing',
     images: [
       {
-        url: 'https://www.crystalharphealing.com/hero.png',
+        url: 'https://www.crystalharphealing.com/hero.webp',
         width: 1200,
         height: 630,
         alt: 'The Science of Sound Healing',
@@ -37,13 +38,22 @@ export const metadata: Metadata = {
     title: 'Why Sound Heals - The Science of Vibrational Therapy',
     description:
       'Discover how sound healing works: neuroscience, vagus nerve regulation, and trauma recovery through vibration.',
-    images: ['https://www.crystalharphealing.com/hero.png'],
+    images: ['https://www.crystalharphealing.com/hero.webp'],
+  },
+  alternates: {
+    canonical: 'https://www.crystalharphealing.com/why_sound_heals',
   },
 }
 
 export default function HowItWorks() {
   return (
     <main className="px-6">
+      <BreadcrumbSchema
+        items={[
+          { name: 'Home', url: 'https://www.crystalharphealing.com' },
+          { name: 'Why Sound Heals', url: 'https://www.crystalharphealing.com/why_sound_heals' },
+        ]}
+      />
       {/* Constrain header to the same centered, padded container as the hero */}
       <div className="mx-auto max-w-5xl">
         <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10"></div>

@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     url: 'https://www.crystalharphealing.com/',
     images: [
       {
-        url: 'https://www.crystalharphealing.com/hero.png',
+        url: 'https://www.crystalharphealing.com/hero.webp',
         width: 1200,
         height: 630,
         alt: 'Crystal Harp Healing - Vibrational Therapy',
@@ -62,7 +62,10 @@ export const metadata: Metadata = {
     title: 'CRYSTAL HARP HEALING',
     description:
       'Vibrational healing for emotional balance, nervous system regulation, and inner alignment',
-    images: ['https://www.crystalharphealing.com/hero.png'],
+    images: ['https://www.crystalharphealing.com/hero.webp'],
+  },
+  alternates: {
+    canonical: 'https://www.crystalharphealing.com/',
   },
 }
 

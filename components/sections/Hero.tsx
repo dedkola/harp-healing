@@ -107,7 +107,7 @@ export default function Hero() {
       {/* Image */}
       <div className="w-full flex justify-center">
         <Image
-          src="/hero.png"
+          src="/hero.webp"
           alt="Psycho-sound healing"
           className="w-full max-w-6xl h-auto object-contain"
           width="2500"
