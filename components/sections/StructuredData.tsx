@@ -156,10 +156,10 @@ export function ReviewSchema() {
     name: 'Crystal Harp Healing',
     aggregateRating: {
       '@type': 'AggregateRating',
-      ratingValue: '5',
-      bestRating: '5',
-      ratingCount: reviews.length.toString(),
-      reviewCount: reviews.length.toString(),
+      ratingValue: 5,
+      bestRating: 5,
+      ratingCount: reviews.length,
+      reviewCount: reviews.length,
     },
     review: reviews.map((r) => ({
       '@type': 'Review',
@@ -169,8 +169,8 @@ export function ReviewSchema() {
       },
       reviewRating: {
         '@type': 'Rating',
-        ratingValue: '5',
-        bestRating: '5',
+        ratingValue: 5,
+        bestRating: 5,
       },
       reviewBody: r.body,
       itemReviewed: {
