@@ -21,7 +21,7 @@ export default function NotFound() {
         <div className="h-px w-full bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mb-10" />
 
         <p className="text-xl text-amber-800 !font-thin mb-8">
-          The page you are looking for doesn't exist or has been moved.
+          The page you are looking for doesn&apos;t exist or has been moved.
         </p>
 
         <nav className="flex flex-col sm:flex-row gap-4 items-center" aria-label="Quick links">
