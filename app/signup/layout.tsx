@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { BreadcrumbSchema } from '@/components/sections/StructuredData'
 
 export const metadata: Metadata = {
   title: 'Join Crystal Harp Healing | Get Updates on Sessions & Workshops',
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     siteName: 'Crystal Harp Healing',
     images: [
       {
-        url: 'https://www.crystalharphealing.com/hero.png',
+        url: 'https://www.crystalharphealing.com/hero.webp',
         width: 1200,
         height: 630,
         alt: 'Join Crystal Harp Healing',
@@ -32,10 +33,23 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Join Crystal Harp Healing Community',
     description: 'Sign up for updates on sound healing sessions and wellness workshops.',
-    images: ['https://www.crystalharphealing.com/hero.png'],
+    images: ['https://www.crystalharphealing.com/hero.webp'],
+  },
+  alternates: {
+    canonical: 'https://www.crystalharphealing.com/signup',
   },
 }
 
 export default function SignupLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: 'Home', url: 'https://www.crystalharphealing.com' },
+          { name: 'Sign Up', url: 'https://www.crystalharphealing.com/signup' },
+        ]}
+      />
+      {children}
+    </>
+  )
 }

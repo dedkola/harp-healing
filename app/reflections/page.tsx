@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { Footer } from '@/components/sections/Footer'
+import { BreadcrumbSchema, ReviewSchema } from '@/components/sections/StructuredData'
 import TestimonialCard from '@/app/reflections/TestimonialCard'
 import React from 'react'
 import type { Metadata } from 'next'
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
     siteName: 'Crystal Harp Healing',
     images: [
       {
-        url: 'https://www.crystalharphealing.com/testimonials.jpg',
+        url: 'https://www.crystalharphealing.com/testimonials.webp',
         width: 1200,
         height: 630,
         alt: 'Crystal Harp Healing Client Testimonials',
@@ -38,13 +39,23 @@ export const metadata: Metadata = {
     title: 'Client Testimonials - Crystal Harp Healing',
     description:
       'Real transformation stories from crystal harp healing clients. Discover the power of sound therapy.',
-    images: ['https://www.crystalharphealing.com/testimonials.jpg'],
+    images: ['https://www.crystalharphealing.com/testimonials.webp'],
+  },
+  alternates: {
+    canonical: 'https://www.crystalharphealing.com/reflections',
   },
 }
 
 export default function Testimonials() {
   return (
     <main className="px-6">
+      <BreadcrumbSchema
+        items={[
+          { name: 'Home', url: 'https://www.crystalharphealing.com' },
+          { name: 'Reflections', url: 'https://www.crystalharphealing.com/reflections' },
+        ]}
+      />
+      <ReviewSchema />
       {/* Constrain header to the same centered, padded container as the hero */}
       <div className="mx-auto max-w-5xl">
         <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10"></div>
@@ -73,7 +84,7 @@ export default function Testimonials() {
 
         <div className="md:w-1/3 flex-shrink-0">
           <Image
-            src="/testimonials.jpg"
+            src="/testimonials.webp"
             alt="Crystal harp sound healing session testimonials and client experiences"
             width={3857}
             height={3944}

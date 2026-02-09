@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     siteName: 'Crystal Harp Healing',
     images: [
       {
-        url: 'https://www.crystalharphealing.com/about_me.jpg',
+        url: 'https://www.crystalharphealing.com/about_me.webp',
         width: 1200,
         height: 630,
         alt: 'Zhenya - Crystal Harp Healing Practitioner',
@@ -37,7 +37,10 @@ export const metadata: Metadata = {
     title: 'Meet Zhenya - Crystal Harp Healing Practitioner',
     description:
       'Sound healer with psychotherapy background offering psycho-sound healing sessions for emotional balance.',
-    images: ['https://www.crystalharphealing.com/about_me.jpg'],
+    images: ['https://www.crystalharphealing.com/about_me.webp'],
+  },
+  alternates: {
+    canonical: 'https://www.crystalharphealing.com/about',
   },
 }
 
@@ -93,7 +96,7 @@ export default function AboutMePage() {
 
         <div className="md:w-1/3 flex-shrink-0">
           <Image
-            src="/about_me.jpg"
+            src="/about_me.webp"
             alt="Zhenya, Crystal Harp Healing practitioner and psychotherapist specializing in psycho-sound healing"
             width={4367}
             height={5287}

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Footer } from '@/components/sections/Footer'
+import { BreadcrumbSchema } from '@/components/sections/StructuredData'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     siteName: 'Crystal Harp Healing',
     images: [
       {
-        url: 'https://www.crystalharphealing.com/hero.png',
+        url: 'https://www.crystalharphealing.com/hero.webp',
         width: 1200,
         height: 630,
         alt: 'Contact Crystal Harp Healing',
@@ -34,13 +35,22 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Contact Crystal Harp Healing',
     description: 'Book your personalized sound healing session for nervous system balance and inner harmony.',
-    images: ['https://www.crystalharphealing.com/hero.png'],
+    images: ['https://www.crystalharphealing.com/hero.webp'],
+  },
+  alternates: {
+    canonical: 'https://www.crystalharphealing.com/contact',
   },
 }
 
 export default function ContactPage() {
   return (
     <main className="px-6">
+      <BreadcrumbSchema
+        items={[
+          { name: 'Home', url: 'https://www.crystalharphealing.com' },
+          { name: 'Contact', url: 'https://www.crystalharphealing.com/contact' },
+        ]}
+      />
       {/* Constrain header to the same centered, padded container as the hero */}
       <div className="mx-auto max-w-5xl">
         <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10"></div>
