@@ -174,8 +174,7 @@ export function ReviewSchema() {
       },
       reviewBody: r.body,
       itemReviewed: {
-        '@type': 'LocalBusiness',
-        name: 'Crystal Harp Healing',
+        '@id': 'https://www.crystalharphealing.com/#organization',
       },
     })),
   }
