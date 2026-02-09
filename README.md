@@ -7,6 +7,15 @@ A modern, responsive website for psycho-sound healing services, built with Next.
 
 [Live Demo](https://www.crystalharphealing.com) • [Report Bug](../../issues)
 
+![Next.js](https://img.shields.io/badge/Next.js-16.1-black?style=flat-square&logo=next.js)
+![React](https://img.shields.io/badge/React-19.2-blue?style=flat-square&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178c6?style=flat-square&logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.x-38bdf8?style=flat-square&logo=tailwindcss)
+![Prisma](https://img.shields.io/badge/Prisma-7.3-2d3748?style=flat-square&logo=prisma)
+![Cloudflare Workers](https://img.shields.io/badge/Cloudflare_Workers-deployed-f38020?style=flat-square&logo=cloudflare)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169e1?style=flat-square&logo=postgresql&logoColor=white)
+![shadcn/ui](https://img.shields.io/badge/shadcn%2Fui-black?style=flat-square&logo=shadcnui)
+
 </div>
 
 ---
