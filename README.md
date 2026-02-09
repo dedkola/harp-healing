@@ -1,6 +1,6 @@
 <div align="center">
-  <img src="./public/500.png" alt="Crystal Harp Healing" width="600"/>
-  
+  <img src="./public/hero.webp" alt="Crystal Harp Healing" width="600"/>
+
   # Crystal Harp Healing Website
 
 A modern, responsive website for psycho-sound healing services, built with Next.js and TypeScript.
@@ -11,40 +11,44 @@ A modern, responsive website for psycho-sound healing services, built with Next.
 
 ---
 
-## 📖 About
+## About
 
-This is a professional wellness website showcasing **Crystal Harp Healing** services. The site offers information about vibrational healing, sound therapy, and psycho-sound healing practices for emotional balance and nervous system regulation.
+This is a professional wellness website showcasing **Crystal Harp Healing** services by Zhenya, a sound healer and psychotherapist based in Los Angeles. The site offers information about vibrational healing, sound therapy, and psycho-sound healing practices for emotional balance and nervous system regulation.
 
-## ✨ Features
+## Features
 
-- 🎨 **Modern Design** - Clean, elegant interface with warm amber/brown color palette
-- 📱 **Fully Responsive** - Optimized for mobile, tablet, and desktop devices
-- ⚡ **Next.js 16** - Built with the latest Next.js App Router
-- 🎯 **SEO Optimized** - Comprehensive meta tags, Open Graph, and sitemap
-- 🚀 **Performance** - Optimized images, fonts, and analytics integration
-- ♿ **Accessible** - Semantic HTML and ARIA support
-- 🗄️ **Database Integration** - PostgreSQL with Prisma ORM for data management
-- 🔐 **Protected Dashboard** - HTTP Basic Authentication for admin access
-- 📝 **User Signup** - Newsletter/waitlist signup form with database storage
-- 🤖 **Bot Protection** - Cloudflare Turnstile integration on signup forms
+- **Modern Design** - Clean, elegant interface with warm amber/beige color palette
+- **Fully Responsive** - Optimized for mobile, tablet, and desktop devices
+- **Next.js 16** - Built with the latest Next.js App Router
+- **SEO Optimized** - Comprehensive meta tags, Open Graph, Twitter Cards, dynamic sitemap, and structured data (Schema.org JSON-LD)
+- **Structured Data** - LocalBusiness, Person, Review, Breadcrumb, and Website schemas for Google rich snippets
+- **Performance** - WebP images, font preloading, Google Analytics, Vercel Analytics, and Speed Insights
+- **Audio Player** - Integrated sound healing audio experience on the hero section
+- **Accessible** - Semantic HTML and ARIA support
+- **Database Integration** - PostgreSQL with Prisma ORM for data management
+- **Protected Dashboard** - HTTP Basic Authentication for admin access
+- **User Signup** - Newsletter/waitlist signup form with database storage
+- **Bot Protection** - Cloudflare Turnstile integration on signup forms
+- **Custom 404 Page** - Themed error page with navigation links
 
-## 🛠️ Tech Stack
+## Tech Stack
 
-- **Framework:** Next.js 16.0.0
+- **Framework:** Next.js 16.1.6 (App Router)
 - **Language:** TypeScript
-- **Styling:** Tailwind CSS 4
-- **UI Components:** shadcn/ui, Radix UI
+- **Runtime:** React 19
+- **Styling:** Tailwind CSS 4, tw-animate-css
+- **UI Components:** shadcn/ui, Radix UI, Headless UI
 - **Icons:** Lucide React, Heroicons
 - **Database:** PostgreSQL
-- **ORM:** Prisma with Accelerate extension
+- **ORM:** Prisma 7 with Accelerate extension
 - **Authentication:** HTTP Basic Auth middleware
 - **Security:** Cloudflare Turnstile
-- **Analytics:** Google Analytics
+- **Analytics:** Google Analytics, Vercel Analytics, Vercel Speed Insights
 - **Deployment:** Cloudflare Workers with OpenNext
 - **Caching:** Cloudflare R2 (incremental cache)
 - **Fonts:** Google Fonts (Open Sans, Lato, EB Garamond, Raleway)
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -68,13 +72,11 @@ This is a professional wellness website showcasing **Crystal Harp Healing** serv
 
 3. Set up environment variables:
 
-   Create a `.dev.vars` file for local development:
-
    ```bash
-   cp .dev.vars.example .dev.vars
+   cp .env.example .env
    ```
 
-   Configure the following variables in `.dev.vars`:
+   Configure the following variables:
 
    ```env
    # Dashboard Authentication
@@ -106,7 +108,7 @@ This is a professional wellness website showcasing **Crystal Harp Healing** serv
 
 6. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## ☁️ Cloudflare Workers Deployment
+## Cloudflare Workers Deployment
 
 This project is configured to deploy to Cloudflare Workers using [@opennextjs/cloudflare](https://github.com/opennextjs/opennextjs-cloudflare).
 
@@ -121,7 +123,7 @@ This project is configured to deploy to Cloudflare Workers using [@opennextjs/cl
 The project includes:
 
 - **`wrangler.json`** - Cloudflare Workers configuration
-  - Worker name: `my-app` (update to your preference)
+  - Worker name: `crystal-harp-healing`
   - R2 bucket binding for incremental cache
   - Node.js compatibility enabled
   - Assets directory configuration
@@ -178,7 +180,7 @@ pnpm upload
 To use a custom domain:
 
 1. Add your domain to Cloudflare
-2. Go to Workers & Pages → your worker → Settings → Domains
+2. Go to Workers & Pages > your worker > Settings > Domains
 3. Add custom domain (e.g., `www.crystalharphealing.com`)
 4. Update DNS records as prompted
 
@@ -190,38 +192,65 @@ To use a custom domain:
 - **Node.js APIs**: Enabled via `nodejs_compat` flag in wrangler.json
 - **Caching**: Incremental Static Regeneration (ISR) cache stored in R2 bucket
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 harp-healing/
-├── app/                    # Next.js app directory
-│   ├── about/             # About page
-│   ├── contact/           # Contact page
-│   ├── dashboard/         # Protected admin dashboard
-│   ├── offerings/         # Services page
-│   ├── reflections/       # Testimonials page
-│   ├── signup/            # User signup page
-│   ├── why_sound_heals/   # Educational content
-│   ├── api/               # API routes
-│   │   ├── signup/        # Signup API endpoint
-│   │   └── users/         # User management API
-│   ├── ui/                # UI utilities (fonts)
-│   ├── layout.tsx         # Root layout
-│   └── page.tsx           # Home page
-├── components/            # React components
-│   ├── layout/           # Layout components (Navbar)
-│   ├── sections/         # Page sections (Hero, Footer)
-│   └── ui/               # shadcn/ui components
-├── prisma/               # Database schema and migrations
-│   └── schema.prisma     # Prisma schema definition
-├── lib/                  # Utility functions
-│   ├── prisma.ts         # Prisma client instance
-│   └── utils.ts          # Helper functions
-├── middleware.ts         # Auth middleware for protected routes
-└── public/               # Static assets
+├── app/                          # Next.js App Router
+│   ├── layout.tsx                # Root layout (metadata, fonts, analytics, schemas)
+│   ├── page.tsx                  # Home page
+│   ├── globals.css               # Global styles
+│   ├── not-found.tsx             # Custom 404 page
+│   ├── sitemap.ts                # Dynamic XML sitemap generation
+│   ├── robots.txt                # SEO robots file
+│   ├── about/page.tsx            # About page (practitioner bio)
+│   ├── contact/page.tsx          # Contact page
+│   ├── dashboard/page.tsx        # Protected admin dashboard
+│   ├── offerings/page.tsx        # Services/offerings page
+│   ├── reflections/              # Testimonials section
+│   │   ├── page.tsx              # Testimonials page (16 reviews)
+│   │   └── TestimonialCard.tsx   # Testimonial card component
+│   ├── signup/                   # User signup section
+│   │   ├── page.tsx              # Signup form with Turnstile
+│   │   └── layout.tsx            # Signup layout
+│   ├── why_sound_heals/page.tsx  # Educational content page
+│   ├── api/                      # API routes
+│   │   ├── signup/route.ts       # POST - user registration
+│   │   └── users/route.ts       # GET - list users (admin)
+│   └── ui/
+│       └── fonts.ts              # Google Fonts configuration
+├── components/                   # React components
+│   ├── layout/
+│   │   └── Navbar.tsx            # Navigation (desktop & mobile)
+│   ├── sections/
+│   │   ├── Hero.tsx              # Hero section with audio player
+│   │   ├── Footer.tsx            # Footer component
+│   │   └── StructuredData.tsx    # Schema.org JSON-LD components
+│   ├── shadcnblocks/
+│   │   └── logo.tsx              # Logo components
+│   └── ui/                       # shadcn/ui components
+│       ├── button.tsx
+│       └── badge.tsx
+├── lib/                          # Utility functions
+│   ├── prisma.ts                 # Prisma client (with Accelerate)
+│   └── utils.ts                  # Helper functions (cn)
+├── prisma/
+│   └── schema.prisma             # Database schema
+├── public/                       # Static assets (images, audio, icons)
+├── middleware.ts                  # Auth middleware for /dashboard
+├── .github/
+│   ├── copilot-instructions.md   # Development setup guide
+│   └── dependabot.yml            # Automated dependency updates
+└── Configuration files
+    ├── next.config.ts
+    ├── tailwind.config.js
+    ├── wrangler.json
+    ├── open-next.config.ts
+    ├── tsconfig.json
+    └── package.json
 ```
 
-## 🎨 Customization
+## Customization
 
 ### Colors
 
@@ -240,7 +269,7 @@ Typography hierarchy is configured in `app/ui/fonts.ts`:
 - **Quotes:** EB Garamond
 - **Buttons:** Raleway
 
-## 🔐 Authentication & Database
+## Authentication & Database
 
 ### Protected Dashboard
 
@@ -265,6 +294,8 @@ model User {
   consent   Boolean  @default(true)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@map("users")
 }
 ```
 
@@ -295,7 +326,7 @@ The signup API endpoint validates the Turnstile token server-side before storing
 
 See `PRISMA_SETUP.md` for detailed database setup instructions.
 
-## 📦 Build & Deploy
+## Build & Deploy
 
 ### Local Development
 
@@ -338,39 +369,42 @@ Or use Docker Compose:
 docker compose up
 ```
 
-## 📝 Available Scripts
+## Available Scripts
 
-- `pnpm dev` - Start Next.js development server
-- `pnpm build` - Build Next.js app for production
-- `pnpm preview` - Build and preview in Cloudflare Workers environment
-- `pnpm deploy` - Build and deploy to Cloudflare Workers
-- `pnpm upload` - Build and upload to Cloudflare (without deploying)
-- `pnpm start` - Start production server (for traditional Node.js hosting)
-- `pnpm lint` - Run ESLint
-- `pnpm cf-typegen` - Generate Cloudflare environment types
-- `pnpm prisma migrate dev` - Run database migrations (development)
-- `pnpm prisma generate` - Generate Prisma Client
-- `pnpm prisma studio` - Open Prisma Studio (database GUI)
+| Script | Description |
+|--------|-------------|
+| `pnpm dev` | Start Next.js development server |
+| `pnpm build` | Generate Prisma Client and build Next.js for production |
+| `pnpm preview` | Build and preview in Cloudflare Workers environment |
+| `pnpm deploy` | Build and deploy to Cloudflare Workers |
+| `pnpm upload` | Build and upload to Cloudflare (without deploying) |
+| `pnpm start` | Start production server (for traditional Node.js hosting) |
+| `pnpm lint` | Run ESLint |
+| `pnpm cf-typegen` | Generate Cloudflare environment types |
+| `pnpm prisma migrate dev` | Run database migrations (development) |
+| `pnpm prisma generate` | Generate Prisma Client |
+| `pnpm prisma studio` | Open Prisma Studio (database GUI) |
 
-## 🤝 Contributing
+## Contributing
 
 This project was created for a friend. Feel free to fork and customize for your own wellness or healing practice websites.
 
-## 📄 License
+## License
 
 This project is available as a template for personal and commercial use.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Built with [Next.js](https://nextjs.org/)
 - Deployed on [Cloudflare Workers](https://workers.cloudflare.com/)
 - Powered by [@opennextjs/cloudflare](https://github.com/opennextjs/opennextjs-cloudflare)
-- UI components from [shadcn/ui](https://ui.shadcn.com/)
+- UI components from [shadcn/ui](https://ui.shadcn.com/) and [Headless UI](https://headlessui.com/)
 - Icons from [Lucide](https://lucide.dev/) and [Heroicons](https://heroicons.com/)
 - Database with [Prisma](https://www.prisma.io/) and [Prisma Accelerate](https://www.prisma.io/accelerate)
+- Analytics by [Vercel](https://vercel.com/analytics)
 
 ---
 
 <div align="center">
-Made with ☕ and code + ❤️ by [dedkola](https://github.com/dedkola)
+Made with code and love by <a href="https://github.com/dedkola">dedkola</a>
 </div>
