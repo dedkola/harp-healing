@@ -48,8 +48,8 @@ RUN --mount=type=bind,source=package.json,target=package.json \
 
 # Copy the rest of the source files into the image.
 COPY . .
-# Run the build script.
-RUN pnpm run build
+# Run the build script with DATABASE_URL for prisma generate
+RUN DATABASE_URL="prisma://accelerate.prisma-data.net/?api_key=dummy_key_for_build" pnpm run build
 
 ################################################################################
 # Create a new stage to run the application with minimal runtime dependencies
