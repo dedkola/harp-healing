@@ -50,7 +50,7 @@ This is a professional wellness website showcasing **Crystal Harp Healing** serv
 - **Icons:** Lucide React, Heroicons
 - **Database:** PostgreSQL
 - **ORM:** Prisma 7 with Accelerate extension
-- **Authentication:** HTTP Basic Auth middleware
+- **Authentication:** HTTP Basic Auth proxy
 - **Security:** Cloudflare Turnstile
 - **Analytics:** Google Analytics, Vercel Analytics, Vercel Speed Insights
 - **Deployment:** Cloudflare Workers with OpenNext
@@ -246,7 +246,7 @@ harp-healing/
 ├── prisma/
 │   └── schema.prisma             # Database schema
 ├── public/                       # Static assets (images, audio, icons)
-├── middleware.ts                  # Auth middleware for /dashboard
+├── proxy.ts                       # Auth proxy for /dashboard
 ├── .github/
 │   ├── copilot-instructions.md   # Development setup guide
 │   └── dependabot.yml            # Automated dependency updates
@@ -282,14 +282,14 @@ Typography hierarchy is configured in `app/ui/fonts.ts`:
 
 ### Protected Dashboard
 
-The `/dashboard` route is protected using HTTP Basic Authentication via Next.js middleware. Configure credentials in your `.env` file:
+The `/dashboard` route is protected using HTTP Basic Authentication via Next.js proxy. Configure credentials in your `.env` file:
 
 ```env
 BASIC_AUTH_USER="your_username"
 BASIC_AUTH_PASS="your_password"
 ```
 
-The middleware (`middleware.ts`) intercepts requests to `/dashboard` and prompts for authentication.
+The proxy (`proxy.ts`) intercepts requests to `/dashboard` and prompts for authentication.
 
 ### Database Schema
 

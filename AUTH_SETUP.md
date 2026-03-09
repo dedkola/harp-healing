@@ -1,11 +1,11 @@
 # Dashboard Authentication Setup
 
 ## Overview
-The dashboard page (`/dashboard`) is protected with HTTP Basic Authentication using Next.js middleware.
+The dashboard page (`/dashboard`) is protected with HTTP Basic Authentication using Next.js proxy.
 
 ## How It Works
 
-### Middleware (`middleware.ts`)
+### Proxy (`proxy.ts`)
 - Intercepts all requests to `/dashboard` and its sub-paths
 - Validates HTTP Basic Authentication credentials
 - Works in both development (`pnpm dev`) and production (`pnpm preview`)
@@ -60,7 +60,7 @@ curl -u username:password http://localhost:3000/dashboard
 1. **Never commit** `.env` or `.dev.vars` files to version control
 2. In production, use strong passwords and consider additional security measures
 3. HTTPS is strongly recommended for production (Cloudflare provides this automatically)
-4. The middleware uses `Buffer` for Base64 decoding (Node.js compatible)
+4. The proxy uses runtime-safe Base64 decoding for credentials
 
 ## Troubleshooting
 
