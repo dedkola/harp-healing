@@ -131,22 +131,70 @@ export function BreadcrumbSchema({ items }: { items: Array<{ name: string; url: 
 
 export function ReviewSchema() {
   const reviews = [
-    { author: 'Maria F', body: 'With Zhenya\'s work, I was able to recognize certain revelations about my behavior. She helped me to uncover some of the many mysteries of who I am. I highly recommend her work.' },
-    { author: 'Esteban', body: 'We ended up having an incredible, cathartic session that brought up a lot of things I had bottled up inside. It was a truly awesome experience.' },
-    { author: 'Chel-model', body: 'I got more from this one session than I have with any other therapy session. I couldn\'t recommend her more! Zhenya\'s work is truly powerful.' },
-    { author: 'Keion', body: 'I left feeling grounded, focused, and confident in my next steps. I\'d recommend Zhenya\'s work to anyone.' },
-    { author: 'Yani', body: 'A symbiotic experience that recalibrated my mind, body, and spirit in a synergistic outcome. I am a very well satisfied grateful person again.' },
-    { author: 'Dina', body: 'I could truly feel the shift from tension to deep relaxation. Her beautiful, calming energy and the healing sounds of the harp created such peace and transformation.' },
-    { author: 'Jaelyn', body: 'After the session, I felt lighter, clearer, and more in tune with myself. I would highly recommend this to anyone.' },
-    { author: 'Yev', body: 'Zhenya\'s session was transformative. Her session really gave me the clarity I\'ve been yearning for.' },
-    { author: 'Emily', body: 'The tones were mesmerizing and seemed to flow through my entire body, helping release tension. I walked out feeling completely renewed, self-aware, and clear-minded.' },
-    { author: 'Maria', body: 'I was very impressed by the insights I gained. It was an amazing experience.' },
-    { author: 'Nancy', body: 'The sound resonated deeply through my entire body, bringing an overwhelming sense of peace and joy.' },
-    { author: 'Karol', body: 'It felt like a small reset, a reminder to be softer with myself, to release judgment, and to make room for both mourning and presence.' },
-    { author: 'Kseniya', body: 'I left feeling lighter and more grounded. Highly recommend, especially if you are doing it with Zhenya.' },
-    { author: 'Ivonne', body: 'It was my first time experiencing a Crystal Harp healing session and will definitely not be the last. Thank you Zhenya for holding space during this process.' },
-    { author: 'Yana', body: 'I finished the session feeling lighter, more centered, and deeply restored. I can\'t recommend Zhenya and her crystal harp therapy enough.' },
-    { author: 'Thiri', body: 'I finished the session feeling uplifted and ready to focus. Overall, this was an amazing session and highly recommend Zhenya.' },
+    {
+      author: 'Maria F',
+      body: "With Zhenya's work, I was able to recognize certain revelations about my behavior. She helped me to uncover some of the many mysteries of who I am. I highly recommend her work.",
+    },
+    {
+      author: 'Esteban',
+      body: 'We ended up having an incredible, cathartic session that brought up a lot of things I had bottled up inside. It was a truly awesome experience.',
+    },
+    {
+      author: 'Chel-model',
+      body: "I got more from this one session than I have with any other therapy session. I couldn't recommend her more! Zhenya's work is truly powerful.",
+    },
+    {
+      author: 'Keion',
+      body: "I left feeling grounded, focused, and confident in my next steps. I'd recommend Zhenya's work to anyone.",
+    },
+    {
+      author: 'Yani',
+      body: 'A symbiotic experience that recalibrated my mind, body, and spirit in a synergistic outcome. I am a very well satisfied grateful person again.',
+    },
+    {
+      author: 'Dina',
+      body: 'I could truly feel the shift from tension to deep relaxation. Her beautiful, calming energy and the healing sounds of the harp created such peace and transformation.',
+    },
+    {
+      author: 'Jaelyn',
+      body: 'After the session, I felt lighter, clearer, and more in tune with myself. I would highly recommend this to anyone.',
+    },
+    {
+      author: 'Yev',
+      body: "Zhenya's session was transformative. Her session really gave me the clarity I've been yearning for.",
+    },
+    {
+      author: 'Emily',
+      body: 'The tones were mesmerizing and seemed to flow through my entire body, helping release tension. I walked out feeling completely renewed, self-aware, and clear-minded.',
+    },
+    {
+      author: 'Maria',
+      body: 'I was very impressed by the insights I gained. It was an amazing experience.',
+    },
+    {
+      author: 'Nancy',
+      body: 'The sound resonated deeply through my entire body, bringing an overwhelming sense of peace and joy.',
+    },
+    {
+      author: 'Karol',
+      body: 'It felt like a small reset, a reminder to be softer with myself, to release judgment, and to make room for both mourning and presence.',
+    },
+    {
+      author: 'Kseniya',
+      body: 'I left feeling lighter and more grounded. Highly recommend, especially if you are doing it with Zhenya.',
+    },
+    {
+      author: 'Ivonne',
+      body: 'It was my first time experiencing a Crystal Harp healing session and will definitely not be the last. Thank you Zhenya for holding space during this process.',
+    },
+    {
+      author: 'Yana',
+      body: "I finished the session feeling lighter, more centered, and deeply restored. I can't recommend Zhenya and her crystal harp therapy enough.",
+    },
+    {
+      author: 'Thiri',
+      body: 'I finished the session feeling uplifted and ready to focus. Overall, this was an amazing session and highly recommend Zhenya.',
+    },
   ]
 
   const schema = {
@@ -173,9 +221,6 @@ export function ReviewSchema() {
         bestRating: 5,
       },
       reviewBody: r.body,
-      itemReviewed: {
-        '@id': 'https://www.crystalharphealing.com/#organization',
-      },
     })),
   }
 
