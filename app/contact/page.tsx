@@ -103,9 +103,9 @@ export default function ContactPage() {
               <span className="hidden sm:block text-amber-400">·</span>
 
               <a
-                href="tel:+1323841-2348"
+                href="tel:"
                 className="flex items-center gap-3 text-amber-600 hover:text-amber-700 transition-colors"
-                aria-label="Call +1 (323) 841-2348"
+                aria-label=""
               >
                 <svg
                   aria-hidden="true"
@@ -119,7 +119,7 @@ export default function ContactPage() {
                 >
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.08 4.18 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72c.12.97.36 1.92.72 2.82a2 2 0 0 1-.45 2.11L8.91 10.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.36 1.85.6 2.82.72A2 2 0 0 1 22 16.92z" />
                 </svg>
-                <span className="underline">+1 (323) 841-2348</span>
+                <span className="underline"></span>
               </a>
             </span>
           </p>

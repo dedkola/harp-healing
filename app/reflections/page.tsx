@@ -226,8 +226,7 @@ export default function Testimonials() {
             My crystal harp session with Zhenya took me on such an
             <b> insightful and moving journey</b>. I could truly feel the shift from tension to deep
             relaxation. My visualizations were very powerful throughout, with so many layers being
-            unraveled. Her beautiful, calming energy and the healing sounds of the harp created such
-            <b>peace and transformation</b>. This is something I would love to experience again!
+            unraveled. Her beautiful, calming energy and the healing sounds of the harp created such <b>peace and transformation</b>. This is something I would love to experience again!
           </>
         }
       />
@@ -312,8 +311,7 @@ export default function Testimonials() {
             been hurting for several days because I was stressed from all the responsibilities I
             carry — and as soon as I became aware of this, I woke up the next morning completely
             pain-free. In the next two sessions I <b>experienced something powerful</b>: I
-            visualized strong, wide wooden roots spreading from me down into the earth. It was an
-            <b>amazing experience</b> — especially if you’re responsive to music like I am. I
+            visualized strong, wide wooden roots spreading from me down into the earth. It was an <b>amazing experience</b> — especially if you’re responsive to music like I am. I
             enjoyed the sound of the crystal harp and my insight at the same time. Thank you,
             Zhenya! P.S. your voice is something else! Love it!!!
           </>
@@ -365,7 +363,7 @@ export default function Testimonials() {
             harp over and over again. Her gentle presence became an anchor, allowing space for
             something <b>deeper to unfold</b>. As a new mother, still carrying the weight of grief
             for a family member I hadn’t had the chance to mourn during pregnancy, this session
-            brought a<b>tender kind of clarity</b>. It felt like a small reset, a reminder to be
+            brought a <b>tender kind of clarity</b>. It felt like a small reset, a reminder to be
             softer with myself, to release judgment, and to make room for both mourning and
             presence, for both loss and love, as I walk this path of motherhood. In embracing this
             duality, I discovered a newfound strength, one that allows me to honor my feelings while

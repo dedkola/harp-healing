@@ -105,7 +105,6 @@ export default function Services() {
             </article>
           </div>
 
-          <p>Complimentary introductory consultation available.</p>
 
           <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mb-10"></div>
 
