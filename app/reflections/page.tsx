@@ -333,12 +333,12 @@ export default function Testimonials() {
             experienced. The sound resonated deeply through my entire body, bringing an{' '}
             <b>overwhelming sense of peace and joy</b>. During the session, I could feel energy
             moving within me—an unusual and <b>fascinating sensation</b>, as I don’t recall ever
-            feeling something quite like it before. I've had Reiki sessions in the past, where you
+            feeling something quite like it before. I’ve had Reiki sessions in the past, where you
             can sense the practitioner’s energy even without physical touch. This was similar, yet
             no one’s hands hovered over me. The best way I can describe the feeling is like being
             suspended between two magnets—subtle, yet powerful. What truly surprised me was seeing
             colors during the experience. I found myself questioning it afterward—did my brain
-            create those visuals in response to the sound? I'm not sure, but it was a completely new
+            create those visuals in response to the sound? I’m not sure, but it was a completely new
             and beautiful experience for me.
           </>
         }
@@ -359,7 +359,7 @@ export default function Testimonials() {
             and incense curling gently through the air, setting the tone for a serene session. The
             touch of goat lotion that Zhenya offered added an earthy, grounding scent, wrapping the
             moment in quiet comfort. At first, the noise from outside kept pulling my attention
-            away, but Zhenya's steady voice brought me back to my breath and the soft sound of the
+            away, but Zhenya’s steady voice brought me back to my breath and the soft sound of the
             harp over and over again. Her gentle presence became an anchor, allowing space for
             something <b>deeper to unfold</b>. As a new mother, still carrying the weight of grief
             for a family member I hadn’t had the chance to mourn during pregnancy, this session
@@ -369,7 +369,7 @@ export default function Testimonials() {
             duality, I discovered a newfound strength, one that allows me to honor my feelings while
             nurturing my child. Each day becomes an opportunity to weave those threads of sorrow and
             joy together, creating a tapestry of experiences that enrich both my journey and my
-            baby's life.
+            baby’s life.
           </>
         }
       />
@@ -478,7 +478,7 @@ export default function Testimonials() {
         content={
           <>
             I had an amazing experience. The session was deeply relaxing and helped me{' '}
-            <b> release tension I didn’t even realize I was holding</b>. Highly recommend! I can't
+            <b> release tension I didn’t even realize I was holding</b>. Highly recommend! I can’t
             wait for my next session. Gabi- Reiki Practitioner Level 2 I had such a wonderful
             experience with Zhenya. It was different from other sound baths that I’ve had in that
             she combines something similar to talk therapy with the crystal harp, exploring any
