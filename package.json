@@ -34,18 +34,7 @@
     "shadcn": "^4.10.0",
     "tailwind-merge": "^3.5.0"
   },
-  "pnpm": {
-    "overrides": {
-      "@isaacs/brace-expansion": ">=5.0.1",
-      "@smithy/config-resolver": ">=4.4.0",
-      "@hono/node-server": "1.19.14",
-      "esbuild": ">=0.25.0",
-      "effect": "3.20.0",
-      "fast-xml-parser": ">=5.3.4",
-      "hono": ">=4.11.7",
-      "lodash": ">=4.17.23"
-    }
-  },
+
   "devDependencies": {
     "@opennextjs/cloudflare": "^1.19.11",
     "@tailwindcss/postcss": "^4.2.4",
