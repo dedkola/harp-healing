@@ -1,7 +1,7 @@
 <div align="center">
   <img src="./public/github-social-preview.png" alt="Crystal Harp Healing" width="600"/>
 
-  # Crystal Harp Healing Website
+
 
 A modern, responsive website for psycho-sound healing services, built with Next.js and TypeScript.
 
