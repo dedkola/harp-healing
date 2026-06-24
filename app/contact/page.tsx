@@ -1,0 +1,131 @@
+import React from 'react'
+import { Footer } from '@/components/sections/Footer'
+import { BreadcrumbSchema } from '@/components/sections/StructuredData'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Contact Crystal Harp Healing | Book Your Sound Healing Session',
+  description:
+    'Ready to experience nervous system balance and inner harmony? Contact Zhenya for sound healing session inquiries. Email: connect@crystalharphealing.com | Phone: +1 (323) 841-2348',
+  keywords: [
+    'book sound healing',
+    'crystal harp consultation',
+    'sound healing contact',
+    'schedule healing session',
+    'Los Angeles sound healing',
+    'vibrational therapy booking',
+  ],
+  openGraph: {
+    title: 'Contact Crystal Harp Healing',
+    description:
+      'Book your personalized sound healing session. Contact Zhenya for nervous system balance and inner clarity through crystal harp therapy.',
+    url: 'https://www.crystalharphealing.com/contact',
+    siteName: 'Crystal Harp Healing',
+    images: [
+      {
+        url: 'https://www.crystalharphealing.com/hero.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Contact Crystal Harp Healing',
+      },
+    ],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Contact Crystal Harp Healing',
+    description: 'Book your personalized sound healing session for nervous system balance and inner harmony.',
+    images: ['https://www.crystalharphealing.com/hero.webp'],
+  },
+  alternates: {
+    canonical: 'https://www.crystalharphealing.com/contact',
+  },
+}
+
+export default function ContactPage() {
+  return (
+    <main className="px-6">
+      <BreadcrumbSchema
+        items={[
+          { name: 'Home', url: 'https://www.crystalharphealing.com' },
+          { name: 'Contact', url: 'https://www.crystalharphealing.com/contact' },
+        ]}
+      />
+      {/* Constrain header to the same centered, padded container as the hero */}
+      <div className="mx-auto max-w-5xl">
+        <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10"></div>
+
+        <h1 className="text-[2.2rem] sm:text-5xl md:text-7xl lg:text-8xl text-amber-800 mb-10 drop-shadow-sm !font-light md:!font-thin text-center my-8">
+          Begin Your Resonance Journey
+        </h1>
+
+        <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mb-10"></div>
+      </div>
+
+      <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8">
+        <div className="md:w-2/3 text-center text-amber-800 !font-thin space-y-4">
+          <h2 className="text-4xl text-amber-800 !font-thin pb-2 pt-2">
+            Ready to reconnect with your inner harmony?
+          </h2>
+          <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10"></div>
+          <p className="text-2xl !font-thin pb-4 pt-4">
+            Whether you’re seeking nervous system balance, inner clarity, or restorative ease, sound
+            can guide you home to yourself.
+          </p>
+
+          <p className="text-2xl !font-thin ">
+            For session inquiries or to learn more, you can contact me directly.
+          </p>
+
+          <p className="pb-2">
+            <span className="mx-auto flex flex-col sm:flex-row items-center justify-center gap-4 text-amber-800 !font-thin">
+              <a
+                href="mailto:connect@crystalharphealing.com"
+                className="flex items-center gap-3 text-amber-600 hover:text-amber-700 transition-colors"
+                aria-label="Email"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="h-5 w-5 text-amber-500"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <rect x="3" y="6" width="18" height="12" rx="2" />
+                  <path d="M3 8.5L12 13l9-4.5" />
+                </svg>
+                <span className="underline">{`connect@crystalharphealing.com`}</span>
+              </a>
+
+              <span className="hidden sm:block text-amber-400">·</span>
+
+              <a
+                href="tel:"
+                className="flex items-center gap-3 text-amber-600 hover:text-amber-700 transition-colors"
+                aria-label=""
+              >
+                <svg
+                  aria-hidden="true"
+                  className="h-5 w-5 text-amber-500"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.08 4.18 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72c.12.97.36 1.92.72 2.82a2 2 0 0 1-.45 2.11L8.91 10.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.36 1.85.6 2.82.72A2 2 0 0 1 22 16.92z" />
+                </svg>
+                <span className="underline"></span>
+              </a>
+            </span>
+          </p>
+        </div>
+      </div>
+      <Footer />
+    </main>
+  )
+}

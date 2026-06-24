@@ -1,0 +1,10 @@
+# Global rules
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /api/
+# Optional crawl throttle for non-Google bots
+Crawl-delay: 2
+
+# Sitemap
+Sitemap: https://www.crystalharphealing.com/sitemap.xml

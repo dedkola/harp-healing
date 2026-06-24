@@ -1,0 +1,169 @@
+'use client'
+
+import React, { useState } from 'react'
+import { Footer } from '@/components/sections/Footer'
+import { Turnstile } from '@marsidev/react-turnstile'
+
+export default function ContactPage() {
+  const [formData, setFormData] = useState({ name: '', email: '', consent: false })
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [message, setMessage] = useState('')
+  const [turnstileToken, setTurnstileToken] = useState('')
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+
+    if (!formData.consent) {
+      setStatus('error')
+      setMessage('Please agree to receive emails before submitting.')
+      return
+    }
+
+    if (!formData.name || !formData.email) {
+      setStatus('error')
+      setMessage('Please fill in all fields.')
+      return
+    }
+
+    if (!turnstileToken) {
+      setStatus('error')
+      setMessage('Please complete the verification challenge.')
+      return
+    }
+
+    setStatus('loading')
+    setMessage('')
+
+    try {
+      const response = await fetch('/api/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ ...formData, turnstileToken }),
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        setStatus('success')
+        setMessage(data.message || 'Successfully registered!')
+        setFormData({ name: '', email: '', consent: false })
+        setTurnstileToken('')
+      } else {
+        setStatus('error')
+        setMessage(data.error || 'Failed to register')
+      }
+    } catch (error) {
+      setStatus('error')
+      setMessage('An error occurred. Please try again.')
+      console.error('Signup error:', error)
+    }
+  }
+
+  return (
+    <main className="px-4 sm:px-6">
+      {/* Constrain header to the same centered, padded container as the hero */}
+      <div className="mx-auto max-w-5xl">
+        <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10"></div>
+
+        <h1 className="text-[1.75rem] sm:text-5xl md:text-7xl lg:text-8xl text-amber-800 mb-10 drop-shadow-sm !font-light md:!font-thin text-center my-8 px-2">
+          Experience calm, clarity, and nervous-system balance
+        </h1>
+
+        <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mb-10"></div>
+      </div>
+
+      <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8">
+        <div className="w-full md:w-2/3 max-w-md text-center text-amber-800 !font-thin space-y-4 min-w-0">
+          <h2 className="text-2xl sm:text-4xl text-amber-800 font-thin! pb-2 pt-2 px-2">
+            Join for session openings, meditations, and workshops.
+          </h2>
+          <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10"></div>
+
+          {/* Status Messages */}
+          {status === 'success' && (
+            <div className="p-4 rounded-lg bg-green-50 border border-green-200 text-green-800">
+              {message}
+            </div>
+          )}
+          {status === 'error' && (
+            <div className="p-4 rounded-lg bg-red-50 border border-red-200 text-red-800 ">
+              {message}
+            </div>
+          )}
+
+          {/* Signup Form */}
+          <form onSubmit={handleSubmit} className="space-y-6 mt-8 mb-8">
+            <div>
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                required
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                className="w-full px-4 py-3 rounded-lg border border-[#c19a6b]/30 bg-white/50 text-amber-900 placeholder:text-amber-800/50 focus:outline-none focus:ring-2 focus:ring-[#c19a6b]/50 focus:border-transparent transition-all text-[16px]"
+              />
+            </div>
+
+            <div>
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                required
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                className=" w-full px-4 py-3 rounded-lg border border-[#c19a6b]/30 bg-white/50 text-amber-900 placeholder:text-amber-800/50 focus:outline-none focus:ring-2 focus:ring-[#c19a6b]/50 focus:border-transparent transition-all text-[16px]"
+              />
+            </div>
+
+            {/* Turnstile Widget */}
+            <div className="flex justify-center">
+              <Turnstile
+                siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || '1x00000000000000000000AA'}
+                onSuccess={(token) => setTurnstileToken(token)}
+                onError={() => {
+                  setStatus('error')
+                  setMessage('Verification failed. Please try again.')
+                }}
+                onExpire={() => setTurnstileToken('')}
+                options={{
+                  theme: 'light',
+                }}
+              />
+            </div>
+
+            <button
+              type="submit"
+              disabled={status === 'loading'}
+              className="w-full px-6 py-3 bg-gradient-to-r from-[#e1bc8f] via-[#ecd8ae] to-[#e1bc8f] text-amber-900 font-medium rounded-lg hover:shadow-lg hover:scale-[1.02] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {status === 'loading' ? 'Submitting...' : 'Get the Updates'}
+            </button>
+          </form>
+
+          <div className="flex items-start justify-center gap-3 mt-6 px-2">
+            <input
+              type="checkbox"
+              id="email-consent"
+              name="consent"
+              required
+              checked={formData.consent}
+              onChange={(e) => setFormData({ ...formData, consent: e.target.checked })}
+              className="w-5 h-5 mt-1 flex-shrink-0 rounded border-2 border-[#c19a6b]/50 bg-white/50 text-[#c19a6b] focus:ring-2 focus:ring-[#c19a6b]/50 focus:ring-offset-0 cursor-pointer transition-all checked:bg-[#c19a6b] checked:border-[#c19a6b] accent-[#c19a6b]"
+            />
+            <label
+              htmlFor="email-consent"
+              className="text-lg sm:text-2xl font-thin! text-amber-800 cursor-pointer text-left"
+            >
+              I agree to receive emails and understand I can unsubscribe anytime.
+            </label>
+          </div>
+        </div>
+      </div>
+      <Footer />
+    </main>
+  )
+}
