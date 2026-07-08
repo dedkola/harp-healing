@@ -1,5 +1,6 @@
 'use client'
-import React, { useState } from 'react'
+import { useState } from 'react'
+import Link from 'next/link'
 import { Menu } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
@@ -12,26 +13,23 @@ const InstagramIcon = () => (
 interface MenuItem {
   title: string
   url: string
-  description?: string
-  icon?: React.ReactNode
-  items?: MenuItem[]
 }
 
 interface NavbarProps {
   menu?: MenuItem[]
 }
 
-const Navbar = ({
-  menu = [
-    { title: 'Home', url: '/' },
-    { title: 'About me', url: '/about' },
-    { title: 'Offerings', url: '/offerings' },
-    { title: 'Why Sound Heals', url: '/why_sound_heals' },
-    { title: 'Reflections', url: '/reflections' },
-    { title: 'Contact me', url: '/contact' },
-    { title: 'Sign up', url: '/signup' },
-  ],
-}: NavbarProps) => {
+const DEFAULT_MENU: MenuItem[] = [
+  { title: 'Home', url: '/' },
+  { title: 'About me', url: '/about' },
+  { title: 'Offerings', url: '/offerings' },
+  { title: 'Why Sound Heals', url: '/why_sound_heals' },
+  { title: 'Reflections', url: '/reflections' },
+  { title: 'Contact me', url: '/contact' },
+  { title: 'Sign up', url: '/signup' },
+]
+
+const Navbar = ({ menu = DEFAULT_MENU }: NavbarProps) => {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
@@ -44,13 +42,13 @@ const Navbar = ({
           <ul className="flex items-center gap-2">
             {menu.map((item) => (
               <li key={item.title} className="relative group">
-                <a
+                <Link
                   href={item.url}
                   className="text-xl hover:bg-muted hover:text-accent-foreground inline-flex h-10 items-center rounded-md px-4  transition-colors !font-thin"
                   style={{ color: '#92400E' }}
                 >
                   {item.title}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -116,14 +114,15 @@ const Navbar = ({
                 <div className="flex flex-col gap-6 p-4 overflow-y-auto">
                   <div className="flex w-full flex-col gap-4">
                     {menu.map((item) => (
-                      <a
+                      <Link
                         key={item.title}
                         href={item.url}
                         className="text-md hover:text-accent-foreground !font-thin text-amber-800"
                         style={{ color: '#92400E' }}
+                        onClick={() => setMobileOpen(false)}
                       >
                         {item.title}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>

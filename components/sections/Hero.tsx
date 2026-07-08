@@ -1,6 +1,7 @@
 'use client'
 import { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
+import { PageDivider } from '@/components/sections/page-shell'
 
 export default function Hero() {
   const [isPressed, setIsPressed] = useState(false)
@@ -65,16 +66,11 @@ export default function Hero() {
         const playPromise = audioRef.current.play()
 
         if (playPromise !== undefined) {
-          playPromise
-            .then(() => {
-              // Audio started successfully
-              console.log('Audio playback started')
-            })
-            .catch((error) => {
-              console.warn('Audio playback failed:', error)
-              setIsPlaying(false)
-              setAudioError(true)
-            })
+          playPromise.catch((error) => {
+            console.warn('Audio playback failed:', error)
+            setIsPlaying(false)
+            setAudioError(true)
+          })
         }
       } catch (error) {
         console.warn('Audio playback error:', error)
@@ -102,7 +98,7 @@ export default function Hero() {
         Crystal Harp Healing
       </h1>
 
-      <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mb-20"></div>
+      <PageDivider className="mb-20" />
 
       {/* Image */}
       <div className="w-full flex justify-center">
@@ -118,10 +114,10 @@ export default function Hero() {
           fetchPriority="high"
         />
       </div>
-      <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent pp-2"></div>
+      <PageDivider />
 
       {/* Text + Button */}
-      <div className="">
+      <div>
         <p className="text-4xl text-amber-800 font-thin mt-10">
           Vibrational healing for emotional balance, nervous system regulation, and inner alignment
         </p>

@@ -1,7 +1,8 @@
 'use client'
 
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Footer } from '@/components/sections/Footer'
+import { PageDivider, PageHeader, PageSplit } from '@/components/sections/page-shell'
 import { Turnstile } from '@marsidev/react-turnstile'
 
 export default function ContactPage() {
@@ -63,23 +64,17 @@ export default function ContactPage() {
 
   return (
     <main className="px-4 sm:px-6">
-      {/* Constrain header to the same centered, padded container as the hero */}
-      <div className="mx-auto max-w-5xl">
-        <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10"></div>
+      <PageHeader
+        title="Experience calm, clarity, and nervous-system balance"
+        titleClassName="px-2 text-[1.75rem] sm:text-5xl"
+      />
 
-        <h1 className="text-[1.75rem] sm:text-5xl md:text-7xl lg:text-8xl text-amber-800 mb-10 drop-shadow-sm !font-light md:!font-thin text-center my-8 px-2">
-          Experience calm, clarity, and nervous-system balance
-        </h1>
-
-        <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mb-10"></div>
-      </div>
-
-      <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8">
-        <div className="w-full md:w-2/3 max-w-md text-center text-amber-800 !font-thin space-y-4 min-w-0">
-          <h2 className="text-2xl sm:text-4xl text-amber-800 font-thin! pb-2 pt-2 px-2">
+      <PageSplit className="justify-center">
+        <div className="min-w-0 w-full max-w-md space-y-4 text-center text-amber-800 !font-thin md:w-2/3">
+          <h2 className="px-2 pb-2 pt-2 text-2xl text-amber-800 !font-thin sm:text-4xl">
             Join for session openings, meditations, and workshops.
           </h2>
-          <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10"></div>
+          <PageDivider className="mt-10" />
 
           {/* Status Messages */}
           {status === 'success' && (
@@ -156,13 +151,13 @@ export default function ContactPage() {
             />
             <label
               htmlFor="email-consent"
-              className="text-lg sm:text-2xl font-thin! text-amber-800 cursor-pointer text-left"
+              className="cursor-pointer text-left text-lg text-amber-800 !font-thin sm:text-2xl"
             >
               I agree to receive emails and understand I can unsubscribe anytime.
             </label>
           </div>
         </div>
-      </div>
+      </PageSplit>
       <Footer />
     </main>
   )

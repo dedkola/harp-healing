@@ -26,7 +26,8 @@ function collectPages(dir: string, route = ''): string[] {
     const name = entry.name
 
     // skip unwanted folders
-    if (name === 'api' || name === 'dashboard' || name.startsWith('_') || name.startsWith('.')) continue
+    if (name === 'api' || name === 'dashboard' || name.startsWith('_') || name.startsWith('.'))
+      continue
 
     const childDir = path.join(dir, name)
 

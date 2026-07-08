@@ -3,7 +3,7 @@ import { withAccelerate } from '@prisma/extension-accelerate'
 
 const prismaClientSingleton = () => {
   if (process.env.NODE_ENV !== 'production') {
-    console.log('Initializing Prisma Client...');
+    console.log('Initializing Prisma Client...')
   }
   return new PrismaClient({
     accelerateUrl: process.env.DATABASE_URL,

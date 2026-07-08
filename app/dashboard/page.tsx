@@ -1,7 +1,8 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Footer } from '@/components/sections/Footer'
+import { PageHeader, PageContainer } from '@/components/sections/page-shell'
 
 interface User {
   id: string
@@ -40,17 +41,9 @@ export default function DashboardPage() {
 
   return (
     <main className="px-6">
-      <div className="mx-auto max-w-5xl">
-        <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10" />
+      <PageHeader title="Dashboard of registered users" />
 
-        <h1 className="text-[2.2rem] sm:text-5xl md:text-7xl lg:text-8xl text-amber-800 mb-10 drop-shadow-sm !font-light md:!font-thin text-center my-8">
-          Dashboard of registered users
-        </h1>
-
-        <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mb-10" />
-      </div>
-
-      <div className="max-w-6xl mx-auto mb-16">
+      <PageContainer className="mb-16 max-w-6xl">
         {loading && <div className="text-center text-amber-800 text-2xl">Loading users...</div>}
 
         {error && (
@@ -122,7 +115,7 @@ export default function DashboardPage() {
             </div>
           </div>
         )}
-      </div>
+      </PageContainer>
 
       <Footer />
     </main>

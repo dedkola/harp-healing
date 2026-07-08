@@ -1,6 +1,6 @@
 import { Footer } from '@/components/sections/Footer'
+import { PageDivider, PageHeader, PageSplit } from '@/components/sections/page-shell'
 import { BreadcrumbSchema } from '@/components/sections/StructuredData'
-import React from 'react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -54,25 +54,21 @@ export default function HowItWorks() {
           { name: 'Why Sound Heals', url: 'https://www.crystalharphealing.com/why_sound_heals' },
         ]}
       />
-      {/* Constrain header to the same centered, padded container as the hero */}
-      <div className="mx-auto max-w-5xl">
-        <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10"></div>
+      <PageHeader
+        title="The Science of Resonance, the Art of Stillness"
+        showBottomDivider={false}
+      />
 
-        <h1 className="text-[2.2rem] sm:text-5xl md:text-7xl lg:text-8xl text-amber-800 mb-10 drop-shadow-sm !font-light md:!font-thin text-center my-8">
-          The Science of Resonance, the Art of Stillness
-        </h1>
-      </div>
-
-      <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8">
-        <div className="md:w-2/3 text-center text-amber-800 !font-thin space-y-4">
-          <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10"></div>
+      <PageSplit className="justify-center">
+        <div className="space-y-4 text-center text-amber-800 !font-thin md:w-2/3">
+          <PageDivider className="mt-10" />
           <p className="pb-4 pt-4">
             Sound touches the parts of us that words cannot. The pure frequencies of the crystal
             harp entrain the body toward balance — calming the sympathetic nervous system and
             inviting parasympathetic safety.
           </p>
 
-          <p className="">
+          <p>
             Neuroscience and trauma research affirm what ancient traditions have always known:
             vibration restores coherence.
           </p>
@@ -95,7 +91,7 @@ export default function HowItWorks() {
             emotional grounding.
           </p>
         </div>
-      </div>
+      </PageSplit>
       <Footer />
     </main>
   )

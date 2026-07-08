@@ -1,9 +1,11 @@
 import Hero from '@/components/sections/Hero'
 import { Footer } from '@/components/sections/Footer'
+import { PageDivider } from '@/components/sections/page-shell'
+
 export default function Home() {
   return (
     <main>
-      <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10"></div>
+      <PageDivider className="mt-10" />
       <Hero />
       <Footer />
     </main>

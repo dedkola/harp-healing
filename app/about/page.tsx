@@ -1,6 +1,7 @@
 import Image from 'next/image'
-import { Footer } from '@/components/sections/Footer'
 import type { Metadata } from 'next'
+import { Footer } from '@/components/sections/Footer'
+import { PageContainer, PageDivider, PageHeader, PageSplit } from '@/components/sections/page-shell'
 import { PersonSchema, BreadcrumbSchema } from '@/components/sections/StructuredData'
 
 export const metadata: Metadata = {
@@ -44,6 +45,8 @@ export const metadata: Metadata = {
   },
 }
 
+const sectionDividerClassName = 'mx-auto mt-4 w-20 md:mx-0 md:w-36 md:max-w-[720px] lg:w-72'
+
 export default function AboutMePage() {
   return (
     <main className="px-6">
@@ -54,22 +57,13 @@ export default function AboutMePage() {
           { name: 'About', url: 'https://www.crystalharphealing.com/about' },
         ]}
       />
-      {/* Constrain header to the same centered, padded container as the hero */}
-      <div className="mx-auto max-w-5xl">
-        <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10"></div>
-
-        <h1 className="text-[2.2rem] sm:text-5xl md:text-7xl lg:text-8xl text-amber-800 mb-10 drop-shadow-sm !font-light md:!font-thin text-center my-8">
-          Meet the Frequency Behind the Harp
-        </h1>
-
-        <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mb-10"></div>
-      </div>
-      <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8">
-        <div className="md:w-2/3 text-left text-amber-800 !font-thin space-y-4">
+      <PageHeader title="Meet the Frequency Behind the Harp" />
+      <PageSplit>
+        <div className="space-y-4 text-left text-amber-800 !font-thin md:w-2/3">
           <h2 className="text-4xl text-amber-800 !font-thin text-center md:text-left pb-2 pt-2">
             Welcome, I’m Zhenya.
           </h2>
-          <div className="mt-4 h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent w-20 md:w-36 lg:w-72 md:max-w-[720px] mx-auto md:mx-0" />
+          <PageDivider className={sectionDividerClassName} />
           <p className="pb-4 pt-4">
             I’m a sound healer with a background in psychotherapy. Crystal Harp Healing was born
             from the meeting point between psychology, resonance, and the human heart.
@@ -104,9 +98,9 @@ export default function AboutMePage() {
             priority
           />
         </div>
-      </div>
-      <div className="mx-auto max-w-5xl !font-light">
-        <div className="mt-4 h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent w-20 md:w-36 lg:w-72 md:max-w-[720px] mx-auto md:mx-0" />
+      </PageSplit>
+      <PageContainer className="!font-light">
+        <PageDivider className={sectionDividerClassName} />
         <h2 className="text-4xl text-amber-800 !font-thin text-center md:text-left pb-2 pt-2">
           An Invitation
         </h2>
@@ -115,8 +109,8 @@ export default function AboutMePage() {
           This practice is an invitation to tune inward— to experience sound not just as something
           you hear, but as something you feel, guiding you gently back to balance and wholeness.
         </p>
-        <div className="mt-4 h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent w-20 md:w-36 lg:w-72 md:max-w-[720px] mx-auto md:mx-0" />
-      </div>
+        <PageDivider className={sectionDividerClassName} />
+      </PageContainer>
       <Footer />
     </main>
   )

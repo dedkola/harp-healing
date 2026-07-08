@@ -1,4 +1,5 @@
 import { Footer } from '@/components/sections/Footer'
+import { PageContainer, PageDivider, PageHeader } from '@/components/sections/page-shell'
 import type { Metadata } from 'next'
 import { PersonSchema, BreadcrumbSchema } from '@/components/sections/StructuredData'
 
@@ -54,19 +55,9 @@ export default function FourFourFourHzPage() {
         ]}
       />
 
-      {/* Page Title */}
-      <div className="mx-auto max-w-5xl">
-        <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mt-10" />
+      <PageHeader title="What Is 444 Hz Sound Healing?" />
 
-        <h1 className="text-[2.2rem] sm:text-5xl md:text-7xl lg:text-8xl text-amber-800 drop-shadow-sm !font-light md:!font-thin text-center my-8">
-          What Is 444 Hz Sound Healing?
-        </h1>
-
-        <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent mb-10" />
-      </div>
-
-      {/* Content */}
-      <div className="max-w-3xl mx-auto text-amber-800 !font-thin space-y-12 pb-16">
+      <PageContainer className="max-w-3xl space-y-12 pb-16 text-amber-800 !font-thin">
         {/* Section 1 — Vibration */}
         <section className="space-y-4">
           <p className="text-lg leading-relaxed">
@@ -97,7 +88,7 @@ export default function FourFourFourHzPage() {
           </p>
         </section>
 
-        <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent" />
+        <PageDivider />
 
         {/* Section 2 — Crystal Harp */}
         <section className="space-y-4">
@@ -127,7 +118,7 @@ export default function FourFourFourHzPage() {
           </p>
         </section>
 
-        <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent" />
+        <PageDivider />
 
         {/* Section 3 — Why 444 Hz */}
         <section className="space-y-4">
@@ -155,7 +146,7 @@ export default function FourFourFourHzPage() {
           </p>
         </section>
 
-        <div className="h-px bg-gradient-to-r from-transparent via-[#c19a6b]/40 to-transparent" />
+        <PageDivider />
 
         {/* Section 4 — Who This Is For */}
         <section className="space-y-4">
@@ -179,7 +170,7 @@ export default function FourFourFourHzPage() {
             No experience is required. Sound meets you where you are.
           </p>
         </section>
-      </div>
+      </PageContainer>
 
       <Footer />
     </main>
