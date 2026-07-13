@@ -45,4 +45,4 @@ This project uses the following key security-related tools:
 
 ---
 
-For general support, open an issue on [GitHub Issues](https://github.com/kolasokol/harp-healing/issues).
+For general support, open an issue on [GitHub Issues](https://github.com/dedkola/harp-healing/issues).

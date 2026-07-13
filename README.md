@@ -69,7 +69,7 @@ This is a professional wellness website showcasing **Crystal Harp Healing** serv
 1. Clone the repository:
 
    ```bash
-   git clone https://gitlab.com/dedkola/harp-healing.git
+   git clone https://github.com/dedkola/harp-healing.git
    cd harp-healing
    ```
 
@@ -413,5 +413,5 @@ This project is available as a template for personal and commercial use.
 ---
 
 <div align="center">
-Made with code and love by <a href="https://gitlab.com/dedkola">dedkola</a>
+Made with code and love by <a href="https://github.com/dedkola">dedkola</a>
 </div>
