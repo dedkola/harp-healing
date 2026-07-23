@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -40,17 +40,17 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
   /* Tailwind v4 font tokens mapping to next/font CSS variables */
-  --font-sans: var(--font-open-sans), system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-sans:
+    var(--font-open-sans), system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
   --font-lato: var(--font-lato), sans-serif;
   --font-quote: var(--font-eb-garamond), serif;
   --font-button: var(--font-raleway), sans-serif;
 }
 
-
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
-  --foreground: #C19A6B;
+  --foreground: #c19a6b;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -84,7 +84,7 @@
 
 .dark {
   --background: oklch(0.145 0 0);
-  --foreground: #DEB887;
+  --foreground: #deb887;
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
@@ -121,7 +121,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-      background-color: #e3c193;
+    background-color: #e3c193;
     @apply bg-background text-foreground font-sans;
   }
 }
@@ -133,14 +133,22 @@
 /*    padding: 0;*/
 /*}*/
 
-html, body {
-    width: 100%;
-    height: 100%;
-    font-family: var(--font-open-sans), system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-    /*background-color: #fff;*/
-    /*color: #111;*/
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family:
+    var(--font-open-sans),
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    Arial,
+    sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  /*background-color: #fff;*/
+  /*color: #111;*/
 }
 
 /*!* 2. Images, videos, SVGs responsive *!*/
@@ -157,64 +165,84 @@ html, body {
 /*}*/
 
 /* 4. Headings */
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 600;
-    line-height: 1.2;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  line-height: 1.2;
 }
 /* Title vs Heading fonts */
 h1 {
-    /* Titles: Lato */
-    @apply font-lato;
+  /* Titles: Lato */
+  @apply font-lato;
 }
 /* Other headings default to Open Sans via body font-sans */
 
 /* Quotes */
-blockquote, q, .quote {
-    @apply font-quote italic;
+blockquote,
+q,
+.quote {
+  @apply font-quote italic;
 }
 
 /* Buttons */
-button, .btn, .button, [role="button"], input[type="button"], input[type="submit"], input[type="reset"], .cta {
-    @apply font-button;
+button,
+.btn,
+.button,
+[role='button'],
+input[type='button'],
+input[type='submit'],
+input[type='reset'],
+.cta {
+  @apply font-button;
 }
 
 /* 5. Paragraphs */
 p {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 /* 6. Container for main content */
 .container {
-    width: 100%;
-    max-width: 1280px; /* limit to modern desktop width */
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
+  width: 100%;
+  max-width: 1280px; /* limit to modern desktop width */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 /* 7. Basic responsive typography */
 html {
-    font-size: 16px;
+  font-size: 16px;
 }
 @media (max-width: 1024px) {
-    html {
-        font-size: 15px;
-    }
+  html {
+    font-size: 15px;
+  }
 }
 @media (max-width: 768px) {
-    html {
-        font-size: 14px;
-    }
+  html {
+    font-size: 14px;
+  }
 }
 
 @keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .gradient-animate {
-    background-size: 200% 200%;
-    animation: gradientMove 4s ease infinite;
+  background-size: 200% 200%;
+  animation: gradientMove 4s ease infinite;
 }

@@ -1,77 +1,64 @@
-# Dashboard Authentication Setup
+# Dashboard Authentication
 
-## Overview
-The dashboard page (`/dashboard`) is protected with HTTP Basic Authentication using Next.js proxy.
+The Edge-compatible Next.js middleware in `middleware.ts` protects both the dashboard UI and its
+data endpoint:
 
-## How It Works
+- `/dashboard`
+- `/api/users`
 
-### Proxy (`proxy.ts`)
-- Intercepts all requests to `/dashboard` and its sub-paths
-- Validates HTTP Basic Authentication credentials
-- Works in both development (`pnpm dev`) and production (`pnpm preview`)
+Authentication uses HTTP Basic Authentication. It is suitable for this small private
+administrative surface only when served over HTTPS.
 
-### Environment Variables
+## Configuration
 
-#### For Next.js Development (`pnpm dev`)
-Set in `.env` file:
-```bash
-BASIC_AUTH_USER=your_username
-BASIC_AUTH_PASS=your_password
+Set strong, unique credentials in `.env` for local Next.js development:
+
+```dotenv
+BASIC_AUTH_USER="your_username"
+BASIC_AUTH_PASS="your_strong_password"
 ```
 
-#### For Cloudflare Preview/Production (`pnpm preview`)
-Set in `.dev.vars` file (for local preview):
+For a local Cloudflare preview, put the same values in `.dev.vars`. For production, store them as
+Worker secrets:
+
 ```bash
-BASIC_AUTH_USER=myuser
-BASIC_AUTH_PASS=mypass
+pnpm wrangler secret put BASIC_AUTH_USER
+pnpm wrangler secret put BASIC_AUTH_PASS
 ```
 
-For production deployment, set these as secrets in Cloudflare:
-```bash
-wrangler secret put BASIC_AUTH_USER
-wrangler secret put BASIC_AUTH_PASS
-```
+The middleware has no fallback credentials. If either variable is absent, protected routes fail
+closed with `503 Service Unavailable`.
 
-## Testing
+> [!NOTE]
+> Next.js 16 deprecates the `middleware.ts` filename in favor of Node-runtime `proxy.ts`.
+> OpenNext for Cloudflare 1.20 does not yet support Node middleware, so this project intentionally
+> retains the Edge middleware convention to keep its Cloudflare build deployable.
 
-### Local Development
+## Verification
+
+Start the app:
+
 ```bash
 pnpm dev
 ```
-Navigate to `http://localhost:3000/dashboard` - you'll be prompted for credentials.
 
-### Cloudflare Preview
+Then test both protected surfaces:
+
 ```bash
-pnpm preview
-```
-Navigate to the preview URL and access `/dashboard` - authentication should work.
+# Missing credentials: 401
+curl -i http://localhost:3000/dashboard
+curl -i http://localhost:3000/api/users
 
-### Using curl
-```bash
-# Without auth (should return 401)
-curl -I http://localhost:3000/dashboard
-
-# With auth (should return 200)
-curl -u username:password http://localhost:3000/dashboard
+# Valid credentials: 200
+curl -i -u username:password http://localhost:3000/dashboard
+curl -i -u username:password http://localhost:3000/api/users
 ```
 
-## Security Notes
+If the environment variables are intentionally unset, the expected status is `503`, not `401`.
 
-1. **Never commit** `.env` or `.dev.vars` files to version control
-2. In production, use strong passwords and consider additional security measures
-3. HTTPS is strongly recommended for production (Cloudflare provides this automatically)
-4. The proxy uses runtime-safe Base64 decoding for credentials
+## Operational notes
 
-## Troubleshooting
-
-### Authentication not working in preview
-- Ensure `.dev.vars` contains `BASIC_AUTH_USER` and `BASIC_AUTH_PASS`
-- Rebuild: `pnpm preview`
-
-### Browser keeps asking for credentials
-- Clear browser cache/cookies
-- Use incognito mode for testing
-
-### 401 Unauthorized error
-- Check credentials match environment variables exactly
-- Verify no trailing spaces in `.env` or `.dev.vars`
+- Never commit `.env` or `.dev.vars`.
+- Use HTTPS in every deployed environment; Basic Auth credentials are only encoded, not encrypted.
+- Rotate credentials if they may have been exposed.
+- The API response uses `Cache-Control: no-store` because it contains names and email addresses.
