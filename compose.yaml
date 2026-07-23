@@ -11,10 +11,15 @@ services:
   server:
     build:
       context: .
+      args:
+        NEXT_PUBLIC_TURNSTILE_SITE_KEY: ${NEXT_PUBLIC_TURNSTILE_SITE_KEY:-}
     environment:
       NODE_ENV: production
       # Set DATABASE_URL for runtime. Replace with your actual Prisma Accelerate URL in production.
-      DATABASE_URL: "prisma://accelerate.prisma-data.net/?api_key=${DATABASE_URL_API_KEY:-dummy_key}"
+      DATABASE_URL: 'prisma://accelerate.prisma-data.net/?api_key=${DATABASE_URL_API_KEY:-dummy_key}'
+      BASIC_AUTH_USER: ${BASIC_AUTH_USER:-}
+      BASIC_AUTH_PASS: ${BASIC_AUTH_PASS:-}
+      TURNSTILE_SECRET_KEY: ${TURNSTILE_SECRET_KEY:-}
     ports:
       - 3000:3000
 
@@ -50,4 +55,3 @@ services:
 # secrets:
 #   db-password:
 #     file: db/password.txt
-
