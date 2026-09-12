@@ -16,6 +16,11 @@ FROM node:${NODE_VERSION}-bookworm-slim as base
 # Set working directory for all build stages.
 WORKDIR /usr/src/app
 
+# Install libatomic1 so the pnpm standalone binary can run on the slim image.
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends libatomic1 \
+    && rm -rf /var/lib/apt/lists/*
+
 # Install pnpm.
 RUN --mount=type=cache,target=/root/.npm \
     npm install -g pnpm@${PNPM_VERSION}
