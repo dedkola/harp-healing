@@ -359,16 +359,6 @@ The build process:
 
 ### Alternative: Docker Deployment
 
-Every push to `main` builds and publishes `ghcr.io/dedkola/harp-healing:latest`
-to GitHub Container Registry. Each image is also tagged with the full commit SHA
-for reproducible deployments and rollbacks. The **Docker Build and Publish**
-workflow can also be run manually from `main`. Publishing uses the built-in
-`GITHUB_TOKEN`; no additional registry secret is required.
-
-```bash
-docker pull ghcr.io/dedkola/harp-healing:latest
-```
-
 A `Dockerfile` is included for traditional container-based deployments (e.g., on VPS, AWS ECS, etc.):
 
 ```bash
