@@ -61,7 +61,7 @@ This is a professional wellness website showcasing **Crystal Harp Healing** serv
 
 ### Prerequisites
 
-- Node.js 20+
+- Node.js 24+ (LTS)
 - pnpm (recommended) or npm
 
 ### Installation
