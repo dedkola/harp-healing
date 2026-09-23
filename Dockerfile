@@ -11,7 +11,7 @@ ARG PNPM_VERSION=11.1.0
 
 ################################################################################
 # Use node image for base image for all stages.
-FROM node:${NODE_VERSION}-bookworm-slim as base
+FROM node:${NODE_VERSION}-trixie-slim as base
 
 # Set working directory for all build stages.
 WORKDIR /usr/src/app
