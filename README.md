@@ -22,8 +22,8 @@
 </div>
 
 > [!NOTE]
-> **Project status:** Maintenance is complete. This repository is preserved as a public,
-> read-only snapshot; no new features or routine support are planned.
+> **Archived:** This repository is preserved as a public, read-only snapshot. Maintenance is
+> complete, and no new features or routine support are planned.
 
 ## About
 
