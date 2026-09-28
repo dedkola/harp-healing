@@ -6,6 +6,7 @@ import { PageDivider, PageHeader, PageSplit } from '@/components/sections/page-s
 import { Turnstile } from '@marsidev/react-turnstile'
 
 export default function ContactPage() {
+  const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY
   const [formData, setFormData] = useState({ name: '', email: '', consent: false })
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [message, setMessage] = useState('')
@@ -116,23 +117,29 @@ export default function ContactPage() {
 
             {/* Turnstile Widget */}
             <div className="flex justify-center">
-              <Turnstile
-                siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || '1x00000000000000000000AA'}
-                onSuccess={(token) => setTurnstileToken(token)}
-                onError={() => {
-                  setStatus('error')
-                  setMessage('Verification failed. Please try again.')
-                }}
-                onExpire={() => setTurnstileToken('')}
-                options={{
-                  theme: 'light',
-                }}
-              />
+              {turnstileSiteKey ? (
+                <Turnstile
+                  siteKey={turnstileSiteKey}
+                  onSuccess={(token) => setTurnstileToken(token)}
+                  onError={() => {
+                    setStatus('error')
+                    setMessage('Verification failed. Please try again.')
+                  }}
+                  onExpire={() => setTurnstileToken('')}
+                  options={{
+                    theme: 'light',
+                  }}
+                />
+              ) : (
+                <p role="alert" className="text-red-800">
+                  Signup verification is not configured.
+                </p>
+              )}
             </div>
 
             <button
               type="submit"
-              disabled={status === 'loading'}
+              disabled={status === 'loading' || !turnstileSiteKey}
               className="w-full px-6 py-3 bg-gradient-to-r from-[#e1bc8f] via-[#ecd8ae] to-[#e1bc8f] text-amber-900 font-medium rounded-lg hover:shadow-lg hover:scale-[1.02] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {status === 'loading' ? 'Submitting...' : 'Get the Updates'}

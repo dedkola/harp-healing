@@ -8,8 +8,7 @@
   "workspaceFolder": "/workspace",
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
   "forwardPorts": [3000],
-  "postCreateCommand": "pnpm install",
-  "postStartCommand": "pnpm dev -- -H 0.0.0.0",
+  "postCreateCommand": "test -f .env || cp .env.example .env; pnpm install --frozen-lockfile",
   "remoteUser": "node",
   "settings": {
     "terminal.integrated.shell.linux": "/bin/bash",

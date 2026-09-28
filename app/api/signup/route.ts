@@ -1,6 +1,7 @@
 import 'server-only'
+import { Prisma } from '@prisma/client'
 import { NextRequest, NextResponse } from 'next/server'
-import prisma from '@/lib/prisma'
+import { getPrisma } from '@/lib/prisma'
 
 interface TurnstileResponse {
   success: boolean
@@ -8,6 +9,15 @@ interface TurnstileResponse {
   challenge_ts?: string
   hostname?: string
 }
+
+interface SignupRequest {
+  name?: unknown
+  email?: unknown
+  consent?: unknown
+  turnstileToken?: unknown
+}
+
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 async function verifyTurnstileToken(token: string): Promise<boolean> {
   const secretKey = process.env.TURNSTILE_SECRET_KEY
@@ -29,8 +39,8 @@ async function verifyTurnstileToken(token: string): Promise<boolean> {
       }),
     })
 
-    const data: TurnstileResponse = await response.json()
-    return data.success
+    const data = (await response.json()) as TurnstileResponse
+    return response.ok && data.success
   } catch (error) {
     console.error('Turnstile verification error:', error)
     return false
@@ -39,15 +49,28 @@ async function verifyTurnstileToken(token: string): Promise<boolean> {
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json()
-    const { name, email, consent, turnstileToken } = body
+    const body = (await request.json().catch(() => null)) as SignupRequest | null
 
-    // Validate required fields
+    if (!body || typeof body !== 'object') {
+      return NextResponse.json({ error: 'Request body must be valid JSON' }, { status: 400 })
+    }
+
+    const name = typeof body.name === 'string' ? body.name.trim() : ''
+    const email = typeof body.email === 'string' ? body.email.trim().toLowerCase() : ''
+    const turnstileToken = typeof body.turnstileToken === 'string' ? body.turnstileToken.trim() : ''
+
     if (!name || !email) {
       return NextResponse.json({ error: 'Name and email are required' }, { status: 400 })
     }
 
-    // Verify Turnstile token
+    if (name.length > 100 || email.length > 254 || !EMAIL_PATTERN.test(email)) {
+      return NextResponse.json({ error: 'Enter a valid name and email address' }, { status: 400 })
+    }
+
+    if (body.consent !== true) {
+      return NextResponse.json({ error: 'Email consent is required' }, { status: 400 })
+    }
+
     if (!turnstileToken) {
       return NextResponse.json({ error: 'Verification token is required' }, { status: 400 })
     }
@@ -57,7 +80,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Verification failed. Please try again.' }, { status: 403 })
     }
 
-    // Check if user already exists
+    const prisma = getPrisma()
     const existingUser = await prisma.user.findUnique({
       where: { email },
     })
@@ -66,12 +89,11 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Email already registered' }, { status: 409 })
     }
 
-    // Create new user
     const user = await prisma.user.create({
       data: {
         name,
         email,
-        consent: consent ?? true,
+        consent: true,
       },
     })
 
@@ -87,6 +109,10 @@ export async function POST(request: NextRequest) {
       { status: 201 }
     )
   } catch (error) {
+    if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === 'P2002') {
+      return NextResponse.json({ error: 'Email already registered' }, { status: 409 })
+    }
+
     console.error('Signup error:', error)
     return NextResponse.json({ error: 'Failed to register user' }, { status: 500 })
   }

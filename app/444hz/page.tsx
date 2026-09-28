@@ -17,30 +17,29 @@ export const metadata: Metadata = {
     'psychotherapy and sound healing',
   ],
   openGraph: {
-    title: 'What Is 444 Hz Sound Healing? - Crystal Harp Healing Practitioner',
+    title: 'What Is 444 Hz Sound Healing? | Crystal Harp Healing',
     description:
-      'Sound healer with psychotherapy background offering psycho-sound healing sessions for emotional balance and nervous system regulation.',
-    url: 'https://www.crystalharphealing.com/about',
+      'Learn how 444 Hz crystal harp sound is used to support relaxation, grounding, and meditative states.',
+    url: 'https://www.crystalharphealing.com/444hz',
     siteName: 'Crystal Harp Healing',
     images: [
       {
         url: 'https://www.crystalharphealing.com/about_me.webp',
         width: 1200,
         height: 630,
-        alt: 'Zhenya - Crystal Harp Healing Practitioner',
+        alt: 'Crystal harp practitioner Zhenya',
       },
     ],
     type: 'profile',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Meet Zhenya - Crystal Harp Healing Practitioner',
-    description:
-      'Sound healer with psychotherapy background offering psycho-sound healing sessions for emotional balance.',
+    title: 'What Is 444 Hz Sound Healing?',
+    description: 'Learn how 444 Hz crystal harp sound is used to support relaxation and grounding.',
     images: ['https://www.crystalharphealing.com/about_me.webp'],
   },
   alternates: {
-    canonical: 'https://www.crystalharphealing.com/about',
+    canonical: 'https://www.crystalharphealing.com/444hz',
   },
 }
 
@@ -51,7 +50,7 @@ export default function FourFourFourHzPage() {
       <BreadcrumbSchema
         items={[
           { name: 'Home', url: 'https://www.crystalharphealing.com' },
-          { name: 'About', url: 'https://www.crystalharphealing.com/444hz' },
+          { name: '444 Hz', url: 'https://www.crystalharphealing.com/444hz' },
         ]}
       />
 

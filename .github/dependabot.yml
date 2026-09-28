@@ -4,8 +4,8 @@ updates:
     directory: /
     schedule:
       interval: weekly
-      day: saturday
-      time: "09:00"
+      day: monday
+      time: '09:00'
     assignees:
       - dedkola
     labels:
@@ -16,8 +16,8 @@ updates:
     directory: /
     schedule:
       interval: weekly
-      day: saturday
-      time: "09:00"
+      day: monday
+      time: '09:00'
     assignees:
       - dedkola
     labels:

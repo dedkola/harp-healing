@@ -1,48 +1,32 @@
 # Security Policy
 
-## Reporting a Vulnerability
+## Support status
 
-If you discover a security vulnerability in the Harp Healing project, please email **security@harp-healing.dev** or contact the maintainers privately instead of using the issue tracker.
+This project is preserved as a public archive and is not under active maintenance.
 
-### What to Include
-- Description of the vulnerability
-- Steps to reproduce (if applicable)
-- Potential impact
-- Your contact information
+| Version | Supported |
+| ------- | --------- |
+| `0.1.x` | No        |
 
-We will:
-1. Acknowledge receipt within 48 hours
-2. Investigate the issue thoroughly
-3. Develop and release a fix
-4. Credit you in the fix (if desired)
+No response time, remediation, or release schedule is guaranteed for the archived source.
 
-## Supported Versions
+## Reporting concerns
 
-| Version | Status | Support Until |
-|---------|--------|----------------|
-| 0.1.x   | Current | Ongoing |
+Do not post credentials, personal information, signup records, or unredacted vulnerability
+details in a public GitHub issue.
 
-## Security Updates
+If the production website is still online and the concern affects that service, use the contact
+details published on [crystalharphealing.com](https://www.crystalharphealing.com/contact).
 
-We use **Dependabot** to automatically monitor dependencies for known security vulnerabilities. Security updates are:
-- Reviewed and tested immediately
-- Prioritized over feature development
-- Released as patch versions
+## Historical safeguards
 
-## Best Practices
+The final snapshot includes:
 
-- Keep your dependencies up to date
-- Review and apply security patches promptly
-- Report security issues responsibly
-- Follow the [GitHub Security Advisory](https://docs.github.com/en/code-security/security-advisories) guidelines
+- fail-closed authentication middleware for `/dashboard` and `/api/users`;
+- server-side Cloudflare Turnstile verification for signups;
+- environment-based credentials with no application defaults;
+- dependency scanning through Dependabot and `pnpm audit`; and
+- automated lint, type, build, and Docker checks performed before archival.
 
-## Dependencies
-
-This project uses the following key security-related tools:
-- **Dependabot**: Automated dependency vulnerability scanning
-- **npm audit**: Local security vulnerability detection
-- **TypeScript**: Type safety to prevent common vulnerabilities
-
----
-
-For general support, open an issue on [GitHub Issues](https://github.com/dedkola/harp-healing/issues).
+These controls describe the final snapshot. They should not be interpreted as a promise of future
+security updates.

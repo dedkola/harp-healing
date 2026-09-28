@@ -6,6 +6,16 @@ function unauthorized(message: string) {
     status: 401,
     headers: {
       'WWW-Authenticate': 'Basic realm="Protected Dashboard"',
+      'Cache-Control': 'no-store',
+    },
+  })
+}
+
+function unavailable() {
+  return new NextResponse('Authentication is not configured', {
+    status: 503,
+    headers: {
+      'Cache-Control': 'no-store',
     },
   })
 }
@@ -32,9 +42,33 @@ function decodeBase64(value: string): string | null {
   return null
 }
 
-export function proxy(request: NextRequest) {
-  // Only protect the dashboard route.
-  if (request.nextUrl.pathname.startsWith('/dashboard')) {
+function safeEqual(actual: string, expected: string): boolean {
+  const encoder = new TextEncoder()
+  const actualBytes = encoder.encode(actual)
+  const expectedBytes = encoder.encode(expected)
+  const length = Math.max(actualBytes.length, expectedBytes.length)
+  let difference = actualBytes.length ^ expectedBytes.length
+
+  for (let index = 0; index < length; index += 1) {
+    difference |= (actualBytes[index] ?? 0) ^ (expectedBytes[index] ?? 0)
+  }
+
+  return difference === 0
+}
+
+export function middleware(request: NextRequest) {
+  const isProtectedRoute =
+    request.nextUrl.pathname.startsWith('/dashboard') ||
+    request.nextUrl.pathname.startsWith('/api/users')
+
+  if (isProtectedRoute) {
+    const validUsername = process.env.BASIC_AUTH_USER
+    const validPassword = process.env.BASIC_AUTH_PASS
+
+    if (!validUsername || !validPassword) {
+      return unavailable()
+    }
+
     const authHeader = request.headers.get('authorization')
 
     if (!authHeader || !authHeader.startsWith('Basic ')) {
@@ -56,12 +90,7 @@ export function proxy(request: NextRequest) {
     const username = credentials.slice(0, separatorIndex)
     const password = credentials.slice(separatorIndex + 1)
 
-    // Get credentials from environment variables.
-    const validUsername = process.env.BASIC_AUTH_USER || 'admin'
-    const validPassword = process.env.BASIC_AUTH_PASS || 'password'
-
-    // Validate credentials.
-    if (username !== validUsername || password !== validPassword) {
+    if (!safeEqual(username, validUsername) || !safeEqual(password, validPassword)) {
       return unauthorized('Invalid credentials')
     }
   }
@@ -70,5 +99,5 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: '/dashboard/:path*',
+  matcher: ['/dashboard/:path*', '/api/users/:path*'],
 }
