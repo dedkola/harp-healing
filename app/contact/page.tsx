@@ -72,7 +72,7 @@ export default function ContactPage() {
           <p className="pb-2">
             <span className="mx-auto flex flex-col sm:flex-row items-center justify-center gap-4 text-amber-800 !font-thin">
               <a
-                href="mailto:connect@crystalharphealing.com"
+                href="mailto:connect@email.com"
                 className="flex items-center gap-3 text-amber-600 hover:text-amber-700 transition-colors"
                 aria-label="Email"
               >
@@ -89,21 +89,22 @@ export default function ContactPage() {
                   <rect x="3" y="6" width="18" height="12" rx="2" />
                   <path d="M3 8.5L12 13l9-4.5" />
                 </svg>
-                <span className="underline">{`connect@crystalharphealing.com`}</span>
+                <span className="underline">{`connect@email.com`}</span>
               </a>
 
               <span className="hidden sm:block text-amber-400">·</span>
 
+
               <a
-                href="tel:+13238412348"
+                href="tel:+134567890"
                 className="flex items-center gap-3 text-amber-600 hover:text-amber-700 transition-colors"
-                aria-label="Call +1 (323) 841-2348"
+                aria-label="Call +1 (323) 00-00000"
               >
                 <svg
                   aria-hidden="true"
                   className="h-5 w-5 text-amber-500"
                   viewBox="0 0 24 24"
-                  fill="none"
+                  fill="none"ß
                   stroke="currentColor"
                   strokeWidth="1.5"
                   strokeLinecap="round"
@@ -111,7 +112,7 @@ export default function ContactPage() {
                 >
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.08 4.18 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72c.12.97.36 1.92.72 2.82a2 2 0 0 1-.45 2.11L8.91 10.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.36 1.85.6 2.82.72A2 2 0 0 1 22 16.92z" />
                 </svg>
-                <span className="underline">+1 (323) 841-2348</span>
+                <span className="underline">+1 (323) 00 - 00000</span>
               </a>
             </span>
           </p>
