@@ -104,7 +104,7 @@ export default function ContactPage() {
                   aria-hidden="true"
                   className="h-5 w-5 text-amber-500"
                   viewBox="0 0 24 24"
-                  fill="none"ß
+                  fill="none"
                   stroke="currentColor"
                   strokeWidth="1.5"
                   strokeLinecap="round"
